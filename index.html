@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #fafaf8;
+    --surface: #ffffff;
+    --text: #1a1a18;
+    --text-secondary: #6e6e68;
+    --text-tertiary: #a3a39d;
+    --border: rgba(0,0,0,0.08);
+    --border-hover: rgba(0,0,0,0.15);
+    --accent: #1d6b54;
+    --accent-bg: #e8f4ef;
+    --energy-high: #1d6b54;
+    --energy-medium: #a07b28;
+    --energy-low: #7a7a74;
+    --deadline-accent: #b85c2f;
+    --deadline-bg: #fdf2ec;
+    --shipped-gold: #a07b28;
+    --shipped-bg: #faf5e8;
+    --pill-active-bg: #1a1a18;
+    --pill-active-text: #fafaf8;
+    --today-bg: #f0f7f4;
+    --today-border: #c5e0d3;
+    --font: 'IBM Plex Sans', -apple-system, sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141413;
+      --surface: #1e1e1c;
+      --text: #e8e8e4;
+      --text-secondary: #9a9a94;
+      --text-tertiary: #6a6a64;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(255,255,255,0.15);
+      --accent: #5dcaa5;
+      --accent-bg: #0f2e23;
+      --energy-high: #5dcaa5;
+      --energy-medium: #e0b44a;
+      --energy-low: #7a7a74;
+      --deadline-accent: #e0874a;
+      --deadline-bg: #2a1c12;
+      --shipped-gold: #e0b44a;
+      --shipped-bg: #2a2210;
+      --pill-active-bg: #e8e8e4;
+      --pill-active-text: #141413;
+      --today-bg: #122a20;
+      --today-border: #1d5040;
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+  }
+
+  /* Header */
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+  header h1 {
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  header time {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-tertiary);
+  }
+
+  /* Filter pills */
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 1.75rem;
+    align-items: center;
+  }
+  .filter-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-tertiary);
+    margin-right: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .pill {
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 0.5px solid var(--border);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.12s ease;
+    white-space: nowrap;
+  }
+  .pill:hover { border-color: var(--border-hover); color: var(--text); }
+  .pill.active {
+    background: var(--pill-active-bg);
+    color: var(--pill-active-text);
+    border-color: var(--pill-active-bg);
+  }
+
+  /* Today strip */
+  .today-strip {
+    background: var(--today-bg);
+    border: 0.5px solid var(--today-border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 2rem;
+  }
+  .today-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .today-item {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 4px 0;
+    font-size: 14px;
+  }
+  .today-item .project-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+  .today-item .step {
+    color: var(--text);
+    font-weight: 500;
+  }
+  .today-empty {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    font-style: italic;
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 2rem;
+  }
+  .section-header {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-tertiary);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 0.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .section-header .count {
+    font-size: 10px;
+    background: var(--border);
+    padding: 1px 6px;
+    border-radius: 8px;
+    color: var(--text-secondary);
+  }
+  .section.deadline .section-header { color: var(--deadline-accent); border-bottom-color: var(--deadline-accent); opacity: 0.7; }
+
+  /* Cards */
+  .card {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 8px;
+    transition: border-color 0.12s ease;
+  }
+  .card:hover { border-color: var(--border-hover); }
+  .card.deadline { border-left: 3px solid var(--deadline-accent); border-radius: 2px 10px 10px 2px; }
+
+  .card-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    gap: 8px;
+  }
+  .card-title {
+    font-size: 14px;
+    font-weight: 500;
+    flex: 1;
+    min-width: 0;
+  }
+  .card-project {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+  }
+
+  .card-next {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+  }
+  .card-next strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .card-breadcrumb {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .card-deadline-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--deadline-accent);
+    background: var(--deadline-bg);
+    padding: 2px 8px;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+  .energy-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .energy-dot.high { background: var(--energy-high); }
+  .energy-dot.medium { background: var(--energy-medium); }
+  .energy-dot.low { background: var(--energy-low); }
+
+  /* Shipped section */
+  .shipped-section { opacity: 0.55; transition: opacity 0.15s; }
+  .shipped-section:hover { opacity: 0.85; }
+  .shipped-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 13px;
+  }
+  .shipped-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--shipped-gold);
+    border: 1.5px solid var(--shipped-gold);
+    padding: 1px 7px;
+    border-radius: 6px;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+  }
+  .shipped-badge.triple {
+    border-width: 2.5px;
+    font-weight: 500;
+  }
+  .shipped-title { color: var(--text-secondary); }
+  .shipped-project {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-tertiary);
+    margin-left: auto;
+  }
+
+  /* Empty state */
+  .empty-message {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-tertiary);
+    font-size: 14px;
+  }
+
+  /* Energy legend */
+  .legend {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 1.75rem;
+    padding: 8px 0;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-family: var(--mono);
+    color: var(--text-tertiary);
+  }
+</style>
+</head>
+<body>
+<div class="container" id="app"></div>
+
+<script>
+const SECTIONS = [
+  { key: 'active-deadline', label: 'Active — deadline', className: 'deadline' },
+  { key: 'active-in-progress', label: 'Active — in progress', className: '' },
+  { key: 'live-has-tail', label: 'Live — has a tail', className: '' },
+  { key: 'ready', label: 'Ready to pick up', className: '' },
+  { key: 'parked', label: 'Parked', className: '' },
+  { key: 'queued', label: 'Queued', className: '' }
+];
+
+let data = null;
+let activeFilter = null;
+
+async function init() {
+  try {
+    const resp = await fetch('dashboard-data.json');
+    data = await resp.json();
+  } catch (e) {
+    document.getElementById('app').innerHTML = '<p class="empty-message">Could not load dashboard-data.json</p>';
+    return;
+  }
+  render();
+}
+
+function projectShort(id) {
+  const p = data.projects.find(p => p.id === id);
+  return p ? p.name : id;
+}
+
+function formatDeadline(d) {
+  const date = new Date(d + 'T00:00:00');
+  const now = new Date();
+  const diff = Math.ceil((date - now) / (1000 * 60 * 60 * 24));
+  const label = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  if (diff < 0) return `${label} (overdue)`;
+  if (diff <= 7) return `${label} (${diff}d)`;
+  return label;
+}
+
+function filteredChats() {
+  let chats = data.chats;
+  if (activeFilter) {
+    chats = chats.filter(c => c.project_id === activeFilter);
+  }
+  return chats;
+}
+
+function render() {
+  const chats = filteredChats();
+  const shipped = chats.filter(c => c.status === 'shipped');
+  const todayChats = data.today
+    .map(t => data.chats.find(c => c.id === t.chat_id))
+    .filter(c => c && (!activeFilter || c.project_id === activeFilter));
+
+  let html = '';
+
+  // Header
+  const now = new Date();
+  const dateStr = now.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' });
+  html += `<header><h1>Dashboard</h1><time>${dateStr}</time></header>`;
+
+  // Filter pills
+  html += '<div class="filters"><span class="filter-label">Filter</span>';
+  html += `<button class="pill ${!activeFilter ? 'active' : ''}" onclick="setFilter(null)">All</button>`;
+  data.projects.forEach(p => {
+    html += `<button class="pill ${activeFilter === p.id ? 'active' : ''}" onclick="setFilter('${p.id}')">${p.emoji}\u2009${p.name}</button>`;
+  });
+  html += '</div>';
+
+  // Energy legend
+  html += `<div class="legend">
+    <span class="legend-item">Energy needed:</span>
+    <span class="legend-item"><span class="energy-dot high"></span> high</span>
+    <span class="legend-item"><span class="energy-dot medium"></span> medium</span>
+    <span class="legend-item"><span class="energy-dot low"></span> low</span>
+  </div>`;
+
+  // Today strip
+  html += '<div class="today-strip"><div class="today-label">Pickable today</div>';
+  if (todayChats.length === 0) {
+    html += '<div class="today-empty">Nothing queued — permission to rest.</div>';
+  } else {
+    todayChats.forEach(c => {
+      html += `<div class="today-item">
+        <span class="energy-dot ${c.energy || 'low'}"></span>
+        <span class="step">${esc(c.next_step)}</span>
+        <span class="project-tag">${projectShort(c.project_id)}</span>
+      </div>`;
+    });
+  }
+  html += '</div>';
+
+  // Status sections
+  SECTIONS.forEach(sec => {
+    const items = chats.filter(c => c.status === sec.key);
+    if (items.length === 0) return;
+
+    html += `<div class="section ${sec.className}">`;
+    html += `<div class="section-header">${sec.label}<span class="count">${items.length}</span></div>`;
+
+    items.forEach(c => {
+      const isDeadline = sec.key === 'active-deadline';
+      html += `<div class="card ${isDeadline ? 'deadline' : ''}">`;
+      html += `<div class="card-top">
+        <span class="card-title">${esc(c.title)}</span>
+        <span class="card-project">${projectShort(c.project_id)}</span>
+      </div>`;
+      if (c.next_step) {
+        html += `<div class="card-next"><strong>Next:</strong> ${esc(c.next_step)}</div>`;
+      }
+      html += '<div class="card-meta">';
+      if (c.energy) html += `<span class="energy-dot ${c.energy}"></span>`;
+      if (c.breadcrumb) html += `<span class="card-breadcrumb">${esc(c.breadcrumb)}</span>`;
+      if (isDeadline && c.deadline) html += `<span class="card-deadline-tag">${formatDeadline(c.deadline)}</span>`;
+      html += '</div></div>';
+    });
+
+    html += '</div>';
+  });
+
+  // Shipped
+  if (shipped.length > 0) {
+    html += '<div class="section shipped-section">';
+    html += `<div class="section-header">Shipped<span class="count">${shipped.length}</span></div>`;
+    shipped.forEach(c => {
+      const cnt = c.shipped_count || 1;
+      const badgeClass = cnt >= 3 ? 'triple' : '';
+      html += `<div class="shipped-card">
+        <span class="shipped-badge ${badgeClass}">shipped${cnt >= 3 ? ' ×' + cnt : ''}</span>
+        <span class="shipped-title">${esc(c.title)}</span>
+        <span class="shipped-project">${projectShort(c.project_id)}</span>
+      </div>`;
+    });
+    html += '</div>';
+  }
+
+  // Empty state
+  if (chats.filter(c => c.status !== 'shipped').length === 0 && shipped.length === 0) {
+    html += '<div class="empty-message">No items to show.</div>';
+  }
+
+  document.getElementById('app').innerHTML = html;
+}
+
+function setFilter(id) {
+  activeFilter = activeFilter === id ? null : id;
+  render();
+}
+
+function esc(s) {
+  if (!s) return '';
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+init();
+</script>
+</body>
+</html>

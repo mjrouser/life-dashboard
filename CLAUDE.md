@@ -8,83 +8,102 @@ Created: 2026-04-29
 
 ## What This Project Is
 
-<!-- One or two sentences. What does it do, and why does it exist? -->
-Dashboard of all my projects in Claude AI
+A personal cross-project status dashboard hosted on GitHub Pages. Answers "what should I touch next, given my current energy?" Two files: `index.html` (static, no build step) + `dashboard-data.json` (the data layer). Claude Code updates the JSON at the end of sessions; the page fetches it fresh on load.
 
 ---
 
 ## Target Platform
 
-<!-- Which machine(s) is this running on or deploying to? -->
 **Dev:** MacBook Pro 2018
-**Deploy/Run:** TBD
-
-<!-- Note any platform-specific constraints, e.g. Pi model, macOS version cap, ARM architecture -->
-
+**Deploy:** GitHub Pages — served from `main` branch root
 
 ---
 
 ## Stack & Key Dependencies
 
-<!-- List the main languages, frameworks, and libraries in use -->
-(to be defined)
-
-<!-- Flag any that have known limitations, version pins, or require special setup -->
-
+- Vanilla HTML/CSS/JS — no framework, no build step, no npm
+- IBM Plex Sans + IBM Plex Mono loaded from Google Fonts
+- `dashboard-data.json` fetched at runtime via `fetch()`
 
 ---
 
 ## Paid APIs & Cost Model
 
-<!-- List any paid APIs this project uses. If none, write "None." -->
 None.
-
-<!-- For each paid API: what's the free tier limit (if any), estimated usage, and where to monitor spend -->
-N/A
 
 ---
 
 ## How to Run
 
-**Local dev:**
+**Local dev (preview in browser without GitHub Pages):**
 ```bash
-(to be defined)
+cd ~/repos/life-dashboard
+python3 -m http.server 8080
+# then open http://localhost:8080
 ```
+Note: you must use a local server (not `file://`) because the page fetches `dashboard-data.json` via `fetch()`.
 
-**Deploy / schedule:**
+**Deploy:**
 ```bash
-TBD
+git add dashboard-data.json index.html
+git commit -m "your message"
+git push
 ```
+GitHub Pages serves automatically from `main` branch root. No build step needed.
 
 **Test:**
-```bash
-(to be defined)
-```
+Manual smoke test — open in browser, verify all sections render, check filter pills, check dark mode via DevTools.
 
 ---
 
 ## Project Structure
 
-<!-- Fill in once the structure is established. A brief map of what lives where. -->
 ```
 life-dashboard/
-├── ...
+├── index.html           — single-file dashboard (HTML + CSS + JS)
+├── dashboard-data.json  — data layer, updated by Claude Code each session
+└── CLAUDE.md            — this file
+```
+
+---
+
+## Session Wrap Protocol
+
+At the end of any session that touches a project tracked in this dashboard, update `dashboard-data.json` for the relevant chat entry:
+
+**Always update:**
+- `next_step` — the single next action for this chat
+- `breadcrumb` — brief context so the user or Claude can re-enter fast
+- `updated` — today's date (YYYY-MM-DD)
+
+**Update if changed:**
+- `status` — if the chat's status changed (e.g. moved from `active-in-progress` to `shipped`)
+- `energy` — energy level the next step requires (`high` | `medium` | `low`)
+
+**Update `today` array** — add/remove `chat_id` entries to reflect what's pickable in the next session (max 3 items).
+
+**Update `meta.last_updated`** — ISO 8601 timestamp.
+
+After updating the JSON, commit and push:
+```bash
+git add dashboard-data.json
+git commit -m "Session wrap: <brief summary>"
+git push
 ```
 
 ---
 
 ## Known Gotchas & Constraints
 
-<!-- Anything Claude Code should know before touching this codebase -->
-<!-- e.g. auth quirks, platform limits, things that have broken before -->
-None yet.
+- `fetch()` won't work from `file://` — always use `python3 -m http.server 8080` for local preview.
+- The `today` array references chat IDs — if a chat is renamed or removed, update `today` to avoid broken references (the render code silently skips missing IDs, but stale entries are noise).
+- Dark mode is `prefers-color-scheme: dark` only — no manual toggle. Test both modes via browser DevTools.
 
 ---
 
 ## Current Status & Next Steps
 
-<!-- Updated as the project evolves — helps Claude Code pick up where things left off -->
-**Status:** In progress — initial scaffold
+**Status:** v1 live — dashboard built and deployed to GitHub Pages
 
 **Current focus:**
-Initial setup
+Session wrap integration — update `dashboard-data.json` at end of each project session

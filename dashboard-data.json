@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "last_updated": "2026-04-29T20:00:00Z",
+    "version": "1.0"
+  },
+  "projects": [
+    { "id": "homelab", "name": "Homelab", "emoji": "🖥" },
+    { "id": "320-sycamore", "name": "320 Sycamore", "emoji": "🏠" },
+    { "id": "personal-os", "name": "Personal OS", "emoji": "⚙" },
+    { "id": "career", "name": "Career", "emoji": "💼" },
+    { "id": "family", "name": "Family", "emoji": "👨‍👩‍👧" }
+  ],
+  "today": [
+    { "chat_id": "pihole-ipv6" },
+    { "chat_id": "dashboard-build" }
+  ],
+  "chats": [
+    {
+      "id": "renovations",
+      "project_id": "320-sycamore",
+      "title": "Renovations",
+      "status": "active-deadline",
+      "deadline": "2026-06-15",
+      "next_step": "Get contractor quotes for kitchen backsplash",
+      "breadcrumb": "Narrowed tile options to 3 finalists last session",
+      "energy": "medium",
+      "updated": "2026-04-28"
+    },
+    {
+      "id": "pihole-ipv6",
+      "project_id": "homelab",
+      "title": "PiHole",
+      "status": "active-in-progress",
+      "next_step": "Configure IPv6 virtual IP on keepalived",
+      "breadcrumb": "Primary/secondary failover working on IPv4",
+      "energy": "high",
+      "updated": "2026-04-27"
+    },
+    {
+      "id": "dashboard-build",
+      "project_id": "personal-os",
+      "title": "Dashboard",
+      "status": "active-in-progress",
+      "next_step": "Build v1 dashboard and deploy to GH Pages",
+      "breadcrumb": "Design locked, data structure defined",
+      "energy": "medium",
+      "updated": "2026-04-29"
+    },
+    {
+      "id": "lawn-care",
+      "project_id": "320-sycamore",
+      "title": "Lawn care",
+      "status": "ready",
+      "next_step": "Schedule spring aeration consult",
+      "breadcrumb": "Identified two local services last fall",
+      "energy": "low",
+      "updated": "2026-04-20"
+    },
+    {
+      "id": "landscaping",
+      "project_id": "320-sycamore",
+      "title": "Landscaping",
+      "status": "queued",
+      "next_step": "Research shade-tolerant perennials for north bed",
+      "breadcrumb": "Deferred until after spring lawn work",
+      "energy": "low",
+      "updated": "2026-04-10"
+    },
+    {
+      "id": "home-assistant",
+      "project_id": "homelab",
+      "title": "Home Assistant",
+      "status": "ready",
+      "next_step": "Flash SD card and boot HA on dedicated Pi",
+      "breadcrumb": "Hardware allocated, need to image",
+      "energy": "medium",
+      "updated": "2026-04-22"
+    },
+    {
+      "id": "discord-bot",
+      "project_id": "personal-os",
+      "title": "Discord control surface",
+      "status": "queued",
+      "next_step": "Set up private Discord server with first bot",
+      "breadcrumb": "Blocked until dashboard v1 ships",
+      "energy": "high",
+      "updated": "2026-04-15"
+    },
+    {
+      "id": "disney-cruise",
+      "project_id": "family",
+      "title": "Disney cruise — Oct 2026",
+      "status": "ready",
+      "next_step": "Compare cabin categories and pricing",
+      "breadcrumb": "Trip identified, no booking research yet",
+      "energy": "low",
+      "updated": "2026-04-29"
+    },
+    {
+      "id": "hawaii-trip",
+      "project_id": "family",
+      "title": "Hawaii 2027",
+      "status": "parked",
+      "next_step": "Revisit after Disney cruise is booked",
+      "breadcrumb": "Early idea stage, plenty of runway",
+      "energy": "low",
+      "updated": "2026-04-15"
+    },
+    {
+      "id": "linkedin-content",
+      "project_id": "career",
+      "title": "LinkedIn content",
+      "status": "parked",
+      "next_step": "Draft first post about homelab journey",
+      "breadcrumb": "Identified as income stream opportunity",
+      "energy": "medium",
+      "updated": "2026-04-12"
+    },
+    {
+      "id": "pihole-dashboard",
+      "project_id": "homelab",
+      "title": "Homelab status page",
+      "status": "shipped",
+      "next_step": null,
+      "breadcrumb": "Live on GH Pages, working",
+      "energy": null,
+      "shipped_count": 1,
+      "updated": "2026-04-25"
+    }
+  ]
+}
