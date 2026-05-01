@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-04-29T23:59:00Z",
+    "last_updated": "2026-04-30T20:00:00Z",
     "version": "1.0"
   },
   "projects": [
@@ -11,7 +11,7 @@
     { "id": "family", "name": "Family", "emoji": "👨‍👩‍👧" }
   ],
   "today": [
-    { "chat_id": "pihole-ipv6" }
+    { "chat_id": "henry-ford-app" }
   ],
   "chats": [
     {
@@ -41,10 +41,10 @@
       "title": "Dashboard",
       "status": "shipped",
       "next_step": null,
-      "breadcrumb": "v1 live on GitHub Pages — index.html + dashboard-data.json, no build step",
+      "breadcrumb": "v1 built and deployed to GH Pages. Full spec produced (dashboard-spec.md).",
       "energy": null,
       "shipped_count": 1,
-      "updated": "2026-04-29"
+      "updated": "2026-04-30"
     },
     {
       "id": "lawn-care",
@@ -115,6 +115,16 @@
       "breadcrumb": "Identified as income stream opportunity",
       "energy": "medium",
       "updated": "2026-04-12"
+    },
+    {
+      "id": "henry-ford-app",
+      "project_id": "career",
+      "title": "Henry Ford Health — VP Enterprise Apps",
+      "status": "active-in-progress",
+      "next_step": "Drop resume and claude-code-job-app-prompt.md into local folder, run resume tailoring in Claude Code",
+      "breadcrumb": "Workflow specced: resume tailoring → hiring manager re-engagement email → application logistics. Prompt file ready. Had prior referral and personal HM response but missed timing. Role reposted.",
+      "energy": "low",
+      "updated": "2026-04-30"
     },
     {
       "id": "pihole-dashboard",
