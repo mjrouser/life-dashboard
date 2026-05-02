@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-04-30T20:00:00Z",
+    "last_updated": "2026-05-02T19:00:00Z",
     "version": "1.0"
   },
   "projects": [
@@ -36,15 +36,14 @@
       "updated": "2026-04-27"
     },
     {
-      "id": "dashboard-build",
+      "id": "dashboard-maintenance",
       "project_id": "personal-os",
-      "title": "Dashboard",
-      "status": "shipped",
-      "next_step": null,
-      "breadcrumb": "v1 built and deployed to GH Pages. Full spec produced (dashboard-spec.md).",
-      "energy": null,
-      "shipped_count": 1,
-      "updated": "2026-04-30"
+      "title": "Life Dashboard — maintenance",
+      "status": "active-in-progress",
+      "next_step": "End of session: update project chats with current status, next_steps, and energy",
+      "breadcrumb": "v1 live on GH Pages. Session-wrap integration in use — updating at end of each project session.",
+      "energy": "low",
+      "updated": "2026-05-02"
     },
     {
       "id": "lawn-care",
