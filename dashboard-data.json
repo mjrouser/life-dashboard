@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-02T19:00:00Z",
+    "last_updated": "2026-05-03T00:00:00Z",
     "version": "1.0"
   },
   "projects": [
@@ -148,6 +148,19 @@
       "celebrated": false,
       "open_question": null,
       "updated": "2026-04-25"
+    },
+    {
+      "id": "pihole-v1",
+      "project_id": "homelab",
+      "title": "PiHole — redundant setup v1",
+      "status": "shipped",
+      "next_step": null,
+      "breadcrumb": "Primary/secondary failover with keepalived and nebulasync — IPv4 working",
+      "energy": null,
+      "shipped_count": 1,
+      "celebrated": false,
+      "open_question": null,
+      "updated": "2026-04-27"
     }
   ]
 }
