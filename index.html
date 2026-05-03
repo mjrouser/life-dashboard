@@ -67,10 +67,24 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  .container {
-    max-width: 640px;
+  .outer-wrapper {
+    max-width: 880px;
     margin: 0 auto;
     padding: 2rem 1.25rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 24px;
+  }
+
+  @media (max-width: 720px) {
+    .outer-wrapper {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .container {
+    min-width: 0;
   }
 
   /* Header */
@@ -167,6 +181,70 @@
     font-size: 13px;
     color: var(--text-tertiary);
     font-style: italic;
+  }
+
+  /* Pick Up Here Card */
+  .pickup-card {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 2rem;
+  }
+  .pickup-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 8px;
+  }
+  .pickup-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+  .pickup-project {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-tertiary);
+  }
+  .pickup-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .pickup-touched {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-tertiary);
+    margin-bottom: 10px;
+  }
+  .pickup-next {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+  }
+  .pickup-next strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+  .pickup-question {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 0.5px solid var(--border);
+  }
+  .pickup-question strong {
+    font-style: normal;
+    color: var(--text-tertiary);
+    font-weight: normal;
   }
 
   /* Sections */
@@ -271,36 +349,93 @@
   .energy-dot.medium { background: var(--energy-medium); }
   .energy-dot.low { background: var(--energy-low); }
 
-  /* Shipped section */
-  .shipped-section { opacity: 0.55; transition: opacity 0.15s; }
-  .shipped-section:hover { opacity: 0.85; }
-  .shipped-card {
+  /* Shipped Sidebar */
+  .shipped-sidebar {
+    border-left: 0.5px solid var(--border);
+    padding-left: 24px;
+    position: sticky;
+    top: 2rem;
+    align-self: start;
+  }
+  .shipped-sidebar-header {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--shipped-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+    font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 8px 0;
-    font-size: 13px;
+    gap: 6px;
   }
+  .shipped-sidebar-header svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .shipped-item {
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .shipped-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
   .shipped-badge {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px 4px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
     font-family: var(--mono);
-    font-size: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
     color: var(--shipped-gold);
-    border: 1.5px solid var(--shipped-gold);
-    padding: 1px 7px;
-    border-radius: 6px;
-    letter-spacing: 0.04em;
-    flex-shrink: 0;
+    border: 2px solid var(--shipped-gold);
+    margin-bottom: 6px;
+  }
+  .shipped-badge svg {
+    width: 16px;
+    height: 16px;
   }
   .shipped-badge.triple {
-    border-width: 2.5px;
-    font-weight: 500;
+    border-width: 3px;
   }
-  .shipped-title { color: var(--text-secondary); }
+
+  .shipped-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
   .shipped-project {
     font-family: var(--mono);
     font-size: 11px;
     color: var(--text-tertiary);
-    margin-left: auto;
+  }
+
+  /* Celebration animation */
+  @keyframes ship-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes trophy-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .ship-celebrate {
+      animation: ship-in 0.4s ease-out both;
+    }
+    .ship-celebrate .shipped-badge {
+      animation: trophy-bounce 0.5s ease-in-out 0.4s both;
+    }
   }
 
   /* Empty state */
@@ -327,10 +462,23 @@
     font-family: var(--mono);
     color: var(--text-tertiary);
   }
+
+  /* Responsive: sidebar below main on mobile */
+  @media (max-width: 720px) {
+    .shipped-sidebar {
+      border-left: none;
+      padding-left: 0;
+      position: static;
+      margin-top: 2rem;
+    }
+  }
 </style>
 </head>
 <body>
-<div class="container" id="app"></div>
+<div class="outer-wrapper">
+  <div class="container" id="app"></div>
+  <aside class="shipped-sidebar" id="shipped-sidebar"></aside>
+</div>
 
 <script>
 const SECTIONS = [
@@ -344,6 +492,7 @@ const SECTIONS = [
 
 let data = null;
 let activeFilter = null;
+let celebratedItems = new Set();
 
 async function init() {
   try {
@@ -354,6 +503,7 @@ async function init() {
     return;
   }
   render();
+  setupCelebrations();
 }
 
 function projectShort(id) {
@@ -371,12 +521,36 @@ function formatDeadline(d) {
   return label;
 }
 
+function formatUpdated(dateStr) {
+  const date = new Date(dateStr + 'T00:00:00');
+  const now = new Date();
+  const diff = Math.floor((now - date) / (1000 * 60 * 60 * 24));
+  if (diff === 0) return 'today';
+  if (diff === 1) return 'yesterday';
+  return `${diff}d ago`;
+}
+
 function filteredChats() {
   let chats = data.chats;
   if (activeFilter) {
     chats = chats.filter(c => c.project_id === activeFilter);
   }
   return chats;
+}
+
+function getMostRecentChat() {
+  const chats = filteredChats().filter(c => c.status !== 'shipped');
+  if (chats.length === 0) return null;
+  return chats.reduce((latest, current) =>
+    new Date(current.updated) > new Date(latest.updated) ? current : latest
+  );
+}
+
+function trophySvg() {
+  return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 21h8M12 17v4M7 4H4a1 1 0 0 0-1 1v2a4 4 0 0 0 4 4h1M17 4h3a1 1 0 0 1 1 1v2a4 4 0 0 1-4 4h-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M7 4h10v7a5 5 0 0 1-10 0V4Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`;
 }
 
 function render() {
@@ -397,7 +571,7 @@ function render() {
   html += '<div class="filters"><span class="filter-label">Filter</span>';
   html += `<button class="pill ${!activeFilter ? 'active' : ''}" onclick="setFilter(null)">All</button>`;
   data.projects.forEach(p => {
-    html += `<button class="pill ${activeFilter === p.id ? 'active' : ''}" onclick="setFilter('${p.id}')">${p.emoji}\u2009${p.name}</button>`;
+    html += `<button class="pill ${activeFilter === p.id ? 'active' : ''}" onclick="setFilter('${p.id}')">${p.emoji} ${p.name}</button>`;
   });
   html += '</div>';
 
@@ -423,6 +597,23 @@ function render() {
     });
   }
   html += '</div>';
+
+  // Pick Up Here card
+  const mostRecent = getMostRecentChat();
+  if (mostRecent && mostRecent.next_step) {
+    html += '<div class="pickup-card">';
+    html += '<div class="pickup-header">';
+    html += '<span class="pickup-label">Pick up where you left off</span>';
+    html += `<span class="pickup-project">${projectShort(mostRecent.project_id)}</span>`;
+    html += '</div>';
+    html += `<div class="pickup-title">${esc(mostRecent.title)}</div>`;
+    html += `<div class="pickup-touched">last touched ${formatUpdated(mostRecent.updated)}</div>`;
+    html += `<div class="pickup-next"><strong>Next:</strong> ${esc(mostRecent.next_step)}</div>`;
+    if (mostRecent.open_question) {
+      html += `<div class="pickup-question"><strong>Open question:</strong> ${esc(mostRecent.open_question)}</div>`;
+    }
+    html += '</div>';
+  }
 
   // Status sections
   SECTIONS.forEach(sec => {
@@ -452,28 +643,50 @@ function render() {
     html += '</div>';
   });
 
-  // Shipped
-  if (shipped.length > 0) {
-    html += '<div class="section shipped-section">';
-    html += `<div class="section-header">Shipped<span class="count">${shipped.length}</span></div>`;
-    shipped.forEach(c => {
-      const cnt = c.shipped_count || 1;
-      const badgeClass = cnt >= 3 ? 'triple' : '';
-      html += `<div class="shipped-card">
-        <span class="shipped-badge ${badgeClass}">shipped${cnt >= 3 ? ' ×' + cnt : ''}</span>
-        <span class="shipped-title">${esc(c.title)}</span>
-        <span class="shipped-project">${projectShort(c.project_id)}</span>
-      </div>`;
-    });
-    html += '</div>';
-  }
-
   // Empty state
   if (chats.filter(c => c.status !== 'shipped').length === 0 && shipped.length === 0) {
     html += '<div class="empty-message">No items to show.</div>';
   }
 
   document.getElementById('app').innerHTML = html;
+
+  // Render shipped sidebar
+  renderShippedSidebar(shipped);
+}
+
+function renderShippedSidebar(shipped) {
+  const sidebar = document.getElementById('shipped-sidebar');
+
+  if (shipped.length === 0) {
+    sidebar.innerHTML = '';
+    return;
+  }
+
+  let html = `<div class="shipped-sidebar-header">${trophySvg()} Shipped</div>`;
+
+  shipped.forEach(c => {
+    const cnt = c.shipped_count || 1;
+    const animate = !c.celebrated && !celebratedItems.has(c.id);
+    html += `<div class="shipped-item ${animate ? 'ship-celebrate' : ''}">`;
+    html += `<div class="shipped-badge ${cnt >= 3 ? 'triple' : ''}">
+      ${trophySvg()}
+      <span>shipped${cnt >= 3 ? ' ×' + cnt : ''}</span>
+    </div>`;
+    html += `<div class="shipped-title">${esc(c.title)}</div>`;
+    html += `<div class="shipped-project">${projectShort(c.project_id)}</div>`;
+    html += '</div>';
+  });
+
+  sidebar.innerHTML = html;
+}
+
+function setupCelebrations() {
+  const shipped = data.chats.filter(c => c.status === 'shipped');
+  shipped.forEach(c => {
+    if (!c.celebrated) {
+      celebratedItems.add(c.id);
+    }
+  });
 }
 
 function setFilter(id) {
