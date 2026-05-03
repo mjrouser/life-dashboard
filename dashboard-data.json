@@ -1,7 +1,7 @@
 {
   "meta": {
     "last_updated": "2026-05-03T00:00:00Z",
-    "version": "1.0"
+    "version": "1.1"
   },
   "projects": [
     { "id": "homelab", "name": "Homelab", "emoji": "🖥" },
@@ -162,5 +162,27 @@
       "open_question": null,
       "updated": "2026-04-27"
     }
+  ],
+  "activity_log": [
+    { "date": "2026-05-03", "types": ["active"] },
+    { "date": "2026-05-02", "types": ["active"] },
+    { "date": "2026-04-30", "types": ["active"] },
+    { "date": "2026-04-29", "types": ["active", "new_idea"] },
+    { "date": "2026-04-27", "types": ["active", "shipped"] },
+    { "date": "2026-04-25", "types": ["active", "shipped"] },
+    { "date": "2026-04-22", "types": ["active"] },
+    { "date": "2026-04-20", "types": ["active"] },
+    { "date": "2026-04-18", "types": ["active"] },
+    { "date": "2026-04-15", "types": ["active", "new_idea"] },
+    { "date": "2026-04-12", "types": ["active"] },
+    { "date": "2026-04-10", "types": ["active"] },
+    { "date": "2026-04-07", "types": ["active", "new_idea"] },
+    { "date": "2026-04-05", "types": ["active"] },
+    { "date": "2026-04-02", "types": ["active"] },
+    { "date": "2026-03-30", "types": ["active"] },
+    { "date": "2026-03-27", "types": ["active", "shipped"] },
+    { "date": "2026-03-24", "types": ["active"] },
+    { "date": "2026-03-20", "types": ["active"] },
+    { "date": "2026-03-15", "types": ["active"] }
   ]
 }

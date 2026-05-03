@@ -77,17 +77,12 @@
   }
 
   @media (max-width: 720px) {
-    .outer-wrapper {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
+    .outer-wrapper { grid-template-columns: 1fr; gap: 2rem; }
   }
 
-  .container {
-    min-width: 0;
-  }
+  .container { min-width: 0; }
 
-  /* Header */
+  /* ── Header ── */
   header {
     display: flex;
     align-items: baseline;
@@ -96,18 +91,10 @@
     padding-bottom: 1rem;
     border-bottom: 0.5px solid var(--border);
   }
-  header h1 {
-    font-size: 17px;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-  }
-  header time {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--text-tertiary);
-  }
+  header h1 { font-size: 17px; font-weight: 500; letter-spacing: -0.01em; }
+  header time { font-family: var(--mono); font-size: 12px; color: var(--text-tertiary); }
 
-  /* Filter pills */
+  /* ── Filter pills ── */
   .filters {
     display: flex;
     flex-wrap: wrap;
@@ -142,7 +129,24 @@
     border-color: var(--pill-active-bg);
   }
 
-  /* Today strip */
+  /* ── Energy legend ── */
+  .legend {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 1.75rem;
+    padding: 8px 0;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-family: var(--mono);
+    color: var(--text-tertiary);
+  }
+
+  /* ── Today strip ── */
   .today-strip {
     background: var(--today-bg);
     border: 0.5px solid var(--today-border);
@@ -173,17 +177,18 @@
     flex-shrink: 0;
     margin-left: auto;
   }
-  .today-item .step {
-    color: var(--text);
-    font-weight: 500;
-  }
-  .today-empty {
+  .today-item .step { color: var(--text); font-weight: 500; }
+  .today-empty { font-size: 13px; color: var(--text-tertiary); font-style: italic; }
+
+  /* Return warmth message */
+  .warmth-msg {
     font-size: 13px;
-    color: var(--text-tertiary);
     font-style: italic;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
   }
 
-  /* Pick Up Here Card */
+  /* ── Pick Up Here Card ── */
   .pickup-card {
     background: var(--surface);
     border: 0.5px solid var(--border);
@@ -207,32 +212,11 @@
     letter-spacing: 0.08em;
     font-weight: 500;
   }
-  .pickup-project {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-tertiary);
-  }
-  .pickup-title {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-  .pickup-touched {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-tertiary);
-    margin-bottom: 10px;
-  }
-  .pickup-next {
-    font-size: 13px;
-    color: var(--text-secondary);
-    margin-bottom: 8px;
-  }
-  .pickup-next strong {
-    color: var(--text);
-    font-weight: 500;
-  }
+  .pickup-project { font-family: var(--mono); font-size: 11px; color: var(--text-tertiary); }
+  .pickup-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+  .pickup-touched { font-family: var(--mono); font-size: 11px; color: var(--text-tertiary); margin-bottom: 10px; }
+  .pickup-next { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+  .pickup-next strong { color: var(--text); font-weight: 500; }
   .pickup-question {
     font-size: 13px;
     color: var(--text-secondary);
@@ -241,16 +225,10 @@
     padding-top: 10px;
     border-top: 0.5px solid var(--border);
   }
-  .pickup-question strong {
-    font-style: normal;
-    color: var(--text-tertiary);
-    font-weight: normal;
-  }
+  .pickup-question strong { font-style: normal; color: var(--text-tertiary); font-weight: normal; }
 
-  /* Sections */
-  .section {
-    margin-bottom: 2rem;
-  }
+  /* ── Status sections ── */
+  .section { margin-bottom: 2rem; }
   .section-header {
     font-family: var(--mono);
     font-size: 11px;
@@ -273,7 +251,7 @@
   }
   .section.deadline .section-header { color: var(--deadline-accent); border-bottom-color: var(--deadline-accent); opacity: 0.7; }
 
-  /* Cards */
+  /* ── Cards ── */
   .card {
     background: var(--surface);
     border: 0.5px solid var(--border);
@@ -284,7 +262,6 @@
   }
   .card:hover { border-color: var(--border-hover); }
   .card.deadline { border-left: 3px solid var(--deadline-accent); border-radius: 2px 10px 10px 2px; }
-
   .card-top {
     display: flex;
     align-items: baseline;
@@ -292,35 +269,11 @@
     margin-bottom: 6px;
     gap: 8px;
   }
-  .card-title {
-    font-size: 14px;
-    font-weight: 500;
-    flex: 1;
-    min-width: 0;
-  }
-  .card-project {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-tertiary);
-    flex-shrink: 0;
-  }
-
-  .card-next {
-    font-size: 13px;
-    color: var(--text-secondary);
-    margin-bottom: 6px;
-  }
-  .card-next strong {
-    color: var(--text);
-    font-weight: 500;
-  }
-
-  .card-meta {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
+  .card-title { font-size: 14px; font-weight: 500; flex: 1; min-width: 0; }
+  .card-project { font-family: var(--mono); font-size: 11px; color: var(--text-tertiary); flex-shrink: 0; }
+  .card-next { font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; }
+  .card-next strong { color: var(--text); font-weight: 500; }
+  .card-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
   .card-breadcrumb {
     font-size: 12px;
     color: var(--text-tertiary);
@@ -339,17 +292,12 @@
     border-radius: 6px;
     flex-shrink: 0;
   }
-  .energy-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
+  .energy-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
   .energy-dot.high { background: var(--energy-high); }
   .energy-dot.medium { background: var(--energy-medium); }
   .energy-dot.low { background: var(--energy-low); }
 
-  /* Shipped Sidebar */
+  /* ── Shipped Sidebar ── */
   .shipped-sidebar {
     border-left: 0.5px solid var(--border);
     padding-left: 24px;
@@ -369,22 +317,13 @@
     align-items: center;
     gap: 6px;
   }
-  .shipped-sidebar-header svg {
-    width: 14px;
-    height: 14px;
-  }
-
+  .shipped-sidebar-header svg { width: 14px; height: 14px; }
   .shipped-item {
     padding-bottom: 14px;
     margin-bottom: 14px;
     border-bottom: 0.5px solid var(--border);
   }
-  .shipped-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-    margin-bottom: 0;
-  }
-
+  .shipped-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
   .shipped-badge {
     font-size: 12px;
     font-weight: 500;
@@ -400,25 +339,10 @@
     border: 2px solid var(--shipped-gold);
     margin-bottom: 6px;
   }
-  .shipped-badge svg {
-    width: 16px;
-    height: 16px;
-  }
-  .shipped-badge.triple {
-    border-width: 3px;
-  }
-
-  .shipped-title {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 2px;
-  }
-  .shipped-project {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-tertiary);
-  }
+  .shipped-badge svg { width: 16px; height: 16px; }
+  .shipped-badge.triple { border-width: 3px; }
+  .shipped-title { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+  .shipped-project { font-family: var(--mono); font-size: 11px; color: var(--text-tertiary); }
 
   /* Celebration animation */
   @keyframes ship-in {
@@ -430,15 +354,67 @@
     50% { transform: translateY(-4px); }
   }
   @media (prefers-reduced-motion: no-preference) {
-    .ship-celebrate {
-      animation: ship-in 0.4s ease-out both;
-    }
-    .ship-celebrate .shipped-badge {
-      animation: trophy-bounce 0.5s ease-in-out 0.4s both;
-    }
+    .ship-celebrate { animation: ship-in 0.4s ease-out both; }
+    .ship-celebrate .shipped-badge { animation: trophy-bounce 0.5s ease-in-out 0.4s both; }
   }
 
-  /* Empty state */
+  /* ── Heatmap ── */
+  .heatmap-section {
+    margin-top: 0;
+  }
+  .heatmap-section.has-separator {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 0.5px solid var(--border);
+  }
+  .heatmap-header {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-tertiary);
+    margin-bottom: 10px;
+  }
+  .heatmap-legend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .heatmap-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-tertiary);
+    white-space: nowrap;
+  }
+  .heatmap-legend-sq {
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .heatmap-legend-sq.sq-active { background: var(--accent); opacity: 0.5; }
+  .heatmap-legend-sq.sq-new_idea { background: var(--accent); }
+  .heatmap-legend-sq.sq-shipped { background: var(--shipped-gold); }
+  .heatmap-stats {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-tertiary);
+    margin-top: 8px;
+  }
+
+  /* SVG heatmap cell styles — using fill with CSS vars works in inline SVG */
+  .heatmap-cell { fill: var(--border); }
+  .heatmap-cell.type-active { fill: var(--accent); fill-opacity: 0.5; }
+  .heatmap-cell.type-new_idea { fill: var(--accent); }
+  .heatmap-cell.type-shipped { fill: var(--shipped-gold); }
+  .heatmap-label { font-family: var(--mono); font-size: 10px; fill: var(--text-tertiary); }
+
+  /* ── Empty state ── */
   .empty-message {
     text-align: center;
     padding: 3rem 1rem;
@@ -446,24 +422,7 @@
     font-size: 14px;
   }
 
-  /* Energy legend */
-  .legend {
-    display: flex;
-    gap: 14px;
-    align-items: center;
-    margin-bottom: 1.75rem;
-    padding: 8px 0;
-  }
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 11px;
-    font-family: var(--mono);
-    color: var(--text-tertiary);
-  }
-
-  /* Responsive: sidebar below main on mobile */
+  /* ── Mobile: sidebar below main ── */
   @media (max-width: 720px) {
     .shipped-sidebar {
       border-left: none;
@@ -490,6 +449,8 @@ const SECTIONS = [
   { key: 'queued', label: 'Queued', className: '' }
 ];
 
+const ENERGY_ORDER = { low: 0, medium: 1, high: 2 };
+
 let data = null;
 let activeFilter = null;
 let celebratedItems = new Set();
@@ -511,11 +472,12 @@ function projectShort(id) {
   return p ? p.name : id;
 }
 
-function formatDeadline(d) {
+function formatDeadline(d, suppressOverdue = false) {
   const date = new Date(d + 'T00:00:00');
   const now = new Date();
   const diff = Math.ceil((date - now) / (1000 * 60 * 60 * 24));
   const label = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  if (suppressOverdue) return label;
   if (diff < 0) return `${label} (overdue)`;
   if (diff <= 7) return `${label} (${diff}d)`;
   return label;
@@ -532,18 +494,36 @@ function formatUpdated(dateStr) {
 
 function filteredChats() {
   let chats = data.chats;
-  if (activeFilter) {
-    chats = chats.filter(c => c.project_id === activeFilter);
-  }
+  if (activeFilter) chats = chats.filter(c => c.project_id === activeFilter);
   return chats;
 }
 
 function getMostRecentChat() {
   const chats = filteredChats().filter(c => c.status !== 'shipped');
   if (chats.length === 0) return null;
-  return chats.reduce((latest, current) =>
-    new Date(current.updated) > new Date(latest.updated) ? current : latest
+  return chats.reduce((latest, c) =>
+    new Date(c.updated) > new Date(latest.updated) ? c : latest
   );
+}
+
+function findLowestEnergyChat() {
+  const eligible = data.chats.filter(c =>
+    c.status !== 'shipped' && c.status !== 'parked' && c.next_step
+  );
+  if (eligible.length === 0) return null;
+  return eligible.reduce((best, c) =>
+    (ENERGY_ORDER[c.energy] ?? 1) < (ENERGY_ORDER[best.energy] ?? 1) ? c : best
+  );
+}
+
+function daysSinceLastActive() {
+  const log = data.activity_log || [];
+  if (log.length === 0) return 7;
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const sorted = [...log].sort((a, b) => b.date.localeCompare(a.date));
+  const lastDate = new Date(sorted[0].date + 'T00:00:00');
+  return Math.floor((today - lastDate) / (1000 * 60 * 60 * 24));
 }
 
 function trophySvg() {
@@ -553,7 +533,84 @@ function trophySvg() {
   </svg>`;
 }
 
+function renderTodayItem(c) {
+  return `<div class="today-item">
+    <span class="energy-dot ${c.energy || 'low'}"></span>
+    <span class="step">${esc(c.next_step)}</span>
+    <span class="project-tag">${projectShort(c.project_id)}</span>
+  </div>`;
+}
+
+function buildHeatmapSVG(activityLog) {
+  const CELL = 11, GAP = 3, STEP = 14;
+  const LABEL_W = 14, LABEL_GAP = 4;
+  const GRID_X = LABEL_W + LABEL_GAP; // 18
+  const COLS = 12, ROWS = 7;
+  const SVG_W = GRID_X + COLS * STEP - GAP; // 183
+  const SVG_H = ROWS * STEP - GAP; // 95
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const log = {};
+  activityLog.forEach(e => { log[e.date] = e.types; });
+
+  // Mon=0, Sun=6 day-of-week
+  const todayDow = (today.getDay() + 6) % 7;
+  // Index of today in the flat grid (last col, row=todayDow)
+  const todayIndex = (COLS - 1) * ROWS + todayDow;
+
+  let activeDays = 0;
+  let svg = `<svg width="${SVG_W}" height="${SVG_H}" xmlns="http://www.w3.org/2000/svg" style="display:block">`;
+
+  // Day labels: M (row 0), W (row 2), F (row 4)
+  [[0, 'M'], [2, 'W'], [4, 'F']].forEach(([row, lbl]) => {
+    const cy = row * STEP + CELL / 2;
+    svg += `<text x="${LABEL_W - 2}" y="${cy}" dominant-baseline="middle" text-anchor="end" class="heatmap-label">${lbl}</text>`;
+  });
+
+  // Grid cells
+  for (let col = 0; col < COLS; col++) {
+    for (let row = 0; row < ROWS; row++) {
+      const cellIdx = col * ROWS + row;
+      const daysBack = todayIndex - cellIdx;
+      const x = GRID_X + col * STEP;
+      const y = row * STEP;
+
+      if (daysBack < 0) {
+        // Future date (last column, rows after today)
+        svg += `<rect x="${x}" y="${y}" width="${CELL}" height="${CELL}" rx="2" class="heatmap-cell"/>`;
+        continue;
+      }
+
+      const d = new Date(today);
+      d.setDate(d.getDate() - daysBack);
+      const ds = d.toISOString().slice(0, 10);
+      const types = log[ds] || [];
+
+      if (types.length > 0) activeDays++;
+
+      let typeClass = '';
+      if (types.includes('shipped')) typeClass = ' type-shipped';
+      else if (types.includes('new_idea')) typeClass = ' type-new_idea';
+      else if (types.includes('active')) typeClass = ' type-active';
+
+      const displayDate = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      const typesStr = types.length > 0 ? types.join(', ') : 'no activity';
+
+      svg += `<rect x="${x}" y="${y}" width="${CELL}" height="${CELL}" rx="2" class="heatmap-cell${typeClass}"><title>${displayDate} — ${typesStr}</title></rect>`;
+    }
+  }
+
+  svg += '</svg>';
+  return { svg, activeDays };
+}
+
 function render() {
+  const gap = daysSinceLastActive();
+  const warmthTier = gap <= 1 ? 'normal' : gap <= 4 ? 'gentle' : 'soft';
+  const suppressOverdue = warmthTier === 'soft';
+
   const chats = filteredChats();
   const shipped = chats.filter(c => c.status === 'shipped');
   const todayChats = data.today
@@ -571,7 +628,7 @@ function render() {
   html += '<div class="filters"><span class="filter-label">Filter</span>';
   html += `<button class="pill ${!activeFilter ? 'active' : ''}" onclick="setFilter(null)">All</button>`;
   data.projects.forEach(p => {
-    html += `<button class="pill ${activeFilter === p.id ? 'active' : ''}" onclick="setFilter('${p.id}')">${p.emoji} ${p.name}</button>`;
+    html += `<button class="pill ${activeFilter === p.id ? 'active' : ''}" onclick="setFilter('${p.id}')">${p.emoji} ${p.name}</button>`;
   });
   html += '</div>';
 
@@ -583,20 +640,35 @@ function render() {
     <span class="legend-item"><span class="energy-dot low"></span> low</span>
   </div>`;
 
-  // Today strip
-  html += '<div class="today-strip"><div class="today-label">Pickable today</div>';
-  if (todayChats.length === 0) {
-    html += '<div class="today-empty">Nothing queued — permission to rest.</div>';
+  // Today strip — return warmth branching
+  let todayContent = '';
+
+  if (warmthTier === 'soft') {
+    const easiest = findLowestEnergyChat();
+    todayContent += '<div class="warmth-msg">Here\'s something small</div>';
+    if (easiest) todayContent += renderTodayItem(easiest);
+  } else if (warmthTier === 'gentle') {
+    const sorted = [...todayChats].sort((a, b) =>
+      (ENERGY_ORDER[a.energy] ?? 1) - (ENERGY_ORDER[b.energy] ?? 1)
+    );
+    if (sorted.length === 0) {
+      const easiest = findLowestEnergyChat();
+      todayContent += '<div class="warmth-msg">Here\'s a quick win to start with</div>';
+      if (easiest) todayContent += renderTodayItem(easiest);
+    } else {
+      todayContent += '<div class="warmth-msg">Here\'s a quick win to start with</div>';
+      sorted.forEach(c => { todayContent += renderTodayItem(c); });
+    }
   } else {
-    todayChats.forEach(c => {
-      html += `<div class="today-item">
-        <span class="energy-dot ${c.energy || 'low'}"></span>
-        <span class="step">${esc(c.next_step)}</span>
-        <span class="project-tag">${projectShort(c.project_id)}</span>
-      </div>`;
-    });
+    // normal
+    if (todayChats.length === 0) {
+      todayContent += '<div class="today-empty">Nothing queued — permission to rest.</div>';
+    } else {
+      todayChats.forEach(c => { todayContent += renderTodayItem(c); });
+    }
   }
-  html += '</div>';
+
+  html += `<div class="today-strip"><div class="today-label">Pickable today</div>${todayContent}</div>`;
 
   // Pick Up Here card
   const mostRecent = getMostRecentChat();
@@ -630,13 +702,11 @@ function render() {
         <span class="card-title">${esc(c.title)}</span>
         <span class="card-project">${projectShort(c.project_id)}</span>
       </div>`;
-      if (c.next_step) {
-        html += `<div class="card-next"><strong>Next:</strong> ${esc(c.next_step)}</div>`;
-      }
+      if (c.next_step) html += `<div class="card-next"><strong>Next:</strong> ${esc(c.next_step)}</div>`;
       html += '<div class="card-meta">';
       if (c.energy) html += `<span class="energy-dot ${c.energy}"></span>`;
       if (c.breadcrumb) html += `<span class="card-breadcrumb">${esc(c.breadcrumb)}</span>`;
-      if (isDeadline && c.deadline) html += `<span class="card-deadline-tag">${formatDeadline(c.deadline)}</span>`;
+      if (isDeadline && c.deadline) html += `<span class="card-deadline-tag">${formatDeadline(c.deadline, suppressOverdue)}</span>`;
       html += '</div></div>';
     });
 
@@ -650,43 +720,50 @@ function render() {
 
   document.getElementById('app').innerHTML = html;
 
-  // Render shipped sidebar
-  renderShippedSidebar(shipped);
+  renderSidebar(shipped, data.activity_log || []);
 }
 
-function renderShippedSidebar(shipped) {
+function renderSidebar(shipped, activityLog) {
   const sidebar = document.getElementById('shipped-sidebar');
+  let html = '';
 
-  if (shipped.length === 0) {
-    sidebar.innerHTML = '';
-    return;
+  // Shipped items
+  if (shipped.length > 0) {
+    html += `<div class="shipped-sidebar-header">${trophySvg()} Shipped</div>`;
+    shipped.forEach(c => {
+      const cnt = c.shipped_count || 1;
+      const animate = !c.celebrated && !celebratedItems.has(c.id);
+      html += `<div class="shipped-item${animate ? ' ship-celebrate' : ''}">`;
+      html += `<div class="shipped-badge${cnt >= 3 ? ' triple' : ''}">
+        ${trophySvg()}<span>Shipped${cnt >= 3 ? ' ×' + cnt : ''}</span>
+      </div>`;
+      html += `<div class="shipped-title">${esc(c.title)}</div>`;
+      html += `<div class="shipped-project">${projectShort(c.project_id)}</div>`;
+      html += '</div>';
+    });
   }
 
-  let html = `<div class="shipped-sidebar-header">${trophySvg()} Shipped</div>`;
-
-  shipped.forEach(c => {
-    const cnt = c.shipped_count || 1;
-    const animate = !c.celebrated && !celebratedItems.has(c.id);
-    html += `<div class="shipped-item ${animate ? 'ship-celebrate' : ''}">`;
-    html += `<div class="shipped-badge ${cnt >= 3 ? 'triple' : ''}">
-      ${trophySvg()}
-      <span>shipped${cnt >= 3 ? ' ×' + cnt : ''}</span>
-    </div>`;
-    html += `<div class="shipped-title">${esc(c.title)}</div>`;
-    html += `<div class="shipped-project">${projectShort(c.project_id)}</div>`;
-    html += '</div>';
-  });
+  // Heatmap
+  const { svg, activeDays } = buildHeatmapSVG(activityLog);
+  const hasSeparator = shipped.length > 0;
+  html += `<div class="heatmap-section${hasSeparator ? ' has-separator' : ''}">`;
+  html += '<div class="heatmap-header">Activity</div>';
+  html += `<div class="heatmap-legend">
+    <span class="heatmap-legend-item"><span class="heatmap-legend-sq sq-active"></span> active</span>
+    <span class="heatmap-legend-item"><span class="heatmap-legend-sq sq-new_idea"></span> new idea</span>
+    <span class="heatmap-legend-item"><span class="heatmap-legend-sq sq-shipped"></span> shipped</span>
+  </div>`;
+  html += svg;
+  html += `<div class="heatmap-stats">${activeDays} active days out of 84</div>`;
+  html += '</div>';
 
   sidebar.innerHTML = html;
 }
 
 function setupCelebrations() {
-  const shipped = data.chats.filter(c => c.status === 'shipped');
-  shipped.forEach(c => {
-    if (!c.celebrated) {
-      celebratedItems.add(c.id);
-    }
-  });
+  data.chats
+    .filter(c => c.status === 'shipped' && !c.celebrated)
+    .forEach(c => celebratedItems.add(c.id));
 }
 
 function setFilter(id) {
