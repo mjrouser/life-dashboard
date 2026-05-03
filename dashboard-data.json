@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-03T12:00:00Z",
+    "last_updated": "2026-05-03T18:00:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -32,10 +32,10 @@
       "title": "PiHole",
       "status": "active-in-progress",
       "next_step": "Configure IPv6 virtual IP on keepalived",
-      "breadcrumb": "Primary/secondary failover working on IPv4",
+      "breadcrumb": "Full status audit done 5/3. IPv4 failover, pause tool, and redundancy all shipped. IPv6 VIP is the only remaining item — deferred due to ISP prefix complexity.",
       "energy": "high",
       "open_question": null,
-      "updated": "2026-04-27"
+      "updated": "2026-05-03"
     },
     {
       "id": "dashboard-maintenance",
@@ -148,6 +148,40 @@
       "updated": "2026-04-30"
     },
     {
+      "id": "deadbox",
+      "project_id": "homelab",
+      "title": "Dead & Phish Time Machine",
+      "status": "active-deadline",
+      "deadline": "2026-06-01",
+      "next_step": "Flash SD card with Raspberry Pi OS Lite and boot the Pi",
+      "breadcrumb": "Mid-build. GPIO conflict resolved, PINOUT.md committed, breakout board + ribbon cable wired, all 7 display wires run. 5-week plan: Week 1 = flash/boot/display/audio. Ship by June 1 as housewarming gift.",
+      "energy": "medium",
+      "open_question": null,
+      "updated": "2026-05-03"
+    },
+    {
+      "id": "spotify-playlist",
+      "project_id": "homelab",
+      "title": "Spotify daily history playlist",
+      "status": "ready",
+      "next_step": "Run existing Claude Code handoff prompt to deploy script to pihole1 via cron",
+      "breadcrumb": "Script developed, tested on Mac, Spotify API creds in hand, handoff prompt written. Just needs deployment.",
+      "energy": "low",
+      "open_question": null,
+      "updated": "2026-05-03"
+    },
+    {
+      "id": "what-now-app",
+      "project_id": "personal-os",
+      "title": "What Now? — decision fatigue app",
+      "status": "queued",
+      "next_step": "Spec TV use case: user flow, mood-matching mechanic, MVP scope",
+      "breadcrumb": "Concept defined, 3 use cases sequenced (TV → restaurants → dinner). Streaming API sync is first-class requirement — JustWatch aggregation likely path.",
+      "energy": "low",
+      "open_question": null,
+      "updated": "2026-05-03"
+    },
+    {
       "id": "pihole-dashboard",
       "project_id": "homelab",
       "title": "Homelab status page",
@@ -175,7 +209,7 @@
     }
   ],
   "activity_log": [
-    { "date": "2026-05-03", "types": ["active", "new_idea", "shipped"] },
+    { "date": "2026-05-03", "types": ["active"] },
     { "date": "2026-05-02", "types": ["active"] },
     { "date": "2026-04-30", "types": ["active"] },
     { "date": "2026-04-29", "types": ["active"] },
