@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-05T00:00:00Z",
+    "last_updated": "2026-05-05T20:00:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -11,7 +11,8 @@
     { "id": "family", "name": "Family", "emoji": "👨‍👩‍👧" }
   ],
   "today": [
-    { "chat_id": "henry-ford-app" }
+    { "chat_id": "henry-ford-app" },
+    { "chat_id": "dashboard-build" }
   ],
   "chats": [
     {
@@ -54,8 +55,8 @@
       "project_id": "personal-os",
       "title": "Life Dashboard — build",
       "status": "active-in-progress",
-      "next_step": "Spec remaining dopamine features: variable reward, progress visibility, completion loops, tiny bets",
-      "breadcrumb": "Four dopamine features live: shipped sidebar, Pick Up Here card, activity heatmap, return warmth. Four more to spec. activity_log is session-wrap only.",
+      "next_step": "Build next dopamine feature: variable reward, completion loops, or tiny bets",
+      "breadcrumb": "Five dopamine features live: shipped sidebar, Pick Up Here card, activity heatmap, return warmth, progress visibility (recency badge + deadline bar + momentum streak). Three more to build.",
       "energy": "low",
       "open_question": null,
       "updated": "2026-05-05"
@@ -211,6 +212,7 @@
     }
   ],
   "activity_log": [
+    { "date": "2026-05-05", "types": ["active"] },
     { "date": "2026-05-03", "types": ["active"] },
     { "date": "2026-05-02", "types": ["active"] },
     { "date": "2026-04-30", "types": ["active"] },
