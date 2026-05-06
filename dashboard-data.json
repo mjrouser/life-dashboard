@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-03T18:00:00Z",
+    "last_updated": "2026-05-05T00:00:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -20,6 +20,7 @@
       "title": "Renovations",
       "status": "active-deadline",
       "deadline": "2026-06-15",
+      "start_date": "2026-04-28",
       "next_step": "Get contractor quotes for kitchen backsplash",
       "breadcrumb": "Narrowed tile options to 3 finalists last session",
       "energy": "medium",
@@ -54,10 +55,10 @@
       "title": "Life Dashboard — build",
       "status": "active-in-progress",
       "next_step": "Spec remaining dopamine features: variable reward, progress visibility, completion loops, tiny bets",
-      "breadcrumb": "Four dopamine features live: shipped sidebar, Pick Up Here card, activity heatmap, return warmth. Four more to spec.",
+      "breadcrumb": "Four dopamine features live: shipped sidebar, Pick Up Here card, activity heatmap, return warmth. Four more to spec. activity_log is session-wrap only.",
       "energy": "low",
-      "open_question": "How should activity_log get populated — only session wraps, or also manual logging?",
-      "updated": "2026-05-03"
+      "open_question": null,
+      "updated": "2026-05-05"
     },
     {
       "id": "lawn-care",
@@ -153,6 +154,7 @@
       "title": "Dead & Phish Time Machine",
       "status": "active-deadline",
       "deadline": "2026-06-01",
+      "start_date": "2026-04-27",
       "next_step": "Flash SD card with Raspberry Pi OS Lite and boot the Pi",
       "breadcrumb": "Mid-build. GPIO conflict resolved, PINOUT.md committed, breakout board + ribbon cable wired, all 7 display wires run. 5-week plan: Week 1 = flash/boot/display/audio. Ship by June 1 as housewarming gift.",
       "energy": "medium",
