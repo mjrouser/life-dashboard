@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-05T20:00:00Z",
+    "last_updated": "2026-05-06T00:00:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -139,6 +139,19 @@
       "updated": "2026-04-12"
     },
     {
+      "id": "pe-career-transition",
+      "project_id": "career",
+      "title": "PE Career Transition",
+      "status": "active",
+      "current_focus": "Exploring internal M&A/EA team transition at Slalom — meeting with group lead Chris today",
+      "next_step": "Debrief Chris meeting — capture learnings, commitments, and decide on formal pursuit",
+      "breadcrumb": "M&A/EA pivot could significantly accelerate PE resume — UserTesting M&A story is the lead proof point. Track how Chris scopes the role vs senior leader's broader EA vision.",
+      "energy": "focused, pre-meeting prep mode",
+      "open_question": "Did the Chris conversation open doors or surface constraints? What's the actual scope vs what was pitched?",
+      "last_session_date": "2026-05-07",
+      "updated": "2026-05-06"
+    },
+    {
       "id": "henry-ford-app",
       "project_id": "career",
       "title": "Henry Ford Health — VP Enterprise Apps",
@@ -212,6 +225,7 @@
     }
   ],
   "activity_log": [
+    { "date": "2026-05-06", "types": ["active"] },
     { "date": "2026-05-05", "types": ["active"] },
     { "date": "2026-05-03", "types": ["active"] },
     { "date": "2026-05-02", "types": ["active"] },
