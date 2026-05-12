@@ -78,14 +78,14 @@
       "project_id": "320-sycamore",
       "title": "Lawn care",
       "status": "ready",
-      "next_step": "Schedule spring aeration consult",
-      "breadcrumb": "Identified two local services last fall",
+      "next_step": "Stay on fertilizer and watering schedule through summer",
+      "breadcrumb": "Aeration and top dressing done. Now in maintenance mode — fertilizer and watering.",
       "energy": "low",
       "open_question": null,
-      "blocker_type": "self",
-      "agent_can_do": "Find contact info for local lawn aeration services and draft a scheduling inquiry message",
+      "blocker_type": null,
+      "agent_can_do": "Look up a seasonal lawn fertilizer and watering schedule for the Detroit area and summarize the next 4–6 week maintenance window",
       "cooldown_until": null,
-      "updated": "2026-04-20"
+      "updated": "2026-05-12"
     },
     {
       "id": "landscaping",
