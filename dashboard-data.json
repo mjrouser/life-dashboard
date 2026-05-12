@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-11T00:00:00Z",
+    "last_updated": "2026-05-11T12:00:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -93,6 +93,18 @@
       "energy": "medium",
       "open_question": null,
       "updated": "2026-04-22"
+    },
+    {
+      "id": "claudecode-workflow",
+      "project_id": "personal-os",
+      "title": "Claude Code workflow — GitHub Issues",
+      "status": "active",
+      "current_focus": "Wire up GitHub Issues as persistent task queue for Claude Code via gh CLI + Superpowers",
+      "next_step": "Wire up GitHub Issues as persistent task queue for Claude Code via gh CLI + Superpowers",
+      "breadcrumb": "Evaluated Blackboard plugin — too heavy for current needs. Adopting GitHub Issues + gh CLI as lightweight persistent memory layer for Claude Code sessions. Pattern validated by peer.",
+      "energy": "medium",
+      "open_question": null,
+      "updated": "2026-05-11"
     },
     {
       "id": "discord-bot",
@@ -225,7 +237,7 @@
     }
   ],
   "activity_log": [
-    { "date": "2026-05-11", "types": ["active"] },
+    { "date": "2026-05-11", "types": ["active", "new_idea"] },
     { "date": "2026-05-06", "types": ["active"] },
     { "date": "2026-05-05", "types": ["active"] },
     { "date": "2026-05-03", "types": ["active"] },
