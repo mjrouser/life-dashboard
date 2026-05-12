@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-11T12:00:00Z",
+    "last_updated": "2026-05-12T00:00:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -26,6 +26,9 @@
       "breadcrumb": "Narrowed tile options to 3 finalists last session",
       "energy": "medium",
       "open_question": null,
+      "blocker_type": "self",
+      "agent_can_do": "Research 3-5 local kitchen backsplash contractors, find contact info, and draft a quote request message",
+      "cooldown_until": null,
       "updated": "2026-04-28"
     },
     {
@@ -37,6 +40,9 @@
       "breadcrumb": "Full status audit done 5/3. IPv4 failover, pause tool, and redundancy all shipped. IPv6 VIP is the only remaining item — deferred due to ISP prefix complexity.",
       "energy": "high",
       "open_question": null,
+      "blocker_type": "fuzzy",
+      "agent_can_do": "Research keepalived IPv6 virtual IP configuration for dual-stack home networks and draft a step-by-step config for pihole1/pihole2",
+      "cooldown_until": null,
       "updated": "2026-05-03"
     },
     {
@@ -48,6 +54,9 @@
       "breadcrumb": "v1 live on GH Pages. Session-wrap integration in use — updating at end of each project session.",
       "energy": "low",
       "open_question": null,
+      "blocker_type": null,
+      "agent_can_do": null,
+      "cooldown_until": null,
       "updated": "2026-05-02"
     },
     {
@@ -59,6 +68,9 @@
       "breadcrumb": "Five dopamine features live: shipped sidebar, Pick Up Here card, activity heatmap, return warmth, progress visibility (recency badge + deadline bar + momentum streak). Three more to build.",
       "energy": "low",
       "open_question": null,
+      "blocker_type": "self",
+      "agent_can_do": "Draft a spec for the variable reward dopamine feature (random past win shown on dashboard load)",
+      "cooldown_until": null,
       "updated": "2026-05-05"
     },
     {
@@ -70,6 +82,9 @@
       "breadcrumb": "Identified two local services last fall",
       "energy": "low",
       "open_question": null,
+      "blocker_type": "self",
+      "agent_can_do": "Find contact info for local lawn aeration services and draft a scheduling inquiry message",
+      "cooldown_until": null,
       "updated": "2026-04-20"
     },
     {
@@ -81,6 +96,9 @@
       "breadcrumb": "Deferred until after spring lawn work",
       "energy": "low",
       "open_question": null,
+      "blocker_type": "deprioritized",
+      "agent_can_do": null,
+      "cooldown_until": "2026-06-15",
       "updated": "2026-04-10"
     },
     {
@@ -92,6 +110,9 @@
       "breadcrumb": "Hardware allocated, need to image",
       "energy": "medium",
       "open_question": null,
+      "blocker_type": "self",
+      "agent_can_do": "Generate the exact Raspberry Pi OS Lite flash and first-boot sequence for the Pi allocated to Home Assistant",
+      "cooldown_until": null,
       "updated": "2026-04-22"
     },
     {
@@ -104,6 +125,9 @@
       "breadcrumb": "Evaluated Blackboard plugin — too heavy for current needs. Adopting GitHub Issues + gh CLI as lightweight persistent memory layer for Claude Code sessions. Pattern validated by peer.",
       "energy": "medium",
       "open_question": null,
+      "blocker_type": null,
+      "agent_can_do": null,
+      "cooldown_until": null,
       "updated": "2026-05-11"
     },
     {
@@ -115,6 +139,9 @@
       "breadcrumb": "Dashboard v1 shipped — unblocked",
       "energy": "high",
       "open_question": null,
+      "blocker_type": "deprioritized",
+      "agent_can_do": null,
+      "cooldown_until": "2026-08-01",
       "updated": "2026-04-15"
     },
     {
@@ -126,6 +153,9 @@
       "breadcrumb": "Trip identified, no booking research yet",
       "energy": "low",
       "open_question": null,
+      "blocker_type": "self",
+      "agent_can_do": "Research DCL stateroom categories and pricing for October 2026 sailings and summarize options by category and price range",
+      "cooldown_until": null,
       "updated": "2026-04-29"
     },
     {
@@ -137,6 +167,9 @@
       "breadcrumb": "Early idea stage, plenty of runway",
       "energy": "low",
       "open_question": null,
+      "blocker_type": "deprioritized",
+      "agent_can_do": null,
+      "cooldown_until": "2026-12-01",
       "updated": "2026-04-15"
     },
     {
@@ -148,6 +181,9 @@
       "breadcrumb": "Identified as income stream opportunity",
       "energy": "medium",
       "open_question": null,
+      "blocker_type": "deprioritized",
+      "agent_can_do": null,
+      "cooldown_until": "2026-08-01",
       "updated": "2026-04-12"
     },
     {
@@ -160,6 +196,9 @@
       "breadcrumb": "Transfer approved by Chris and manager. Key risk to watch: is this a real scope expansion (EA breadth, strategic positioning) or a lateral rebrand? Scoping call will reveal this.",
       "energy": "shifting to other priorities",
       "open_question": "When ready — draft the framing note to Chris and prep the three-block conversation structure",
+      "blocker_type": "external",
+      "agent_can_do": "Draft a scheduling note to Chris with framing for the role-scoping call and three conversation blocks to cover",
+      "cooldown_until": null,
       "last_session_date": "2026-05-11",
       "updated": "2026-05-11"
     },
@@ -172,6 +211,9 @@
       "breadcrumb": "Workflow specced: resume tailoring → hiring manager re-engagement email → application logistics. Prompt file ready. Had prior referral and personal HM response but missed timing. Role reposted.",
       "energy": "low",
       "open_question": null,
+      "blocker_type": "self",
+      "agent_can_do": "Draft the hiring manager re-engagement email for the Henry Ford VP Enterprise Apps role using the prior referral and personal contact context from the breadcrumb",
+      "cooldown_until": null,
       "updated": "2026-04-30"
     },
     {
@@ -185,6 +227,9 @@
       "breadcrumb": "Mid-build. GPIO conflict resolved, PINOUT.md committed, breakout board + ribbon cable wired, all 7 display wires run. 5-week plan: Week 1 = flash/boot/display/audio. Ship by June 1 as housewarming gift.",
       "energy": "medium",
       "open_question": null,
+      "blocker_type": "self",
+      "agent_can_do": "Generate the exact Raspberry Pi OS Lite flash and first-boot command sequence for the Deadbox Pi, including display and audio setup steps",
+      "cooldown_until": null,
       "updated": "2026-05-03"
     },
     {
@@ -196,6 +241,9 @@
       "breadcrumb": "Script developed, tested on Mac, Spotify API creds in hand, handoff prompt written. Just needs deployment.",
       "energy": "low",
       "open_question": null,
+      "blocker_type": "self",
+      "agent_can_do": "Run the Claude Code handoff prompt to deploy the Spotify daily history playlist script to pihole1 via cron",
+      "cooldown_until": null,
       "updated": "2026-05-03"
     },
     {
@@ -207,6 +255,9 @@
       "breadcrumb": "Concept defined, 3 use cases sequenced (TV → restaurants → dinner). Streaming API sync is first-class requirement — JustWatch aggregation likely path.",
       "energy": "low",
       "open_question": null,
+      "blocker_type": "fuzzy",
+      "agent_can_do": "Draft the TV use case spec: user flow, mood-matching mechanic, and MVP scope for the What Now? app",
+      "cooldown_until": null,
       "updated": "2026-05-03"
     },
     {
