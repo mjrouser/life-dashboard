@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # EA Scanner wrapper — fetches prompt from GitHub, injects date/weekday, runs claude.
-# Called by cron on Mac Mini. Logs to /tmp/ea-scanner.log.
+# Called by cron on Mac Mini. Cron entry redirects stdout/stderr to /tmp/ea-scanner.log.
 set -e
 
 TODAY=$(date +%Y-%m-%d)
