@@ -17,5 +17,5 @@ PROMPT="${PROMPT//TODAY/$TODAY}"
 PROMPT="${PROMPT//WEEKDAY/$WEEKDAY}"
 
 echo "$(date): EA scanner starting — $TODAY ($WEEKDAY)"
-echo "$PROMPT" | claude --print --allowedTools "Bash,WebFetch"
+echo "$PROMPT" | /usr/local/bin/claude --print --allowedTools "Bash,WebFetch"
 echo "$(date): EA scanner finished"
