@@ -17,5 +17,5 @@ PROMPT="${PROMPT//TODAY/$TODAY}"
 PROMPT="${PROMPT//WEEKDAY/$WEEKDAY}"
 
 echo "$(date): EA scanner starting — $TODAY ($WEEKDAY)"
-echo "$PROMPT" | claude --print
+echo "$PROMPT" | claude --print --dangerously-skip-permissions
 echo "$(date): EA scanner finished"
