@@ -629,6 +629,17 @@ function trophySvg() {
   </svg>`;
 }
 
+function formatShortDate(dateStr) {
+  return new Date(dateStr + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
+function getWinOfTheDay(shippedItems) {
+  if (shippedItems.length === 0) return null;
+  const seed = new Date().toISOString().slice(0, 10); // "2026-05-13"
+  const hash = [...seed].reduce((acc, c) => acc + c.charCodeAt(0), 0);
+  return shippedItems[hash % shippedItems.length];
+}
+
 function renderTodayItem(c) {
   return `<div class="today-item">
     <span class="energy-dot ${c.energy || 'low'}"></span>
