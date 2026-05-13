@@ -468,6 +468,56 @@
     flex-shrink: 0;
   }
 
+  /* ── Project progress bars ── */
+  .progress-row {
+    margin-bottom: 1.75rem;
+  }
+  .progress-row-header {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-tertiary);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .progress-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 3px 0;
+  }
+  .progress-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-tertiary);
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0;
+  }
+  .progress-bar-wrap {
+    width: 60px;
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--shipped-gold);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+  .progress-fraction {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+
   /* ── Deadline progress bar ── */
   .deadline-bar-wrap {
     margin-top: 10px;
@@ -638,6 +688,33 @@ function getWinOfTheDay(shippedItems) {
   const seed = new Date().toISOString().slice(0, 10); // "2026-05-13"
   const hash = [...seed].reduce((acc, c) => acc + c.charCodeAt(0), 0);
   return shippedItems[hash % shippedItems.length];
+}
+
+function renderProgressRow() {
+  const projects = activeFilter
+    ? data.projects.filter(p => p.id === activeFilter)
+    : data.projects;
+
+  const rows = projects.map(p => {
+    const projectChats = data.chats.filter(c => c.project_id === p.id);
+    const total = projectChats.length;
+    const shipped = projectChats.filter(c => c.status === 'shipped').length;
+    return { p, total, shipped };
+  }).filter(r => r.total > 0);
+
+  if (rows.length === 0) return '';
+
+  let html = '<div class="progress-row"><div class="progress-row-header">Progress</div>';
+  rows.forEach(({ p, total, shipped }) => {
+    const pct = Math.round((shipped / total) * 100);
+    html += `<div class="progress-item">
+      <span class="progress-label">${p.emoji} ${p.name}</span>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
+      <span class="progress-fraction">${shipped}/${total}</span>
+    </div>`;
+  });
+  html += '</div>';
+  return html;
 }
 
 function renderTodayItem(c) {
@@ -868,9 +945,12 @@ function renderSidebar(shipped, activityLog) {
     });
   }
 
+  // Progress bars
+  html += renderProgressRow();
+
   // Heatmap
   const { svg, activeDays } = buildHeatmapSVG(activityLog);
-  const hasSeparator = shipped.length > 0;
+  const hasSeparator = true;
   html += `<div class="heatmap-section${hasSeparator ? ' has-separator' : ''}">`;
   const streakHtml = streak >= 2 ? ` <span class="streak-badge">🔥 ${streak}-day streak</span>` : '';
   html += `<div class="heatmap-header" style="display:flex;align-items:center;justify-content:space-between;">Activity${streakHtml}</div>`;
