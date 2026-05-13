@@ -841,6 +841,17 @@ function renderSidebar(shipped, activityLog) {
   const streak = calcStreak(activityLog);
   let html = '';
 
+  // Win of the day
+  const win = getWinOfTheDay(shipped);
+  if (win) {
+    html += `<div class="win-block">
+      <div class="win-block-label">✦ Win of the day</div>
+      <div class="win-block-title">${esc(win.title)}</div>
+      <div class="win-block-meta">${projectShort(win.project_id)} · ${formatShortDate(win.updated)}</div>
+      ${win.breadcrumb ? `<div class="win-block-breadcrumb">${esc(win.breadcrumb)}</div>` : ''}
+    </div>`;
+  }
+
   // Shipped items
   if (shipped.length > 0) {
     html += `<div class="shipped-sidebar-header">${trophySvg()} Shipped</div>`;
