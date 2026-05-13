@@ -119,3 +119,4 @@ git push
 - When I say "what's next" or "pick something up," run `gh issue list --label P0-critical` first, then P1, then P2
 - When completing work, reference the issue number in commits and PRs
 - When a fix or feature reveals follow-up work, file new issues for it automatically
+- When deferring work mid-thread (scoping out a feature, deciding something is Phase B, etc.), file an issue before moving on — deferred work with no issue is lost work
