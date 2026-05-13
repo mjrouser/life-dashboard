@@ -358,6 +358,52 @@
     .ship-celebrate .shipped-badge { animation: trophy-bounce 0.5s ease-in-out 0.4s both; }
   }
 
+  /* ── Win of the Day ── */
+  .win-block {
+    background: var(--shipped-bg);
+    border: 0.5px solid var(--shipped-gold);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+  }
+  .win-block-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--shipped-gold);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .win-block-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .win-block-meta {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-tertiary);
+  }
+  .win-block-breadcrumb {
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 0.5px solid rgba(160, 123, 40, 0.25);
+  }
+
+  @keyframes pulse-gold {
+    0%, 100% { box-shadow: 0 0 0 0px rgba(160,123,40,0); }
+    50% { box-shadow: 0 0 0 3px rgba(160,123,40,0.3), 0 0 16px rgba(160,123,40,0.2); }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .win-block { animation: pulse-gold 2s ease-in-out 3; }
+  }
+
   /* ── Heatmap ── */
   .heatmap-section {
     margin-top: 0;
