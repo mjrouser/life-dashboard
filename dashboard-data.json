@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-13T11:30:00Z",
+    "last_updated": "2026-05-13T20:00:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -64,14 +64,14 @@
       "project_id": "personal-os",
       "title": "Life Dashboard — build",
       "status": "active-in-progress",
-      "next_step": "Build next dopamine feature: variable reward, completion loops, or tiny bets",
-      "breadcrumb": "Five dopamine features live: shipped sidebar, Pick Up Here card, activity heatmap, return warmth, progress visibility (recency badge + deadline bar + momentum streak). Three more to build.",
+      "next_step": "Build next dopamine feature: completion loops or tiny bets",
+      "breadcrumb": "Six dopamine features live: shipped sidebar, Pick Up Here card, activity heatmap, return warmth, progress visibility, and Win of the Day (date-seeded gold glow block). Two more to build.",
       "energy": "low",
       "open_question": null,
       "blocker_type": "self",
-      "agent_can_do": "Draft a spec for the variable reward dopamine feature (random past win shown on dashboard load)",
+      "agent_can_do": "Draft a spec for the next dopamine feature (completion loops or tiny bets)",
       "cooldown_until": null,
-      "updated": "2026-05-05"
+      "updated": "2026-05-13"
     },
     {
       "id": "lawn-care",
@@ -288,7 +288,7 @@
     }
   ],
   "activity_log": [
-    { "date": "2026-05-13", "types": ["active"] },
+    { "date": "2026-05-13", "types": ["active", "shipped"] },
     { "date": "2026-05-12", "types": ["active", "shipped"] },
     { "date": "2026-05-11", "types": ["active", "new_idea"] },
     { "date": "2026-05-06", "types": ["active"] },
