@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-12T12:00:00Z",
+    "last_updated": "2026-05-13T11:30:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -50,14 +50,14 @@
       "project_id": "personal-os",
       "title": "Life Dashboard — maintenance",
       "status": "active-in-progress",
-      "next_step": "End of session: update project chats with current status, next_steps, and energy",
-      "breadcrumb": "v1 live on GH Pages. Session-wrap integration in use — updating at end of each project session.",
+      "next_step": "Monitor that EA scanner fires correctly on Friday 9am; no action needed until then",
+      "breadcrumb": "EA scanner fully operational — Mac Mini sleep disabled (pmset sleep 0), cron fires Mon/Wed/Fri 9am + Sat 10am. First confirmed working notification delivered 2026-05-13.",
       "energy": "low",
       "open_question": null,
       "blocker_type": null,
       "agent_can_do": null,
       "cooldown_until": null,
-      "updated": "2026-05-02"
+      "updated": "2026-05-13"
     },
     {
       "id": "dashboard-build",
@@ -288,6 +288,7 @@
     }
   ],
   "activity_log": [
+    { "date": "2026-05-13", "types": ["active"] },
     { "date": "2026-05-12", "types": ["active", "shipped"] },
     { "date": "2026-05-11", "types": ["active", "new_idea"] },
     { "date": "2026-05-06", "types": ["active"] },
