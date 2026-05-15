@@ -926,6 +926,7 @@ function render() {
       if (c.breadcrumb) html += `<span class="card-breadcrumb">${esc(c.breadcrumb)}</span>`;
       if (isDeadline && c.deadline) html += `<span class="card-deadline-tag">${formatDeadline(c.deadline, suppressOverdue)}</span>`;
       if (c.updated) html += `<span class="card-recency">${formatUpdated(c.updated)}</span>`;
+      if (c.tiny_bet) html += `<span class="bet-tag">🧪 tiny bet</span>`;
       html += '</div>';
       if (isDeadline && c.deadline && c.start_date) {
         const pct = deadlineProgress(c.start_date, c.deadline);
