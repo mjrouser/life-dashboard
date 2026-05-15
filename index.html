@@ -608,6 +608,7 @@ const ENERGY_ORDER = { low: 0, medium: 1, high: 2 };
 
 let data = null;
 let activeFilter = null;
+let tinyBetFilter = false;
 let celebratedItems = new Set();
 
 async function init() {
@@ -650,6 +651,7 @@ function formatUpdated(dateStr) {
 function filteredChats() {
   let chats = data.chats;
   if (activeFilter) chats = chats.filter(c => c.project_id === activeFilter);
+  if (tinyBetFilter) chats = chats.filter(c => c.tiny_bet === true);
   return chats;
 }
 
@@ -1004,6 +1006,11 @@ function setupCelebrations() {
 
 function setFilter(id) {
   activeFilter = activeFilter === id ? null : id;
+  render();
+}
+
+function setTinyBetFilter() {
+  tinyBetFilter = !tinyBetFilter;
   render();
 }
 
