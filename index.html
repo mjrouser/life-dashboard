@@ -846,6 +846,8 @@ function render() {
   data.projects.forEach(p => {
     html += `<button class="pill ${activeFilter === p.id ? 'active' : ''}" onclick="setFilter('${p.id}')">${p.emoji} ${p.name}</button>`;
   });
+  html += '<span class="filter-divider"></span>';
+  html += `<button class="pill ${tinyBetFilter ? 'bet-active' : ''}" onclick="setTinyBetFilter()">🧪 Tiny bets</button>`;
   html += '</div>';
 
   // Energy legend
