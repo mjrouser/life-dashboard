@@ -113,7 +113,8 @@
       "blocker_type": "self",
       "agent_can_do": "Generate the exact Raspberry Pi OS Lite flash and first-boot sequence for the Pi allocated to Home Assistant",
       "cooldown_until": null,
-      "updated": "2026-04-22"
+      "updated": "2026-04-22",
+      "tiny_bet": true
     },
     {
       "id": "claudecode-workflow",
@@ -142,7 +143,8 @@
       "blocker_type": "deprioritized",
       "agent_can_do": null,
       "cooldown_until": "2026-08-01",
-      "updated": "2026-04-15"
+      "updated": "2026-04-15",
+      "tiny_bet": true
     },
     {
       "id": "disney-cruise",
@@ -184,7 +186,8 @@
       "blocker_type": "deprioritized",
       "agent_can_do": null,
       "cooldown_until": "2026-08-01",
-      "updated": "2026-04-12"
+      "updated": "2026-04-12",
+      "tiny_bet": true
     },
     {
       "id": "pe-career-transition",
@@ -244,7 +247,8 @@
       "blocker_type": "self",
       "agent_can_do": "Run the Claude Code handoff prompt to deploy the Spotify daily history playlist script to pihole1 via cron",
       "cooldown_until": null,
-      "updated": "2026-05-03"
+      "updated": "2026-05-03",
+      "tiny_bet": true
     },
     {
       "id": "what-now-app",
@@ -258,7 +262,8 @@
       "blocker_type": "fuzzy",
       "agent_can_do": "Draft the TV use case spec: user flow, mood-matching mechanic, and MVP scope for the What Now? app",
       "cooldown_until": null,
-      "updated": "2026-05-03"
+      "updated": "2026-05-03",
+      "tiny_bet": true
     },
     {
       "id": "pihole-dashboard",
