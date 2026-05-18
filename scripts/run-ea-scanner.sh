@@ -3,6 +3,12 @@
 # Called by cron on Mac Mini. Cron entry redirects stdout/stderr to /tmp/ea-scanner.log.
 set -e
 
+# Load long-lived OAuth token for subscription auth (cron can't use interactive login)
+if [[ -f "$HOME/.anthropic_key" ]]; then
+  # shellcheck source=/dev/null
+  source "$HOME/.anthropic_key"
+fi
+
 TODAY=$(date +%Y-%m-%d)
 WEEKDAY=$(date +%A)
 PROMPT_URL="https://raw.githubusercontent.com/mjrouser/life-dashboard/main/agents/ea-scanner-prompt.md"
