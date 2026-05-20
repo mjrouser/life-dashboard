@@ -36,6 +36,7 @@
       "project_id": "homelab",
       "title": "PiHole",
       "status": "active-in-progress",
+      "last_completed": "Configure IPv4 failover with keepalived",
       "next_step": "Configure IPv6 virtual IP on keepalived",
       "breadcrumb": "Full status audit done 5/3. IPv4 failover, pause tool, and redundancy all shipped. IPv6 VIP is the only remaining item — deferred due to ISP prefix complexity.",
       "energy": "high",
@@ -43,7 +44,7 @@
       "blocker_type": "fuzzy",
       "agent_can_do": "Research keepalived IPv6 virtual IP configuration for dual-stack home networks and draft a step-by-step config for pihole1/pihole2",
       "cooldown_until": null,
-      "updated": "2026-05-03"
+      "updated": "2026-05-20"
     },
     {
       "id": "dashboard-maintenance",
