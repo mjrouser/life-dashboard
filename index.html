@@ -1013,6 +1013,22 @@ function render() {
         <span class="card-title">${esc(c.title)}</span>
         <span class="card-project">${projectShort(c.project_id)}</span>
       </div>`;
+      if (c.last_completed) {
+        html += '<div class="completed-row">';
+        html += '<div class="sparkle-wrap">';
+        html += '<em class="sparkle-above" aria-hidden="true">';
+        html += '<span style="left:0px;top:4px;font-size:9px;color:var(--shipped-gold);opacity:0.7;animation-delay:0s">✦</span>';
+        html += '<span style="left:12px;top:0px;font-size:13px;color:var(--shipped-gold);opacity:1.0;animation-delay:0.08s">✦</span>';
+        html += '<span style="left:27px;top:5px;font-size:8px;color:var(--accent);opacity:0.55;animation-delay:0.14s">✦</span>';
+        html += '<span style="left:37px;top:-1px;font-size:12px;color:var(--accent);opacity:0.8;animation-delay:0.06s">✦</span>';
+        html += '<span style="left:52px;top:3px;font-size:9px;color:var(--shipped-gold);opacity:0.6;animation-delay:0.18s">✦</span>';
+        html += '</em>';
+        html += '<span class="done-pill">✓ done</span>';
+        html += '</div>';
+        html += `<span class="completed-step-text">${esc(c.last_completed)}</span>`;
+        html += '</div>';
+        html += '<hr class="done-divider">';
+      }
       if (c.next_step) html += `<div class="card-next"><strong>Next:</strong> ${esc(c.next_step)}</div>`;
       html += '<div class="card-meta">';
       if (c.energy) html += `<span class="energy-dot ${c.energy}"></span>`;
