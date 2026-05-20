@@ -995,6 +995,18 @@ function render() {
     if (mostRecent.open_question) {
       html += `<div class="pickup-question"><strong>Open question:</strong> ${esc(mostRecent.open_question)}</div>`;
     }
+    const todayStr = new Date().toISOString().slice(0, 10);
+    const wins = data.chats.filter(c => c.last_completed && c.updated === todayStr);
+    if (wins.length > 0) {
+      html += '<hr class="pickup-done-divider">';
+      html += '<div class="pickup-done-label">✦ done today</div>';
+      wins.forEach(w => {
+        html += '<div class="pickup-done-win">';
+        html += `<span class="pickup-done-title">${esc(w.title)}</span>`;
+        html += ` — <span class="pickup-done-step">${esc(w.last_completed)}</span>`;
+        html += '</div>';
+      });
+    }
     html += '</div>';
   }
 
