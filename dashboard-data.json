@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-14T23:59:00Z",
+    "last_updated": "2026-05-19T00:00:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -266,6 +266,22 @@
       "tiny_bet": true
     },
     {
+      "id": "flexhd-outdoor-ap",
+      "project_id": "homelab",
+      "title": "FlexHD Outdoor AP Install",
+      "status": "Planning — measurements needed",
+      "next_step": "Measure exterior wall: fiber hole clearance, siding lip height/depth, AP mount height",
+      "breadcrumb": "BOM v2 complete. DIY termination confirmed. Wall has two zones: stucco/masonry below ~4ft (Tapcons), aluminum siding above (stainless screws). Conduit needs offset fitting at siding lip. Est cost $80-110. Need to confirm switch PoE port availability.",
+      "notes": "BOM v2 complete. DIY termination confirmed. Wall has two zones: stucco/masonry below ~4ft (Tapcons), aluminum siding above (stainless screws). Conduit needs offset fitting at siding lip. Est cost $80-110. Need to confirm switch PoE port availability.",
+      "energy": "medium",
+      "open_question": null,
+      "blocker_type": "self",
+      "agent_can_do": null,
+      "cooldown_until": null,
+      "reference_chat": "https://claude.ai/chat/17a2ad9c-02a8-4b31-a810-170f3118513c",
+      "updated": "2026-05-19"
+    },
+    {
       "id": "pihole-dashboard",
       "project_id": "homelab",
       "title": "Homelab status page",
@@ -293,6 +309,7 @@
     }
   ],
   "activity_log": [
+    { "date": "2026-05-19", "types": ["active", "new_idea"] },
     { "date": "2026-05-14", "types": ["active", "shipped"] },
     { "date": "2026-05-13", "types": ["active", "shipped"] },
     { "date": "2026-05-12", "types": ["active", "shipped"] },
