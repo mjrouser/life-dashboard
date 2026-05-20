@@ -69,6 +69,7 @@ End every session with a session wrap. This is a structured ritual, not optional
 **Dashboard update:** After wrapping, update `dashboard-data.json` for the relevant chat entry:
 
 - Set `next_step`, `breadcrumb`, `energy`, `updated` (today's date YYYY-MM-DD)
+- When updating `next_step`, also set `last_completed` to the **previous** `next_step` value (the step just completed). Omit `last_completed` if `next_step` is unchanged.
 - Set `blocker_type`, `agent_can_do`, `cooldown_until` — these feed the EA scanner (see Required fields above)
 - Update `status` if it changed (e.g. active-in-progress → shipped)
 - Update `today[]` array — add/remove chat_id entries to reflect what's pickable next session (max 3)
