@@ -113,7 +113,7 @@
       "open_question": null,
       "blocker_type": "self",
       "agent_can_do": "Generate the exact Raspberry Pi OS Lite flash and first-boot sequence for the Pi allocated to Home Assistant",
-      "cooldown_until": null,
+      "cooldown_until": "2026-06-22",
       "updated": "2026-04-22",
       "tiny_bet": true
     },
