@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-20T00:00:00Z",
+    "last_updated": "2026-05-23T00:00:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -50,14 +50,14 @@
       "project_id": "personal-os",
       "title": "Life Dashboard — maintenance",
       "status": "active-in-progress",
-      "next_step": "Monitor that EA scanner fires correctly on Friday 9am; no action needed until then",
-      "breadcrumb": "EA scanner fully operational — Mac Mini sleep disabled (pmset sleep 0), cron fires Mon/Wed/Fri 9am + Sat 10am. First confirmed working notification delivered 2026-05-13.",
+      "next_step": "No action needed — snooze mechanism live, EA running smoothly",
+      "breadcrumb": "EA scanner operational. Snooze command added to all notifications ('snooze EA action for [id] until [date]'). gh CLI installed at /usr/local/bin/gh and authenticated. Home Assistant snoozed until 2026-06-22. Issue #5 filed for 'parked' blocker type idea.",
       "energy": "low",
       "open_question": null,
       "blocker_type": null,
       "agent_can_do": null,
       "cooldown_until": null,
-      "updated": "2026-05-13"
+      "updated": "2026-05-23"
     },
     {
       "id": "dashboard-build",
@@ -121,16 +121,16 @@
       "id": "claudecode-workflow",
       "project_id": "personal-os",
       "title": "Claude Code workflow — GitHub Issues",
-      "status": "active",
-      "current_focus": "Wire up GitHub Issues as persistent task queue for Claude Code via gh CLI + Superpowers",
-      "next_step": "Wire up GitHub Issues as persistent task queue for Claude Code via gh CLI + Superpowers",
-      "breadcrumb": "Evaluated Blackboard plugin — too heavy for current needs. Adopting GitHub Issues + gh CLI as lightweight persistent memory layer for Claude Code sessions. Pattern validated by peer.",
-      "energy": "medium",
+      "status": "active-in-progress",
+      "current_focus": "gh CLI installed and authenticated — start using gh issue list in sessions",
+      "next_step": "Use gh issue list in sessions to drive prioritization — workflow is now live",
+      "breadcrumb": "gh CLI installed via binary at /usr/local/bin/gh, authenticated as mjrouser with repo + read:org scopes. GitHub Issues workflow unblocked and in use.",
+      "energy": "low",
       "open_question": null,
       "blocker_type": null,
       "agent_can_do": null,
       "cooldown_until": null,
-      "updated": "2026-05-11"
+      "updated": "2026-05-23"
     },
     {
       "id": "discord-bot",
@@ -310,6 +310,7 @@
     }
   ],
   "activity_log": [
+    { "date": "2026-05-23", "types": ["active"] },
     { "date": "2026-05-20", "types": ["active", "shipped"] },
     { "date": "2026-05-19", "types": ["active", "new_idea"] },
     { "date": "2026-05-14", "types": ["active", "shipped"] },
