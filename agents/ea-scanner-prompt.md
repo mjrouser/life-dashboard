@@ -84,6 +84,9 @@ Action: [one sentence: what you drafted]
 
 To approve: open Claude Code in ~/repos/life-dashboard and say:
 approve EA action for [thread id]
+
+To snooze: open Claude Code in ~/repos/life-dashboard and say:
+snooze EA action for [thread id] until [date]
 ```
 
 Then run:
