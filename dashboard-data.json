@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-23T00:00:00Z",
+    "last_updated": "2026-05-24T00:00:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -123,14 +123,15 @@
       "title": "Claude Code workflow — GitHub Issues",
       "status": "active-in-progress",
       "current_focus": "gh CLI installed and authenticated — start using gh issue list in sessions",
-      "next_step": "Use gh issue list in sessions to drive prioritization — workflow is now live",
-      "breadcrumb": "gh CLI installed via binary at /usr/local/bin/gh, authenticated as mjrouser with repo + read:org scopes. GitHub Issues workflow unblocked and in use.",
-      "energy": "low",
+      "last_completed": "Use gh issue list in sessions to drive prioritization — workflow is now live",
+      "next_step": "Run the /start command in real sessions and refine the jq filter if needed",
+      "breadcrumb": "Built repo-scoped /start command: detects current repo via basename, filters dashboard chats by new 'repo' field, shows next_step/breadcrumb/agent_can_do + open gh issues. Added 'repo' field to data model. Rejected Perseus as overkill — dashboard already covers its checkpoint/recovery function.",
+      "energy": "medium",
       "open_question": null,
       "blocker_type": null,
       "agent_can_do": null,
       "cooldown_until": null,
-      "updated": "2026-05-23"
+      "updated": "2026-05-24"
     },
     {
       "id": "discord-bot",
@@ -310,6 +311,7 @@
     }
   ],
   "activity_log": [
+    { "date": "2026-05-24", "types": ["active"] },
     { "date": "2026-05-23", "types": ["active"] },
     { "date": "2026-05-20", "types": ["active", "shipped"] },
     { "date": "2026-05-19", "types": ["active", "new_idea"] },
