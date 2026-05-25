@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-24T12:00:00Z",
+    "last_updated": "2026-05-24T18:00:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -125,10 +125,10 @@
       "title": "Claude Code workflow — GitHub Issues",
       "status": "active-in-progress",
       "current_focus": "gh CLI installed and authenticated — start using gh issue list in sessions",
-      "last_completed": "Use gh issue list in sessions to drive prioritization — workflow is now live",
-      "next_step": "Run the /start command in real sessions and refine the jq filter if needed",
-      "breadcrumb": "Built repo-scoped /start command: detects current repo via basename, filters dashboard chats by new 'repo' field, shows next_step/breadcrumb/agent_can_do + open gh issues. Added 'repo' field to data model. Rejected Perseus as overkill — dashboard already covers its checkpoint/recovery function.",
-      "energy": "medium",
+      "last_completed": "Run the /start command in real sessions and refine the jq filter if needed",
+      "next_step": "Use /start habitually; add repo field to new chats as they're created",
+      "breadcrumb": "/start fully working. repo field added to 4 chats (dashboard-build, dashboard-maintenance, deadbox, spotify-playlist). Shell logic lives in ~/.claude/scripts/start-context.sh — moved there to avoid static analyzer rejection of subshell syntax in the command file. Verified output correct from life-dashboard repo.",
+      "energy": "low",
       "open_question": null,
       "blocker_type": null,
       "agent_can_do": null,
