@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-24T00:00:00Z",
+    "last_updated": "2026-05-24T12:00:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -48,6 +48,7 @@
     {
       "id": "dashboard-maintenance",
       "project_id": "personal-os",
+      "repo": "life-dashboard",
       "title": "Life Dashboard — maintenance",
       "status": "active-in-progress",
       "next_step": "No action needed — snooze mechanism live, EA running smoothly",
@@ -62,6 +63,7 @@
     {
       "id": "dashboard-build",
       "project_id": "personal-os",
+      "repo": "life-dashboard",
       "title": "Life Dashboard — build",
       "status": "active-in-progress",
       "last_completed": "Build next dopamine feature: completion loops",
@@ -224,6 +226,7 @@
     {
       "id": "deadbox",
       "project_id": "homelab",
+      "repo": "deadbox",
       "title": "Dead & Phish Time Machine",
       "status": "active-deadline",
       "deadline": "2026-06-01",
@@ -240,6 +243,7 @@
     {
       "id": "spotify-playlist",
       "project_id": "homelab",
+      "repo": "daily-playlist",
       "title": "Spotify daily history playlist",
       "status": "ready",
       "next_step": "Run existing Claude Code handoff prompt to deploy script to pihole1 via cron",
