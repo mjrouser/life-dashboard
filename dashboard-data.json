@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-24T18:00:00Z",
+    "last_updated": "2026-05-27T00:00:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -275,17 +275,18 @@
       "id": "flexhd-outdoor-ap",
       "project_id": "homelab",
       "title": "FlexHD Outdoor AP Install",
-      "status": "Planning — measurements needed",
-      "next_step": "Measure exterior wall: fiber hole clearance, siding lip height/depth, AP mount height",
+      "status": "Planning — BOM complete, ready to shop",
+      "last_completed": "Measure exterior wall: fiber hole clearance, siding lip height/depth, AP mount height",
+      "next_step": "Check fiber hole clearance for Cat6 and confirm switch PoE port (802.3af)",
       "breadcrumb": "BOM v2 complete. DIY termination confirmed. Wall has two zones: stucco/masonry below ~4ft (Tapcons), aluminum siding above (stainless screws). Conduit needs offset fitting at siding lip. Est cost $80-110. Need to confirm switch PoE port availability.",
-      "notes": "BOM v2 complete. DIY termination confirmed. Wall has two zones: stucco/masonry below ~4ft (Tapcons), aluminum siding above (stainless screws). Conduit needs offset fitting at siding lip. Est cost $80-110. Need to confirm switch PoE port availability.",
+      "notes": "Interactive HTML BOM tracker saved at assets/flexhd-install-plan.html with shopping links, wall profile diagram, install steps, and decision points. Markdown version also in outputs. 5/7 decisions resolved. Two remaining: check fiber hole clearance for Cat6, confirm switch PoE port (802.3af). Measurements confirmed: 44.5in stucco zone, 1.5in siding offset, AP mount ~8.5-9ft above grade just above window trim. Estimated cost ~$85-120. Grounding plan: split bolt connector to existing ground wire with #10 solid copper from ETH-SP-G2.",
       "energy": "medium",
       "open_question": null,
       "blocker_type": "self",
       "agent_can_do": null,
       "cooldown_until": null,
       "reference_chat": "https://claude.ai/chat/17a2ad9c-02a8-4b31-a810-170f3118513c",
-      "updated": "2026-05-19"
+      "updated": "2026-05-27"
     },
     {
       "id": "pihole-dashboard",
@@ -315,6 +316,7 @@
     }
   ],
   "activity_log": [
+    { "date": "2026-05-27", "types": ["active"] },
     { "date": "2026-05-24", "types": ["active"] },
     { "date": "2026-05-23", "types": ["active"] },
     { "date": "2026-05-20", "types": ["active", "shipped"] },
