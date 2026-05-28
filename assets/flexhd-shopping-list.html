@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlexHD Install — Shopping List</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface-2: #232733;
+    --surface-3: #2c3040;
+    --border: #353a4a;
+    --text: #e4e6ed;
+    --text-muted: #8b90a0;
+    --text-dim: #5f6373;
+    --accent: #4a9eff;
+    --accent-dim: #1a3a5c;
+    --green: #34d399;
+    --green-dim: #0d3a2a;
+    --orange: #fb923c;
+    --orange-dim: #3d2a10;
+    --red: #f87171;
+    --yellow: #fbbf24;
+    --yellow-dim: #3d3010;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .header {
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 28px;
+  }
+  .header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 6px; }
+  .header .subtitle { color: var(--text-muted); font-size: 0.9rem; }
+
+  /* Progress bar */
+  .progress-bar-wrap {
+    margin: 20px 0 28px;
+    background: var(--surface-2);
+    border-radius: 6px;
+    height: 8px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--green);
+    border-radius: 6px;
+    transition: width 0.3s ease;
+  }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .progress-label .count { color: var(--green); font-weight: 600; }
+
+  /* Section */
+  .section {
+    margin-bottom: 32px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .section-header h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .section-header .badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .badge-online { background: var(--accent-dim); color: var(--accent); }
+  .badge-store { background: var(--yellow-dim); color: var(--yellow); }
+  .badge-subtotal { background: var(--surface-3); color: var(--text-muted); margin-left: auto; }
+
+  /* Group divider inside a section */
+  .group-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    margin: 18px 0 8px;
+    padding-left: 44px;
+  }
+
+  /* Item row */
+  .item {
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    gap: 0 12px;
+    align-items: start;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    margin-bottom: 6px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    user-select: none;
+  }
+  .item:hover { background: var(--surface-2); }
+  .item.checked {
+    background: var(--green-dim);
+    border-color: #1a5c3a;
+  }
+  .item.checked .item-name { text-decoration: line-through; color: var(--text-muted); }
+  .item.checked .item-note { color: var(--text-dim); }
+
+  /* Checkbox */
+  .item-check {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 2px solid var(--border);
+    background: var(--surface-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .item.checked .item-check {
+    background: var(--green);
+    border-color: var(--green);
+  }
+  .item-check svg { display: none; }
+  .item.checked .item-check svg { display: block; }
+
+  /* Item body */
+  .item-body { min-width: 0; }
+  .item-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .item-name a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 400;
+    margin-left: 6px;
+    opacity: 0.8;
+  }
+  .item-name a:hover { opacity: 1; text-decoration: underline; }
+  .item-note {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+  .item-spec {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    background: var(--surface-3);
+    padding: 1px 6px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-top: 4px;
+  }
+
+  /* Price */
+  .item-price {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text);
+    white-space: nowrap;
+    text-align: right;
+    margin-top: 2px;
+  }
+  .item-price.range { color: var(--text-muted); font-size: 0.82rem; }
+  .item.checked .item-price { color: var(--text-dim); }
+
+  /* Total card */
+  .total-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-top: 32px;
+  }
+  .total-card h2 { font-size: 0.9rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px; }
+  .total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .total-row:last-child { border-bottom: none; }
+  .total-row.grand {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 4px;
+    padding-top: 10px;
+  }
+  .total-row .label { color: var(--text-muted); }
+  .total-row .amount {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+  }
+  .total-row.grand .amount { color: var(--green); }
+
+  /* PoE audit box */
+  .audit-box {
+    background: var(--green-dim);
+    border: 1px solid #1a5c3a;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+    font-size: 0.88rem;
+  }
+  .audit-box .audit-title {
+    font-weight: 600;
+    color: var(--green);
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+  }
+  .audit-box .audit-detail { color: var(--text-muted); line-height: 1.6; }
+  .audit-box .audit-detail strong { color: var(--text); }
+
+  /* Reset link */
+  .footer {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+  }
+  .footer a { color: var(--text-dim); cursor: pointer; }
+  .footer a:hover { color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>FlexHD Outdoor AP — Shopping List</h1>
+  <div class="subtitle">Check items off as you order/buy them. State is saved in your browser.</div>
+</div>
+
+<!-- PoE Audit Result -->
+<div class="audit-box">
+  <div class="audit-title">✓ Switch PoE Audit — Decision Point Resolved</div>
+  <div class="audit-detail">
+    Switch: <strong>US 16 PoE 150W</strong> at <strong>192.168.1.33</strong> — all 16 ports support <strong>802.3af and 802.3at</strong>.
+    The FlexHD needs 802.3af (max 13W). Multiple ports are visible as disconnected in the UniFi UI.
+    <strong>PoE is confirmed available.</strong> SSH in to verify live budget headroom before install day
+    (run <code style="font-family:monospace;background:rgba(255,255,255,0.07);padding:1px 5px;border-radius:3px;">mca-cli-op show poe</code>).
+  </div>
+</div>
+
+<!-- Progress -->
+<div class="progress-label">
+  <span>Items acquired</span>
+  <span class="count" id="progress-text">0 / 0</span>
+</div>
+<div class="progress-bar-wrap">
+  <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
+</div>
+
+<!-- SECTION: Order Online -->
+<div class="section">
+  <div class="section-header">
+    <h2>Order Online First</h2>
+    <span class="badge badge-online">Do today</span>
+    <span class="badge badge-subtotal" id="subtotal-online">~$30–38</span>
+  </div>
+
+  <div class="item" data-id="eth-sp-g2" onclick="toggle(this)">
+    <div class="item-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="#0f1117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="item-body">
+      <div class="item-name">Ubiquiti ETH-SP-G2 Ethernet Surge Protector
+        <a href="https://store.ui.com/us/en/products/ethernet-surge-protector" target="_blank" onclick="event.stopPropagation()">→ Ubiquiti Store</a>
+      </div>
+      <div class="item-note">Install inline on interior side, near wall penetration. Ground lug to existing ground wire.</div>
+      <div class="item-spec">Confirmed $12.50 from ui.com</div>
+    </div>
+    <div class="item-price">$12.50</div>
+  </div>
+
+  <div class="item" data-id="cat6-outdoor" onclick="toggle(this)">
+    <div class="item-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="#0f1117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="item-body">
+      <div class="item-name">Cat6 Outdoor CMX Bulk Cable — 50ft
+        <a href="https://www.amazon.com/Maximm-Cat6-Outdoor-Cable-50ft/dp/B0745ZQ1KR" target="_blank" onclick="event.stopPropagation()">→ Amazon (Maximm)</a>
+        <a href="https://www.amazon.com/Outdoor-Waterproof-Ethernet-Direct-Shielded/dp/B06XSL4BX1" target="_blank" onclick="event.stopPropagation()">→ Alt: Ultra Spec</a>
+      </div>
+      <div class="item-note">You need ~25ft. 50ft is the smallest practical spool — leaves margin for termination loops and routing. Pull unterminated, crimp both ends after pull.</div>
+      <div class="item-spec">23AWG solid bare copper · CMX rated · UV resistant</div>
+    </div>
+    <div class="item-price range">~$18–25</div>
+  </div>
+</div>
+
+<!-- SECTION: Home Depot -->
+<div class="section">
+  <div class="section-header">
+    <h2>Home Depot — One Trip</h2>
+    <span class="badge badge-store">After parts arrive</span>
+    <span class="badge badge-subtotal" id="subtotal-hd">~$85–100</span>
+  </div>
+
+  <div class="group-label">Electrical / Conduit Aisle</div>
+
+  <div class="item" data-id="conduit-10ft" onclick="toggle(this)">
+    <div class="item-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="#0f1117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="item-body">
+      <div class="item-name">3/4" Schedule 40 PVC Conduit, 10ft stick
+        <a href="https://www.homedepot.com/p/3-4-in-x-10-ft-PVC-Schedule-40-Conduit-67454/100129197" target="_blank" onclick="event.stopPropagation()">→ Home Depot</a>
+      </div>
+      <div class="item-note">Cut to length for your vertical run. One stick is enough.</div>
+      <div class="item-spec">JM Eagle or Cantex</div>
+    </div>
+    <div class="item-price range">~$5</div>
+  </div>
+
+  <div class="item" data-id="lb-body" onclick="toggle(this)">
+    <div class="item-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="#0f1117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="item-body">
+      <div class="item-name">3/4" PVC Type-LB Conduit Body
+        <a href="https://www.homedepot.com/p/Carlon-3-4-in-Sch-40-and-80-Electrical-PVC-Type-LB-Conduit-Body-E986E-12-HD-E986E-12-HD/100404084" target="_blank" onclick="event.stopPropagation()">→ Home Depot (Carlon E986E)</a>
+      </div>
+      <div class="item-note">Goes at the bottom of the exterior run where cable exits the wall and turns upward. Keeps water out of the bend.</div>
+      <div class="item-spec">Sched 40 &amp; 80 compatible</div>
+    </div>
+    <div class="item-price range">~$7</div>
+  </div>
+
+  <div class="item" data-id="conduit-straps" onclick="toggle(this)">
+    <div class="item-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="#0f1117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="item-body">
+      <div class="item-name">3/4" PVC Conduit Straps (2-hole) — qty 4</div>
+      <div class="item-note">Secure conduit to wall every ~3ft. Buy a pack of 4–6. Mix of Tapcon attachment (stucco zone) and stainless screw attachment (siding zone).</div>
+    </div>
+    <div class="item-price range">~$3</div>
+  </div>
+
+  <div class="item" data-id="offset-fittings" onclick="toggle(this)">
+    <div class="item-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="#0f1117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="item-body">
+      <div class="item-name">3/4" PVC Offset Fitting — qty 2
+        <a href="https://www.homedepot.com/p/Cantex-3-4-in-Conduit-Offset-R5133189/202043412" target="_blank" onclick="event.stopPropagation()">→ Home Depot (Cantex)</a>
+        <a href="https://www.homedepot.com/p/Carlon-3-4-in-Electrical-PVC-Offset-Conduit-Connector-E994E-6-HD-E994E-6-HD/100404107" target="_blank" onclick="event.stopPropagation()">→ Alt: Carlon</a>
+      </div>
+      <div class="item-note">Steps conduit out 1.5" at the stucco-to-siding transition. Buy 2 — one pair is all you need, but they're cheap and sometimes mismatched on shelf.</div>
+      <div class="item-spec">Confirmed 1.5" offset measurement</div>
+    </div>
+    <div class="item-price range">~$4–8</div>
+  </div>
+
+  <div class="item" data-id="weatherproof-box" onclick="toggle(this)">
+    <div class="item-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="#0f1117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="item-body">
+      <div class="item-name">3/4" Weatherproof Single-Gang Box
+        <a href="https://www.homedepot.com/b/Electrical-Electrical-Boxes-Conduit-Fittings-Weatherproof-Boxes/3-4/N-5yc1vZca29Z1z1xw7q" target="_blank" onclick="event.stopPropagation()">→ Home Depot (browse 3/4" options)</a>
+      </div>
+      <div class="item-note">Sits at the top of the conduit run near the AP mount. Cable exits here with a drip loop before connecting to the AP.</div>
+      <div class="item-spec">Southwire WDB750PG or equivalent</div>
+    </div>
+    <div class="item-price range">~$11</div>
+  </div>
+
+  <div class="item" data-id="pvc-cement" onclick="toggle(this)">
+    <div class="item-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="#0f1117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="item-body">
+      <div class="item-name">PVC Conduit Cement (small can)</div>
+      <div class="item-note">Bonds all PVC joints — LB body, offset fittings, weatherproof box. Small can is plenty.</div>
+    </div>
+    <div class="item-price range">~$5</div>
+  </div>
+
+  <div class="item" data-id="duct-seal" onclick="toggle(this)">
+    <div class="item-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="#0f1117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="item-body">
+      <div class="item-name">Duct Seal Putty 1lb
+        <a href="https://www.homedepot.com/p/Gardner-Bender-1-lb-Plug-Duct-Seal-Compound-DS-110/100212441" target="_blank" onclick="event.stopPropagation()">→ Home Depot (Gardner Bender DS-110)</a>
+      </div>
+      <div class="item-note">Pack the wall penetration on both sides — interior and exterior. Critical for air sealing and pest entry.</div>
+      <div class="item-spec">Confirmed $5.34</div>
+    </div>
+    <div class="item-price">$5.34</div>
+  </div>
+
+  <div class="item" data-id="silicone-caulk" onclick="toggle(this)">
+    <div class="item-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="#0f1117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="item-body">
+      <div class="item-name">Silicone Caulk — Exterior Grade</div>
+      <div class="item-note">Seal around conduit straps and wall attachments. Clear or white. Check the garage first — you may already have this.</div>
+    </div>
+    <div class="item-price range">~$6</div>
+  </div>
+
+  <div class="group-label">Fasteners Aisle</div>
+
+  <div class="item" data-id="tapcons" onclick="toggle(this)">
+    <div class="item-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="#0f1117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="item-body">
+      <div class="item-name">Tapcon Concrete Screws — 25-pack
+        <a href="https://www.homedepot.com/p/Tapcon-3-16-in-x-1-3-4-in-Hex-Washer-Head-Concrete-Anchors-25-Piece-24205/100111768" target="_blank" onclick="event.stopPropagation()">→ Home Depot (25-pack hex head)</a>
+      </div>
+      <div class="item-note">For stucco/masonry zone (lower 44.5"). Hex-washer-head is easiest with a driver. Includes the masonry drill bit.</div>
+      <div class="item-spec">3/16" × 1-3/4" · hex-washer-head</div>
+    </div>
+    <div class="item-price">$10.88</div>
+  </div>
+
+  <div class="item" data-id="ss-screws" onclick="toggle(this)">
+    <div class="item-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="#0f1117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="item-body">
+      <div class="item-name">Stainless Steel Screws #10 × 2" — qty 8</div>
+      <div class="item-note">For siding zone — conduit straps and AP bracket into framing above siding lip. Pre-drill through aluminum to avoid dimpling. Stainless to prevent rust staining on aluminum siding.</div>
+      <div class="item-spec">#10 × 2" or 2-1/2" · pan or flat head</div>
+    </div>
+    <div class="item-price range">~$6</div>
+  </div>
+
+  <div class="item" data-id="neoprene-washers" onclick="toggle(this)">
+    <div class="item-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="#0f1117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="item-body">
+      <div class="item-name">Neoprene Washers — qty 6</div>
+      <div class="item-note">Behind conduit straps and AP bracket where they contact aluminum siding. Cushions the siding and seals the screw holes against water.</div>
+      <div class="item-spec">5/16" or 3/8" ID to fit #10 screw</div>
+    </div>
+    <div class="item-price range">~$4</div>
+  </div>
+
+  <div class="item" data-id="j-hooks" onclick="toggle(this)">
+    <div class="item-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="#0f1117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="item-body">
+      <div class="item-name">Cable Clips / J-Hooks — qty 6</div>
+      <div class="item-note">Route the indoor Cat6 patch cable neatly along the basement wall from the switch to the wall penetration.</div>
+    </div>
+    <div class="item-price range">~$4</div>
+  </div>
+
+  <div class="group-label">Electrical Wiring Aisle</div>
+
+  <div class="item" data-id="copper-wire" onclick="toggle(this)">
+    <div class="item-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="#0f1117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="item-body">
+      <div class="item-name">#10 Solid Copper Wire — ~8ft</div>
+      <div class="item-note">Sold by the foot from a spool at HD. Ground run from the ETH-SP-G2 ground lug to the existing ground wire.</div>
+      <div class="item-spec">#10 AWG solid bare copper</div>
+    </div>
+    <div class="item-price range">~$3</div>
+  </div>
+
+  <div class="item" data-id="split-bolt" onclick="toggle(this)">
+    <div class="item-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="#0f1117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="item-body">
+      <div class="item-name">Copper Split Bolt Connector #10–#8 AWG — 2-pack
+        <a href="https://www.homedepot.com/p/Commercial-Electric-10-AWG-to-8-AWG-Copper-Split-Bolt-2-Pack-GOEC-15/310741770" target="_blank" onclick="event.stopPropagation()">→ Home Depot (Commercial Electric GOEC-15)</a>
+      </div>
+      <div class="item-note">Joins the #10 ground wire from ETH-SP-G2 to the existing ground conductor between panel and ground stake.</div>
+      <div class="item-spec">Confirmed $5.98 for 2-pack</div>
+    </div>
+    <div class="item-price">$5.98</div>
+  </div>
+
+  <div class="item" data-id="indoor-patch" onclick="toggle(this)">
+    <div class="item-check"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="#0f1117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="item-body">
+      <div class="item-name">Indoor Cat6 Patch Cable — 15ft</div>
+      <div class="item-note">Pre-made is fine. Runs from switch port to surge protector inside the basement. No crimping needed for this segment.</div>
+      <div class="item-spec">Any brand · pre-terminated · Cat6</div>
+    </div>
+    <div class="item-price range">~$7</div>
+  </div>
+</div>
+
+<!-- Cost Summary -->
+<div class="total-card">
+  <h2>Cost Summary</h2>
+  <div class="total-row">
+    <span class="label">Online order (ETH-SP-G2 + Cat6)</span>
+    <span class="amount">~$30–38</span>
+  </div>
+  <div class="total-row">
+    <span class="label">Home Depot trip</span>
+    <span class="amount">~$85–100</span>
+  </div>
+  <div class="total-row grand">
+    <span class="label">Total estimate</span>
+    <span class="amount">~$115–138</span>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <span>Progress saved in browser · Last updated May 2026</span>
+  <a onclick="resetAll()">Reset all</a>
+</div>
+
+<script>
+  const STORAGE_KEY = 'flexhd-shopping-v1';
+
+  function getState() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch { return {}; }
+  }
+
+  function saveState(state) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  function toggle(el) {
+    const id = el.dataset.id;
+    const state = getState();
+    state[id] = !state[id];
+    saveState(state);
+    applyState(state);
+  }
+
+  function applyState(state) {
+    const items = document.querySelectorAll('.item[data-id]');
+    let checked = 0;
+    items.forEach(item => {
+      const id = item.dataset.id;
+      if (state[id]) {
+        item.classList.add('checked');
+        checked++;
+      } else {
+        item.classList.remove('checked');
+      }
+    });
+    const total = items.length;
+    const pct = total > 0 ? Math.round((checked / total) * 100) : 0;
+    document.getElementById('progress-bar').style.width = pct + '%';
+    document.getElementById('progress-text').textContent = checked + ' / ' + total;
+  }
+
+  function resetAll() {
+    if (confirm('Reset all checkboxes?')) {
+      saveState({});
+      applyState({});
+    }
+  }
+
+  // Init
+  applyState(getState());
+</script>
+</body>
+</html>
