@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-27T00:00:00Z",
+    "last_updated": "2026-05-29T00:00:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -275,18 +275,18 @@
       "id": "flexhd-outdoor-ap",
       "project_id": "homelab",
       "title": "FlexHD Outdoor AP Install",
-      "status": "Planning — BOM complete, ready to shop",
-      "last_completed": "Measure exterior wall: fiber hole clearance, siding lip height/depth, AP mount height",
-      "next_step": "Check fiber hole clearance for Cat6 and confirm switch PoE port (802.3af)",
-      "breadcrumb": "BOM v2 complete. DIY termination confirmed. Wall has two zones: stucco/masonry below ~4ft (Tapcons), aluminum siding above (stainless screws). Conduit needs offset fitting at siding lip. Est cost $80-110. Need to confirm switch PoE port availability.",
-      "notes": "Interactive HTML BOM tracker saved at assets/flexhd-install-plan.html with shopping links, wall profile diagram, install steps, and decision points. Markdown version also in outputs. 5/7 decisions resolved. Two remaining: check fiber hole clearance for Cat6, confirm switch PoE port (802.3af). Measurements confirmed: 44.5in stucco zone, 1.5in siding offset, AP mount ~8.5-9ft above grade just above window trim. Estimated cost ~$85-120. Grounding plan: split bolt connector to existing ground wire with #10 solid copper from ETH-SP-G2.",
+      "status": "ready",
+      "last_completed": "Finalize shopping list — all decisions resolved, parts approach locked",
+      "next_step": "Order ETH-SP-G2 from ui.com and bulk Cat6 from J2R Cabling, then one Home Depot run",
+      "breadcrumb": "Shopping list finalized at assets/flexhd-shopping-list.html. All decisions resolved: drilling separate 3/8\" hole, switch PoE confirmed (US 16 PoE 150W, 802.3af on all ports). Conduit approach locked: rigid 3/4\" Sched 40, two 45° elbows for 1.5\" siding offset, weatherproof box at bottom (replaces LB body — smaller hole, easier seal), conduit seal/cable gland at top (no second box). Drip loop at AP. Est cost ~$113–136.",
+      "notes": "Interactive HTML shopping list at assets/flexhd-shopping-list.html. Markdown install plan at assets/flexhd-install-plan.md. SSH PoE budget check still pending (need username for 192.168.1.33) but not blocking — port availability visually confirmed from UniFi UI screenshots.",
       "energy": "medium",
       "open_question": null,
       "blocker_type": "self",
       "agent_can_do": null,
       "cooldown_until": null,
       "reference_chat": "https://claude.ai/chat/17a2ad9c-02a8-4b31-a810-170f3118513c",
-      "updated": "2026-05-27"
+      "updated": "2026-05-29"
     },
     {
       "id": "pihole-dashboard",
@@ -316,6 +316,7 @@
     }
   ],
   "activity_log": [
+    { "date": "2026-05-29", "types": ["active"] },
     { "date": "2026-05-27", "types": ["active"] },
     { "date": "2026-05-24", "types": ["active"] },
     { "date": "2026-05-23", "types": ["active"] },
