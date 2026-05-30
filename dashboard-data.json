@@ -224,6 +224,20 @@
       "updated": "2026-04-30"
     },
     {
+      "id": "personal-brand",
+      "project_id": "career",
+      "title": "Personal Brand & Positioning",
+      "status": "active-in-progress",
+      "next_step": "React to one question — does 'post-acquisition stabilizer' feel true as the brand noun, or does 'revenue-systems turnaround specialist' fit better? Pick the anchor.",
+      "breadcrumb": "Landed two-layer brand insight: WHAT (value creation/turnarounds) + HOW (calm/steady/trusted = the differentiator, backed by 7 yrs of feedback). Pulled 4 proof pillars. Reframed 'too generalist' worry — brand needs a situational NOUN anchor, not more personality. Leading candidate: 'post-acquisition stabilizer' on a revenue/CRM/E&O spike + AI-acceleration layer. M&A team move is a direct tailwind for this anchor.",
+      "energy": "medium",
+      "open_question": "Which situational anchor is true — 'post-acquisition stabilizer' vs 'revenue-systems turnaround specialist' — and how does the M&A move reshape it?",
+      "blocker_type": "self",
+      "agent_can_do": "Draft 3-4 sharpened one-line brand statements for each candidate anchor so Matthew can react instead of generate from scratch",
+      "cooldown_until": null,
+      "updated": "2026-05-30"
+    },
+    {
       "id": "deadbox",
       "project_id": "homelab",
       "repo": "deadbox",
@@ -316,7 +330,7 @@
     }
   ],
   "activity_log": [
-    { "date": "2026-05-30", "types": ["active"] },
+    { "date": "2026-05-30", "types": ["active", "new_idea"] },
     { "date": "2026-05-29", "types": ["active"] },
     { "date": "2026-05-27", "types": ["active"] },
     { "date": "2026-05-24", "types": ["active"] },
