@@ -81,14 +81,15 @@
       "project_id": "320-sycamore",
       "title": "Lawn care",
       "status": "ready",
-      "next_step": "Stay on fertilizer and watering schedule through summer",
-      "breadcrumb": "Aeration and top dressing done. Now in maintenance mode — fertilizer and watering.",
+      "last_completed": "Stay on fertilizer and watering schedule through summer",
+      "next_step": "Check front corner for nutsedge — apply Sedgehammer when 4–6 inches tall; rake bare spots with poly leaf rake and water consistently",
+      "breadcrumb": "Step 2 Weed & Feed applied 5/30. Top dressing complete but bare spots persisting at 5–6 weeks — rake and water plan in place. Nutsedge not yet visible post-mow, monitoring. Labor Day overseed will address bare spots.",
       "energy": "low",
       "open_question": null,
       "blocker_type": null,
       "agent_can_do": "Look up a seasonal lawn fertilizer and watering schedule for the Detroit area and summarize the next 4–6 week maintenance window",
       "cooldown_until": null,
-      "updated": "2026-05-12"
+      "updated": "2026-05-30"
     },
     {
       "id": "landscaping",
