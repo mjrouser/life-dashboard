@@ -92,6 +92,20 @@
       "updated": "2026-05-30"
     },
     {
+      "id": "gardening",
+      "project_id": "320-sycamore",
+      "title": "Gardening",
+      "status": "active-in-progress",
+      "next_step": "Replant front entry lavender planters — buy 2x Hidcote or Munstead lavender at English Gardens, potting mix, perlite, Osmocote, and optional pot feet at Home Depot",
+      "last_completed": "Developed full garden plan: bed layouts, plant selection, timing, and lavender replanting plan",
+      "breadcrumb": "Full garden plan developed. Sun beds: marigolds and zinnias planted (daycare sale), echinacea and bee balm established in quarter circle. Shade bed: dry shade paradigm, hostas and ferns as anchors. Front entry lavender confirmed dead — replanting plan ready with proper soil mix and winter garage storage going forward.",
+      "energy": "low",
+      "blocker_type": "self",
+      "agent_can_do": null,
+      "cooldown_until": null,
+      "updated": "2026-05-30"
+    },
+    {
       "id": "landscaping",
       "project_id": "320-sycamore",
       "title": "Landscaping",
