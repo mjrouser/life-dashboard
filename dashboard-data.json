@@ -200,14 +200,14 @@
       "status": "active",
       "current_focus": "M&A/EA team transfer approved — next step is scoping call with capability leader Chris",
       "next_step": "Schedule and prep for role-scoping call with Chris — draft framing note, structure conversation",
-      "breadcrumb": "Transfer approved by Chris and manager. Key risk to watch: is this a real scope expansion (EA breadth, strategic positioning) or a lateral rebrand? Scoping call will reveal this.",
+      "breadcrumb": "Transfer approved by Chris and manager but not yet official — scope details still being worked out, which is the window to influence scope-expansion vs. lateral-rebrand. Personal-brand anchor work now feeds this directly.",
       "energy": "medium",
       "open_question": "When ready — draft the framing note to Chris and prep the three-block conversation structure",
       "blocker_type": "external",
       "agent_can_do": "Draft a scheduling note to Chris with framing for the role-scoping call and three conversation blocks to cover",
       "cooldown_until": null,
       "last_session_date": "2026-05-11",
-      "updated": "2026-05-11"
+      "updated": "2026-05-30"
     },
     {
       "id": "henry-ford-app",
