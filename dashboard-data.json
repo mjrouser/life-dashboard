@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-30T00:00:00Z",
+    "last_updated": "2026-05-31T00:00:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -8,7 +8,8 @@
     { "id": "320-sycamore", "name": "320 Sycamore", "emoji": "🏠" },
     { "id": "personal-os", "name": "Personal OS", "emoji": "⚙" },
     { "id": "career", "name": "Career", "emoji": "💼" },
-    { "id": "family", "name": "Family", "emoji": "👨‍👩‍👧" }
+    { "id": "family", "name": "Family", "emoji": "👨‍👩‍👧" },
+    { "id": "household-admin", "name": "Household admin", "emoji": "📋" }
   ],
   "today": [
     { "chat_id": "henry-ford-app" },
@@ -318,6 +319,20 @@
       "updated": "2026-05-30"
     },
     {
+      "id": "cellular-switch",
+      "project_id": "household-admin",
+      "title": "Cellular Provider & Plan Switch",
+      "status": "active-in-progress",
+      "next_step": "Start Verizon eSIM free trial (My Verizon app); run through dead zones — house, commute, next rural MI trip — to confirm reception",
+      "breadcrumb": "Cost solved: join wife's Verizon account as 3rd line on Unlimited Welcome, ~$10/mo marginal to household (wife on Ultimate 1.0, MIL on Welcome; same towers fix reception). Network = Verizon (rural MI travel decides it). Pending: eSIM trial for coverage + 'Add a line' preview for exact number. Target: cash iPhone + line switch together in January. Baseline: AT&T prepaid Enhanced Plus, $45/mo.",
+      "energy": "low",
+      "open_question": "Household bill-split — cover just the ~$10 the line adds, or a full ~$40 share?",
+      "blocker_type": "self",
+      "agent_can_do": "Confirm exact 3-line cost by modeling an add-a-line on Welcome, and/or draft talking points for the household bill-split conversation",
+      "cooldown_until": null,
+      "updated": "2026-05-31"
+    },
+    {
       "id": "pihole-dashboard",
       "project_id": "homelab",
       "title": "Homelab status page",
@@ -345,6 +360,7 @@
     }
   ],
   "activity_log": [
+    { "date": "2026-05-31", "types": ["active", "new_idea"] },
     { "date": "2026-05-30", "types": ["active", "new_idea"] },
     { "date": "2026-05-29", "types": ["active"] },
     { "date": "2026-05-27", "types": ["active"] },
