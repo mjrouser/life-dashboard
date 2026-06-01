@@ -60,9 +60,24 @@ Based on `blocker_type`:
 
 **`"self"` with `agent_can_do` set** — Execute the `agent_can_do` task. Produce actual output: a list, draft, research summary, or step-by-step instructions — whatever the field specifies.
 
-**`"self"` with `agent_can_do` null** — Rewrite `next_step` as the single smallest action achievable in 10 minutes or less. Output the revised next_step string.
+**`"self"` with `agent_can_do` null AND `agent_can_prep` set** — Do NOT execute the prep yet. Surface it as an approval request. The notification should clearly describe what you would do, then invite Matthew to approve. Use this notification format:
 
-**`"fuzzy"`** — Break the concept into one concrete first action. If `agent_can_do` is set, execute it. If not, write a one-paragraph brief with a specific, doable first step.
+```
+[1-2 sentences: which thread, why it's stalled, how long it's been]
+
+I can do this prep work for you — approve to run it:
+→ [agent_can_prep value]
+
+To approve: open Claude Code in ~/repos/life-dashboard and say:
+run EA prep for [thread id]
+
+To snooze: open Claude Code in ~/repos/life-dashboard and say:
+snooze EA action for [thread id] until [date]
+```
+
+**`"self"` with both `agent_can_do` and `agent_can_prep` null** — Rewrite `next_step` as the single smallest action achievable in 10 minutes or less. Output the revised next_step string.
+
+**`"fuzzy"`** — Break the concept into one concrete first action. If `agent_can_do` is set, execute it. If `agent_can_prep` is set, surface it as an approval request (same format as above). If both are null, write a one-paragraph brief with a specific, doable first step.
 
 **`"deprioritized"`** — Write one sentence: the thread is still on radar and when it will resurface.
 
