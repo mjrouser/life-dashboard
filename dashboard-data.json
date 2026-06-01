@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-01T00:00:00Z",
+    "last_updated": "2026-06-01T12:00:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -54,15 +54,16 @@
       "repo": "life-dashboard",
       "title": "Life Dashboard — maintenance",
       "status": "active-in-progress",
-      "next_step": "No action needed — snooze mechanism live, EA running smoothly",
-      "breadcrumb": "EA scanner operational. Snooze command added to all notifications ('snooze EA action for [id] until [date]'). gh CLI installed at /usr/local/bin/gh and authenticated. Home Assistant snoozed until 2026-06-22. Issue #5 filed for 'parked' blocker type idea.",
+      "last_completed": "Redesign EA approval model — split agent_can_do/agent_can_prep, scanner now asks before acting",
+      "next_step": "Monitor EA notifications over the next few sessions — see if approval flows feel right in practice, and watch for threads where agent_can_do could be genuinely populated",
+      "breadcrumb": "EA scanner redesigned 6/1: agent_can_do (truly autonomous, litmus test required) split from agent_can_prep (prep work for review). Scanner never executes — surfaces and asks. Three approval commands: 'approve EA action for [id]', 'run EA prep for [id]', snooze. All existing entries migrated; everything currently has agent_can_do: null.",
       "energy": "low",
-      "open_question": null,
+      "open_question": "What's the first thread that could have a genuinely autonomous agent_can_do populated?",
       "blocker_type": null,
       "agent_can_do": null,
       "agent_can_prep": null,
       "cooldown_until": null,
-      "updated": "2026-05-23"
+      "updated": "2026-06-01"
     },
     {
       "id": "dashboard-build",
