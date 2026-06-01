@@ -59,7 +59,8 @@ End every session with a session wrap. This is a structured ritual, not optional
 - `next_step` — the single next action
 - `breadcrumb` — brief context so I (or Claude) can re-enter fast next time
 - `blocker_type` — why this thread is stalled: `"external"` (waiting on a person), `"self"` (need to find time), `"fuzzy"` (next step unclear), `"deprioritized"` (no deadline, keeps getting bumped), or `null` (not stalled)
-- `agent_can_do` — one sentence: what a scheduled agent could do on this thread right now, or `null`
+- `agent_can_do` — one sentence: something a scheduled agent can **complete end-to-end without any input from you** — runs a command, reads the result, updates the dashboard. Litmus test: "Would this require me to make a decision, take a physical action, or review content before anything happens?" If yes → `null`. Examples: check if a GitHub PR merged, poll a public API for a status update, run a git command and write the result back. Drafts, research summaries, and generated content do NOT qualify — those go in `agent_can_prep`.
+- `agent_can_prep` — one sentence: information-gathering or content-drafting an agent can do to make your next session faster. Not autonomous — you still decide what to do with the output. Examples: research contractors and draft a quote request, summarize pricing options, draft an email for your review. Or `null`.
 - `cooldown_until` — date (YYYY-MM-DD) before which the EA skips this thread, or `null`
 
 **Optional fields (Claude pre-fills for my approval):**
@@ -70,7 +71,7 @@ End every session with a session wrap. This is a structured ritual, not optional
 
 - Set `next_step`, `breadcrumb`, `energy`, `updated` (today's date YYYY-MM-DD)
 - When updating `next_step`, also set `last_completed` to the **previous** `next_step` value (the step just completed). Omit `last_completed` if `next_step` is unchanged.
-- Set `blocker_type`, `agent_can_do`, `cooldown_until` — these feed the EA scanner (see Required fields above)
+- Set `blocker_type`, `agent_can_do`, `agent_can_prep`, `cooldown_until` — these feed the EA scanner (see Required fields above)
 - Update `status` if it changed (e.g. active-in-progress → shipped)
 - Update `today[]` array — add/remove chat_id entries to reflect what's pickable next session (max 3)
 - Update `meta.last_updated` — ISO 8601 timestamp

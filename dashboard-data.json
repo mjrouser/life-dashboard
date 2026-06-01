@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-31T00:00:00Z",
+    "last_updated": "2026-06-01T00:00:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -28,7 +28,8 @@
       "energy": "medium",
       "open_question": null,
       "blocker_type": "self",
-      "agent_can_do": "Research 3-5 local kitchen backsplash contractors, find contact info, and draft a quote request message",
+      "agent_can_do": null,
+      "agent_can_prep": "Research 3-5 local kitchen backsplash contractors, find contact info, and draft a quote request message",
       "cooldown_until": null,
       "updated": "2026-04-28"
     },
@@ -42,7 +43,8 @@
       "energy": "high",
       "open_question": null,
       "blocker_type": "fuzzy",
-      "agent_can_do": "Research keepalived IPv6 virtual IP configuration for dual-stack home networks and draft a step-by-step config for pihole1/pihole2",
+      "agent_can_do": null,
+      "agent_can_prep": "Research keepalived IPv6 virtual IP configuration for dual-stack home networks and draft a step-by-step config for pihole1/pihole2",
       "cooldown_until": null,
       "updated": "2026-05-03"
     },
@@ -58,6 +60,7 @@
       "open_question": null,
       "blocker_type": null,
       "agent_can_do": null,
+      "agent_can_prep": null,
       "cooldown_until": null,
       "updated": "2026-05-23"
     },
@@ -74,6 +77,7 @@
       "open_question": null,
       "blocker_type": "fuzzy",
       "agent_can_do": null,
+      "agent_can_prep": null,
       "cooldown_until": null,
       "updated": "2026-05-20"
     },
@@ -88,7 +92,8 @@
       "energy": "low",
       "open_question": null,
       "blocker_type": null,
-      "agent_can_do": "Look up a seasonal lawn fertilizer and watering schedule for the Detroit area and summarize the next 4–6 week maintenance window",
+      "agent_can_do": null,
+      "agent_can_prep": "Look up a seasonal lawn fertilizer and watering schedule for the Detroit area and summarize the next 4–6 week maintenance window",
       "cooldown_until": null,
       "updated": "2026-05-30"
     },
@@ -103,6 +108,7 @@
       "energy": "low",
       "blocker_type": "self",
       "agent_can_do": null,
+      "agent_can_prep": null,
       "cooldown_until": null,
       "updated": "2026-05-30"
     },
@@ -117,6 +123,7 @@
       "open_question": null,
       "blocker_type": "deprioritized",
       "agent_can_do": null,
+      "agent_can_prep": null,
       "cooldown_until": "2026-06-15",
       "updated": "2026-04-10"
     },
@@ -130,7 +137,8 @@
       "energy": "medium",
       "open_question": null,
       "blocker_type": "self",
-      "agent_can_do": "Generate the exact Raspberry Pi OS Lite flash and first-boot sequence for the Pi allocated to Home Assistant",
+      "agent_can_do": null,
+      "agent_can_prep": "Generate the exact Raspberry Pi OS Lite flash and first-boot sequence for the Pi allocated to Home Assistant",
       "cooldown_until": "2026-06-22",
       "updated": "2026-04-22",
       "tiny_bet": true
@@ -148,6 +156,7 @@
       "open_question": null,
       "blocker_type": null,
       "agent_can_do": null,
+      "agent_can_prep": null,
       "cooldown_until": null,
       "updated": "2026-05-24"
     },
@@ -162,6 +171,7 @@
       "open_question": null,
       "blocker_type": "deprioritized",
       "agent_can_do": null,
+      "agent_can_prep": null,
       "cooldown_until": "2026-08-01",
       "updated": "2026-04-15",
       "tiny_bet": true
@@ -176,7 +186,8 @@
       "energy": "low",
       "open_question": null,
       "blocker_type": "self",
-      "agent_can_do": "Research DCL stateroom categories and pricing for October 2026 sailings and summarize options by category and price range",
+      "agent_can_do": null,
+      "agent_can_prep": "Research DCL stateroom categories and pricing for October 2026 sailings and summarize options by category and price range",
       "cooldown_until": null,
       "updated": "2026-04-29"
     },
@@ -191,6 +202,7 @@
       "open_question": null,
       "blocker_type": "deprioritized",
       "agent_can_do": null,
+      "agent_can_prep": null,
       "cooldown_until": "2026-12-01",
       "updated": "2026-04-15"
     },
@@ -205,6 +217,7 @@
       "open_question": null,
       "blocker_type": "deprioritized",
       "agent_can_do": null,
+      "agent_can_prep": null,
       "cooldown_until": "2026-08-01",
       "updated": "2026-04-12",
       "tiny_bet": true
@@ -222,6 +235,7 @@
       "open_question": "After the call — did Chris's framing of the role match the expansive EA advisory angle, or did it narrow toward Salesforce-specific M&A work?",
       "blocker_type": null,
       "agent_can_do": null,
+      "agent_can_prep": null,
       "cooldown_until": null,
       "last_session_date": "2026-05-11",
       "updated": "2026-06-01"
@@ -236,7 +250,8 @@
       "energy": "low",
       "open_question": null,
       "blocker_type": "self",
-      "agent_can_do": "Draft the hiring manager re-engagement email for the Henry Ford VP Enterprise Apps role using the prior referral and personal contact context from the breadcrumb",
+      "agent_can_do": null,
+      "agent_can_prep": "Draft the hiring manager re-engagement email for the Henry Ford VP Enterprise Apps role using the prior referral and personal contact context from the breadcrumb",
       "cooldown_until": null,
       "updated": "2026-04-30"
     },
@@ -250,7 +265,8 @@
       "energy": "medium",
       "open_question": "Which situational anchor is true — 'post-acquisition stabilizer' vs 'revenue-systems turnaround specialist' — and how does the M&A move reshape it?",
       "blocker_type": "self",
-      "agent_can_do": "Draft 3-4 sharpened one-line brand statements for each candidate anchor so Matthew can react instead of generate from scratch",
+      "agent_can_do": null,
+      "agent_can_prep": "Draft 3-4 sharpened one-line brand statements for each candidate anchor so Matthew can react instead of generate from scratch",
       "cooldown_until": null,
       "updated": "2026-05-30"
     },
@@ -267,7 +283,8 @@
       "energy": "medium",
       "open_question": "Before relying on stop/rewind (GPIO 14/15 = UART), confirm the serial LOGIN console is OFF: raspi-config -> Interface Options -> Serial Port -> login shell over serial = No, hardware enabled = Yes.",
       "blocker_type": "self",
-      "agent_can_do": "Generate a component-by-component wiring checklist from PINOUT.md (each button/encoder -> its BCM pin and breakout terminal) plus the raspi-config serial-console disable steps",
+      "agent_can_do": null,
+      "agent_can_prep": "Generate a component-by-component wiring checklist from PINOUT.md (each button/encoder -> its BCM pin and breakout terminal) plus the raspi-config serial-console disable steps",
       "cooldown_until": null,
       "updated": "2026-05-31"
     },
@@ -282,7 +299,8 @@
       "energy": "low",
       "open_question": null,
       "blocker_type": "self",
-      "agent_can_do": "Run the Claude Code handoff prompt to deploy the Spotify daily history playlist script to pihole1 via cron",
+      "agent_can_do": null,
+      "agent_can_prep": null,
       "cooldown_until": null,
       "updated": "2026-05-03",
       "tiny_bet": true
@@ -297,7 +315,8 @@
       "energy": "low",
       "open_question": null,
       "blocker_type": "fuzzy",
-      "agent_can_do": "Draft the TV use case spec: user flow, mood-matching mechanic, and MVP scope for the What Now? app",
+      "agent_can_do": null,
+      "agent_can_prep": "Draft the TV use case spec: user flow, mood-matching mechanic, and MVP scope for the What Now? app",
       "cooldown_until": null,
       "updated": "2026-05-03",
       "tiny_bet": true
@@ -315,6 +334,7 @@
       "open_question": null,
       "blocker_type": "self",
       "agent_can_do": null,
+      "agent_can_prep": null,
       "cooldown_until": null,
       "reference_chat": "https://claude.ai/chat/17a2ad9c-02a8-4b31-a810-170f3118513c",
       "updated": "2026-05-30"
@@ -329,7 +349,8 @@
       "energy": "low",
       "open_question": "Household bill-split — cover just the ~$10 the line adds, or a full ~$40 share?",
       "blocker_type": "self",
-      "agent_can_do": "Confirm exact 3-line cost by modeling an add-a-line on Welcome, and/or draft talking points for the household bill-split conversation",
+      "agent_can_do": null,
+      "agent_can_prep": "Confirm exact 3-line cost by modeling an add-a-line on Welcome, and/or draft talking points for the household bill-split conversation",
       "cooldown_until": null,
       "updated": "2026-05-31"
     },
@@ -361,6 +382,7 @@
     }
   ],
   "activity_log": [
+    { "date": "2026-06-01", "types": ["active"] },
     { "date": "2026-05-31", "types": ["active", "new_idea"] },
     { "date": "2026-05-30", "types": ["active", "new_idea"] },
     { "date": "2026-05-29", "types": ["active"] },
