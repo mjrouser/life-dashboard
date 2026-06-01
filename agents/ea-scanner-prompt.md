@@ -52,49 +52,25 @@ curl -s \
 
 ---
 
-## Step 5: Draft the action
+## Step 5: Build the notification body
 
-Based on `blocker_type`:
+The scanner never executes work autonomously. It always surfaces an action and asks for approval. Build the notification body based on `blocker_type`, then proceed to Step 6 to send it.
 
-**`"external"`** — Draft a follow-up or re-engagement message to the relevant person. Use `breadcrumb` and `next_step` for context. Format: `Subject: [line]` then `Body: [2-4 sentences, warm and specific]`.
+Keep the total body under 3500 characters.
 
-**`"self"` with `agent_can_do` set** — Execute the `agent_can_do` task. Produce actual output: a list, draft, research summary, or step-by-step instructions — whatever the field specifies.
+---
 
-**`"self"` with `agent_can_do` null AND `agent_can_prep` set** — Do NOT execute the prep yet. Surface it as an approval request. The notification should clearly describe what you would do, then invite Matthew to approve. Use this notification format:
+**`"external"`** — Draft a follow-up or re-engagement message. Use `breadcrumb` and `next_step` for context.
 
 ```
 [1-2 sentences: which thread, why it's stalled, how long it's been]
 
-I can do this prep work for you — approve to run it:
-→ [agent_can_prep value]
-
-To approve: open Claude Code in ~/repos/life-dashboard and say:
-run EA prep for [thread id]
-
-To snooze: open Claude Code in ~/repos/life-dashboard and say:
-snooze EA action for [thread id] until [date]
-```
-
-**`"self"` with both `agent_can_do` and `agent_can_prep` null** — Rewrite `next_step` as the single smallest action achievable in 10 minutes or less. Output the revised next_step string.
-
-**`"fuzzy"`** — Break the concept into one concrete first action. If `agent_can_do` is set, execute it. If `agent_can_prep` is set, surface it as an approval request (same format as above). If both are null, write a one-paragraph brief with a specific, doable first step.
-
-**`"deprioritized"`** — Write one sentence: the thread is still on radar and when it will resurface.
+I drafted this for you — approve to send it:
 
 ---
+Subject: [line]
 
-## Step 6: Send the ntfy.sh notification
-
-Build the notification body. Keep it under 3500 characters total.
-
-Format:
-```
-[1-2 sentences: which thread, why it's stalled, how long it's been]
-
-Action: [one sentence: what you drafted]
-
----
-[Full draft content — email body, step breakdown, research output, etc.]
+[2-4 sentences, warm and specific]
 ---
 
 To approve: open Claude Code in ~/repos/life-dashboard and say:
@@ -104,7 +80,64 @@ To snooze: open Claude Code in ~/repos/life-dashboard and say:
 snooze EA action for [thread id] until [date]
 ```
 
-Then run:
+---
+
+**`"self"` with `agent_can_do` set** — Do not execute. Surface as an approval request. Make clear that approving will run this end-to-end without further input.
+
+```
+[1-2 sentences: which thread, why it's stalled, how long it's been]
+
+I can handle this end-to-end — approve and it runs without needing you again:
+→ [agent_can_do value]
+
+To approve: open Claude Code in ~/repos/life-dashboard and say:
+approve EA action for [thread id]
+
+To snooze: open Claude Code in ~/repos/life-dashboard and say:
+snooze EA action for [thread id] until [date]
+```
+
+---
+
+**`"self"` with `agent_can_do` null AND `agent_can_prep` set** — Surface as an approval request. Make clear that approving produces output for review, not a completed action.
+
+```
+[1-2 sentences: which thread, why it's stalled, how long it's been]
+
+I can do this prep work for you — approve to run it (output will need your review):
+→ [agent_can_prep value]
+
+To approve: open Claude Code in ~/repos/life-dashboard and say:
+run EA prep for [thread id]
+
+To snooze: open Claude Code in ~/repos/life-dashboard and say:
+snooze EA action for [thread id] until [date]
+```
+
+---
+
+**`"self"` with both `agent_can_do` and `agent_can_prep` null** — Rewrite `next_step` as the single smallest action achievable in 10 minutes or less.
+
+```
+[1-2 sentences: which thread, why it's stalled, how long it's been]
+
+Smallest next action: [rewritten next_step]
+
+To snooze: open Claude Code in ~/repos/life-dashboard and say:
+snooze EA action for [thread id] until [date]
+```
+
+---
+
+**`"fuzzy"`** — If `agent_can_do` is set, use the `agent_can_do` approval format above. If `agent_can_prep` is set, use the `agent_can_prep` approval format above. If both are null, write a one-paragraph brief with a single concrete first step, then add the snooze footer.
+
+**`"deprioritized"`** — One sentence: the thread is still on radar and when it will resurface. Add the snooze footer.
+
+---
+
+## Step 6: Send the ntfy.sh notification
+
+Send the body built in Step 5:
 
 ```bash
 curl -s \
