@@ -297,7 +297,7 @@
       "agent_can_do": null,
       "agent_can_prep": "Draft the hiring manager re-engagement email for the Henry Ford VP Enterprise Apps role using the prior referral and personal contact context from the breadcrumb",
       "agent_needs": null,
-      "cooldown_until": null,
+      "cooldown_until": "2026-06-08",
       "updated": "2026-06-01",
       "last_completed": "EA action approved via ntfy"
     },
