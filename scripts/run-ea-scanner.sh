@@ -18,9 +18,20 @@ PROMPT=$(curl -sf "$PROMPT_URL") || {
   exit 1
 }
 
-# Inject date and weekday into the prompt
+# Load dispatcher config — token stays off GitHub, injected at runtime
+DISPATCHER_HOST="192.168.1.225"
+DISPATCHER_PORT="8765"
+DISPATCHER_TOKEN=""
+if [[ -f "/Users/mjr/scripts/action-dispatcher/.env" ]]; then
+  DISPATCHER_TOKEN=$(grep -m1 "^SECRET_TOKEN=" /Users/mjr/scripts/action-dispatcher/.env | cut -d= -f2)
+fi
+
+# Inject date, weekday, and dispatcher config into the prompt
 PROMPT="${PROMPT//TODAY/$TODAY}"
 PROMPT="${PROMPT//WEEKDAY/$WEEKDAY}"
+PROMPT="${PROMPT//DISPATCHER_HOST/$DISPATCHER_HOST}"
+PROMPT="${PROMPT//DISPATCHER_PORT/$DISPATCHER_PORT}"
+PROMPT="${PROMPT//DISPATCHER_TOKEN/$DISPATCHER_TOKEN}"
 
 echo "$(date): EA scanner starting — $TODAY ($WEEKDAY)"
 echo "$PROMPT" | /Users/mjr/.local/bin/claude --print --allowedTools "Bash,WebFetch"

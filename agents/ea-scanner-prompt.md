@@ -73,11 +73,7 @@ Subject: [line]
 [2-4 sentences, warm and specific]
 ---
 
-To approve: open Claude Code in ~/repos/life-dashboard and say:
-approve EA action for [thread id]
-
-To snooze: open Claude Code in ~/repos/life-dashboard and say:
-snooze EA action for [thread id] until [date]
+Use the buttons below to approve, snooze, or refine.
 ```
 
 ---
@@ -89,12 +85,9 @@ snooze EA action for [thread id] until [date]
 
 I can handle this end-to-end — approve and it runs without needing you again:
 → [agent_can_do value]
+[If agent_needs is set: Needs: [agent_needs value]]
 
-To approve: open Claude Code in ~/repos/life-dashboard and say:
-approve EA action for [thread id]
-
-To snooze: open Claude Code in ~/repos/life-dashboard and say:
-snooze EA action for [thread id] until [date]
+Use the buttons below to approve, snooze, or refine.
 ```
 
 ---
@@ -107,11 +100,7 @@ snooze EA action for [thread id] until [date]
 I can do this prep work for you — approve to run it (output will need your review):
 → [agent_can_prep value]
 
-To approve: open Claude Code in ~/repos/life-dashboard and say:
-run EA prep for [thread id]
-
-To snooze: open Claude Code in ~/repos/life-dashboard and say:
-snooze EA action for [thread id] until [date]
+Use the buttons below to approve, snooze, or refine.
 ```
 
 ---
@@ -123,8 +112,7 @@ snooze EA action for [thread id] until [date]
 
 Smallest next action: [rewritten next_step]
 
-To snooze: open Claude Code in ~/repos/life-dashboard and say:
-snooze EA action for [thread id] until [date]
+Use the Snooze button below, or open Claude Code in ~/repos/life-dashboard to snooze.
 ```
 
 ---
@@ -137,14 +125,14 @@ snooze EA action for [thread id] until [date]
 
 ## Step 6: Send the ntfy.sh notification
 
-Send the body built in Step 5:
+Send the body built in Step 5. Use the exact curl below — `DISPATCHER_HOST`, `DISPATCHER_PORT`, and `DISPATCHER_TOKEN` are injected by the scanner wrapper at runtime.
 
 ```bash
 curl -s \
   -H "Title: EA — [thread title]" \
   -H "Priority: default" \
   -H "Tags: robot" \
-  -H "Actions: view, Open Dashboard, https://mjrouser.github.io/life-dashboard" \
+  -H "Actions: view, Open Dashboard, https://mjrouser.github.io/life-dashboard; http, Approve, http://DISPATCHER_HOST:DISPATCHER_PORT/action, method=POST, headers.Content-Type=application/json, headers.Authorization=Bearer DISPATCHER_TOKEN, body={\"action\":\"approve\",\"id\":\"[thread id]\"}; http, Snooze, http://DISPATCHER_HOST:DISPATCHER_PORT/action, method=POST, headers.Content-Type=application/json, headers.Authorization=Bearer DISPATCHER_TOKEN, body={\"action\":\"snooze\",\"id\":\"[thread id]\"}; http, Refine, http://DISPATCHER_HOST:DISPATCHER_PORT/action, method=POST, headers.Content-Type=application/json, headers.Authorization=Bearer DISPATCHER_TOKEN, body={\"action\":\"refine\",\"id\":\"[thread id]\"}" \
   -d "[notification body]" \
   "https://ntfy.sh/life-os"
 ```
