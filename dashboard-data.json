@@ -59,8 +59,8 @@
       "agent_can_do": null,
       "agent_can_prep": "Research 3-5 local kitchen backsplash contractors, find contact info, and draft a quote request message",
       "agent_needs": null,
-      "cooldown_until": null,
-      "updated": "2026-04-28"
+      "cooldown_until": "2026-06-08",
+      "updated": "2026-06-01"
     },
     {
       "id": "pihole-ipv6",
