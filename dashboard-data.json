@@ -4,16 +4,44 @@
     "version": "1.1"
   },
   "projects": [
-    { "id": "homelab", "name": "Homelab", "emoji": "🖥" },
-    { "id": "320-sycamore", "name": "320 Sycamore", "emoji": "🏠" },
-    { "id": "personal-os", "name": "Personal OS", "emoji": "⚙" },
-    { "id": "career", "name": "Career", "emoji": "💼" },
-    { "id": "family", "name": "Family", "emoji": "👨‍👩‍👧" },
-    { "id": "household-admin", "name": "Household admin", "emoji": "📋" }
+    {
+      "id": "homelab",
+      "name": "Homelab",
+      "emoji": "\ud83d\udda5"
+    },
+    {
+      "id": "320-sycamore",
+      "name": "320 Sycamore",
+      "emoji": "\ud83c\udfe0"
+    },
+    {
+      "id": "personal-os",
+      "name": "Personal OS",
+      "emoji": "\u2699"
+    },
+    {
+      "id": "career",
+      "name": "Career",
+      "emoji": "\ud83d\udcbc"
+    },
+    {
+      "id": "family",
+      "name": "Family",
+      "emoji": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67"
+    },
+    {
+      "id": "household-admin",
+      "name": "Household admin",
+      "emoji": "\ud83d\udccb"
+    }
   ],
   "today": [
-    { "chat_id": "henry-ford-app" },
-    { "chat_id": "dashboard-build" }
+    {
+      "chat_id": "henry-ford-app"
+    },
+    {
+      "chat_id": "dashboard-build"
+    }
   ],
   "chats": [
     {
@@ -40,7 +68,7 @@
       "title": "PiHole",
       "status": "active-in-progress",
       "next_step": "Configure IPv6 virtual IP on keepalived",
-      "breadcrumb": "Full status audit done 5/3. IPv4 failover, pause tool, and redundancy all shipped. IPv6 VIP is the only remaining item — deferred due to ISP prefix complexity.",
+      "breadcrumb": "Full status audit done 5/3. IPv4 failover, pause tool, and redundancy all shipped. IPv6 VIP is the only remaining item \u2014 deferred due to ISP prefix complexity.",
       "energy": "high",
       "open_question": null,
       "blocker_type": "fuzzy",
@@ -54,11 +82,11 @@
       "id": "dashboard-maintenance",
       "project_id": "personal-os",
       "repo": "life-dashboard",
-      "title": "Life Dashboard — maintenance",
+      "title": "Life Dashboard \u2014 maintenance",
       "status": "active-in-progress",
-      "last_completed": "Redesign EA approval model — split agent_can_do/agent_can_prep, scanner now asks before acting",
-      "next_step": "Monitor EA notifications over the next few sessions — see if approval flows feel right in practice, and watch for threads where agent_can_do could be genuinely populated",
-      "breadcrumb": "EA scanner redesigned 6/1: agent_can_do (truly autonomous, litmus test required) split from agent_can_prep (prep work for review). Scanner never executes — surfaces and asks. Three approval commands: 'approve EA action for [id]', 'run EA prep for [id]', snooze. All existing entries migrated; everything currently has agent_can_do: null.",
+      "last_completed": "Redesign EA approval model \u2014 split agent_can_do/agent_can_prep, scanner now asks before acting",
+      "next_step": "Monitor EA notifications over the next few sessions \u2014 see if approval flows feel right in practice, and watch for threads where agent_can_do could be genuinely populated",
+      "breadcrumb": "EA scanner redesigned 6/1: agent_can_do (truly autonomous, litmus test required) split from agent_can_prep (prep work for review). Scanner never executes \u2014 surfaces and asks. Three approval commands: 'approve EA action for [id]', 'run EA prep for [id]', snooze. All existing entries migrated; everything currently has agent_can_do: null.",
       "energy": "low",
       "open_question": "What's the first thread that could have a genuinely autonomous agent_can_do populated?",
       "blocker_type": null,
@@ -72,11 +100,11 @@
       "id": "dashboard-build",
       "project_id": "personal-os",
       "repo": "life-dashboard",
-      "title": "Life Dashboard — build",
+      "title": "Life Dashboard \u2014 build",
       "status": "active-in-progress",
       "last_completed": "Build next dopamine feature: completion loops",
-      "next_step": "Brainstorm Phase B — what to build next on the dashboard (new features, polish, or something else)",
-      "breadcrumb": "Eight dopamine features shipped: shipped sidebar, Pick Up Here, activity heatmap, return warmth, progress visibility, Win of the Day, Tiny Bets, and Completion Loops. Dopamine feature set complete — deciding what Phase B looks like.",
+      "next_step": "Brainstorm Phase B \u2014 what to build next on the dashboard (new features, polish, or something else)",
+      "breadcrumb": "Eight dopamine features shipped: shipped sidebar, Pick Up Here, activity heatmap, return warmth, progress visibility, Win of the Day, Tiny Bets, and Completion Loops. Dopamine feature set complete \u2014 deciding what Phase B looks like.",
       "energy": "low",
       "open_question": null,
       "blocker_type": "fuzzy",
@@ -92,13 +120,13 @@
       "title": "Lawn care",
       "status": "ready",
       "last_completed": "Stay on fertilizer and watering schedule through summer",
-      "next_step": "Check front corner for nutsedge — apply Sedgehammer when 4–6 inches tall; rake bare spots with poly leaf rake and water consistently",
-      "breadcrumb": "Step 2 Weed & Feed applied 5/30. Top dressing complete but bare spots persisting at 5–6 weeks — rake and water plan in place. Nutsedge not yet visible post-mow, monitoring. Labor Day overseed will address bare spots.",
+      "next_step": "Check front corner for nutsedge \u2014 apply Sedgehammer when 4\u20136 inches tall; rake bare spots with poly leaf rake and water consistently",
+      "breadcrumb": "Step 2 Weed & Feed applied 5/30. Top dressing complete but bare spots persisting at 5\u20136 weeks \u2014 rake and water plan in place. Nutsedge not yet visible post-mow, monitoring. Labor Day overseed will address bare spots.",
       "energy": "low",
       "open_question": null,
       "blocker_type": null,
       "agent_can_do": null,
-      "agent_can_prep": "Look up a seasonal lawn fertilizer and watering schedule for the Detroit area and summarize the next 4–6 week maintenance window",
+      "agent_can_prep": "Look up a seasonal lawn fertilizer and watering schedule for the Detroit area and summarize the next 4\u20136 week maintenance window",
       "agent_needs": null,
       "cooldown_until": null,
       "updated": "2026-05-30"
@@ -108,9 +136,9 @@
       "project_id": "320-sycamore",
       "title": "Gardening",
       "status": "active-in-progress",
-      "next_step": "Replant front entry lavender planters — buy 2x Hidcote or Munstead lavender at English Gardens, potting mix, perlite, Osmocote, and optional pot feet at Home Depot",
+      "next_step": "Replant front entry lavender planters \u2014 buy 2x Hidcote or Munstead lavender at English Gardens, potting mix, perlite, Osmocote, and optional pot feet at Home Depot",
       "last_completed": "Developed full garden plan: bed layouts, plant selection, timing, and lavender replanting plan",
-      "breadcrumb": "Full garden plan developed. Sun beds: marigolds and zinnias planted (daycare sale), echinacea and bee balm established in quarter circle. Shade bed: dry shade paradigm, hostas and ferns as anchors. Front entry lavender confirmed dead — replanting plan ready with proper soil mix and winter garage storage going forward.",
+      "breadcrumb": "Full garden plan developed. Sun beds: marigolds and zinnias planted (daycare sale), echinacea and bee balm established in quarter circle. Shade bed: dry shade paradigm, hostas and ferns as anchors. Front entry lavender confirmed dead \u2014 replanting plan ready with proper soil mix and winter garage storage going forward.",
       "energy": "low",
       "blocker_type": "self",
       "agent_can_do": null,
@@ -132,8 +160,8 @@
       "agent_can_do": null,
       "agent_can_prep": null,
       "agent_needs": null,
-      "cooldown_until": "2026-06-15",
-      "updated": "2026-04-10"
+      "cooldown_until": "2026-08-01",
+      "updated": "2026-06-01"
     },
     {
       "id": "home-assistant",
@@ -155,12 +183,12 @@
     {
       "id": "claudecode-workflow",
       "project_id": "personal-os",
-      "title": "Claude Code workflow — GitHub Issues",
+      "title": "Claude Code workflow \u2014 GitHub Issues",
       "status": "active-in-progress",
-      "current_focus": "gh CLI installed and authenticated — start using gh issue list in sessions",
+      "current_focus": "gh CLI installed and authenticated \u2014 start using gh issue list in sessions",
       "last_completed": "Run the /start command in real sessions and refine the jq filter if needed",
       "next_step": "Use /start habitually; add repo field to new chats as they're created",
-      "breadcrumb": "/start fully working. repo field added to 4 chats (dashboard-build, dashboard-maintenance, deadbox, spotify-playlist). Shell logic lives in ~/.claude/scripts/start-context.sh — moved there to avoid static analyzer rejection of subshell syntax in the command file. Verified output correct from life-dashboard repo.",
+      "breadcrumb": "/start fully working. repo field added to 4 chats (dashboard-build, dashboard-maintenance, deadbox, spotify-playlist). Shell logic lives in ~/.claude/scripts/start-context.sh \u2014 moved there to avoid static analyzer rejection of subshell syntax in the command file. Verified output correct from life-dashboard repo.",
       "energy": "low",
       "open_question": null,
       "blocker_type": null,
@@ -176,7 +204,7 @@
       "title": "Discord control surface",
       "status": "queued",
       "next_step": "Set up private Discord server with first bot",
-      "breadcrumb": "Dashboard v1 shipped — unblocked",
+      "breadcrumb": "Dashboard v1 shipped \u2014 unblocked",
       "energy": "high",
       "open_question": null,
       "blocker_type": "deprioritized",
@@ -190,7 +218,7 @@
     {
       "id": "disney-cruise",
       "project_id": "family",
-      "title": "Disney cruise — Oct 2026",
+      "title": "Disney cruise \u2014 Oct 2026",
       "status": "ready",
       "next_step": "Compare cabin categories and pricing",
       "breadcrumb": "Trip identified, no booking research yet",
@@ -241,12 +269,12 @@
       "project_id": "career",
       "title": "PE Career Transition",
       "status": "active",
-      "current_focus": "Follow-up scoping call with Chris tomorrow — guide prepped, process cleared",
-      "last_completed": "Schedule and prep for role-scoping call with Chris — draft framing note, structure conversation",
+      "current_focus": "Follow-up scoping call with Chris tomorrow \u2014 guide prepped, process cleared",
+      "last_completed": "Schedule and prep for role-scoping call with Chris \u2014 draft framing note, structure conversation",
       "next_step": "Run the follow-up call with Chris using the consolidated guide, then debrief outcomes",
-      "breadcrumb": "Call guide built and tightened to 30 min. Process hurdles cleared: leadership onboard, Monica confirmed straight transfer, manager connecting with Chris before Sarah. Call focus: process update → align on how to frame the plan for Sarah → learn team landscape → where to plug in first. Guide exported to markdown.",
+      "breadcrumb": "Call guide built and tightened to 30 min. Process hurdles cleared: leadership onboard, Monica confirmed straight transfer, manager connecting with Chris before Sarah. Call focus: process update \u2192 align on how to frame the plan for Sarah \u2192 learn team landscape \u2192 where to plug in first. Guide exported to markdown.",
       "energy": "medium",
-      "open_question": "After the call — did Chris's framing of the role match the expansive EA advisory angle, or did it narrow toward Salesforce-specific M&A work?",
+      "open_question": "After the call \u2014 did Chris's framing of the role match the expansive EA advisory angle, or did it narrow toward Salesforce-specific M&A work?",
       "blocker_type": null,
       "agent_can_do": null,
       "agent_can_prep": null,
@@ -258,10 +286,10 @@
     {
       "id": "henry-ford-app",
       "project_id": "career",
-      "title": "Henry Ford Health — VP Enterprise Apps",
+      "title": "Henry Ford Health \u2014 VP Enterprise Apps",
       "status": "active-in-progress",
       "next_step": "Drop resume and claude-code-job-app-prompt.md into local folder, run resume tailoring in Claude Code",
-      "breadcrumb": "Workflow specced: resume tailoring → hiring manager re-engagement email → application logistics. Prompt file ready. Had prior referral and personal HM response but missed timing. Role reposted.",
+      "breadcrumb": "Workflow specced: resume tailoring \u2192 hiring manager re-engagement email \u2192 application logistics. Prompt file ready. Had prior referral and personal HM response but missed timing. Role reposted.",
       "energy": "low",
       "open_question": null,
       "blocker_type": "self",
@@ -276,10 +304,10 @@
       "project_id": "career",
       "title": "Personal Brand & Positioning",
       "status": "active-in-progress",
-      "next_step": "React to one question — does 'post-acquisition stabilizer' feel true as the brand noun, or does 'revenue-systems turnaround specialist' fit better? Pick the anchor.",
-      "breadcrumb": "Landed two-layer brand insight: WHAT (value creation/turnarounds) + HOW (calm/steady/trusted = the differentiator, backed by 7 yrs of feedback). Pulled 4 proof pillars. Reframed 'too generalist' worry — brand needs a situational NOUN anchor, not more personality. Leading candidate: 'post-acquisition stabilizer' on a revenue/CRM/E&O spike + AI-acceleration layer. M&A team move is a direct tailwind for this anchor.",
+      "next_step": "React to one question \u2014 does 'post-acquisition stabilizer' feel true as the brand noun, or does 'revenue-systems turnaround specialist' fit better? Pick the anchor.",
+      "breadcrumb": "Landed two-layer brand insight: WHAT (value creation/turnarounds) + HOW (calm/steady/trusted = the differentiator, backed by 7 yrs of feedback). Pulled 4 proof pillars. Reframed 'too generalist' worry \u2014 brand needs a situational NOUN anchor, not more personality. Leading candidate: 'post-acquisition stabilizer' on a revenue/CRM/E&O spike + AI-acceleration layer. M&A team move is a direct tailwind for this anchor.",
       "energy": "medium",
-      "open_question": "Which situational anchor is true — 'post-acquisition stabilizer' vs 'revenue-systems turnaround specialist' — and how does the M&A move reshape it?",
+      "open_question": "Which situational anchor is true \u2014 'post-acquisition stabilizer' vs 'revenue-systems turnaround specialist' \u2014 and how does the M&A move reshape it?",
       "blocker_type": "self",
       "agent_can_do": null,
       "agent_can_prep": "Draft 3-4 sharpened one-line brand statements for each candidate anchor so Matthew can react instead of generate from scratch",
@@ -327,10 +355,10 @@
     {
       "id": "what-now-app",
       "project_id": "personal-os",
-      "title": "What Now? — decision fatigue app",
+      "title": "What Now? \u2014 decision fatigue app",
       "status": "queued",
       "next_step": "Spec TV use case: user flow, mood-matching mechanic, MVP scope",
-      "breadcrumb": "Concept defined, 3 use cases sequenced (TV → restaurants → dinner). Streaming API sync is first-class requirement — JustWatch aggregation likely path.",
+      "breadcrumb": "Concept defined, 3 use cases sequenced (TV \u2192 restaurants \u2192 dinner). Streaming API sync is first-class requirement \u2014 JustWatch aggregation likely path.",
       "energy": "low",
       "open_question": null,
       "blocker_type": "fuzzy",
@@ -347,9 +375,9 @@
       "title": "FlexHD Outdoor AP Install",
       "status": "ready",
       "last_completed": "Order ETH-SP-G2 from ui.com and bulk Cat6 from J2R Cabling, then one Home Depot run",
-      "next_step": "Home Depot run — conduit, fittings, weatherproof box, fasteners, offset elbows, male adapter, PVC cement, duct seal",
+      "next_step": "Home Depot run \u2014 conduit, fittings, weatherproof box, fasteners, offset elbows, male adapter, PVC cement, duct seal",
       "breadcrumb": "Online orders placed: Cat6 (CMX bulk), drill bit, ETH-SP-G2 surge protector, patch cables. Shopping list finalized with Carlon E943E male adapter added. Home Depot run is the last step before install day.",
-      "notes": "Interactive HTML shopping list at assets/flexhd-shopping-list.html. Markdown install plan at assets/flexhd-install-plan.md. SSH PoE budget check still pending (need username for 192.168.1.33) but not blocking — port availability visually confirmed from UniFi UI screenshots.",
+      "notes": "Interactive HTML shopping list at assets/flexhd-shopping-list.html. Markdown install plan at assets/flexhd-install-plan.md. SSH PoE budget check still pending (need username for 192.168.1.33) but not blocking \u2014 port availability visually confirmed from UniFi UI screenshots.",
       "energy": "medium",
       "open_question": null,
       "blocker_type": "self",
@@ -365,10 +393,10 @@
       "project_id": "household-admin",
       "title": "Cellular Provider & Plan Switch",
       "status": "active-in-progress",
-      "next_step": "Start Verizon eSIM free trial (My Verizon app); run through dead zones — house, commute, next rural MI trip — to confirm reception",
+      "next_step": "Start Verizon eSIM free trial (My Verizon app); run through dead zones \u2014 house, commute, next rural MI trip \u2014 to confirm reception",
       "breadcrumb": "Cost solved: join wife's Verizon account as 3rd line on Unlimited Welcome, ~$10/mo marginal to household (wife on Ultimate 1.0, MIL on Welcome; same towers fix reception). Network = Verizon (rural MI travel decides it). Pending: eSIM trial for coverage + 'Add a line' preview for exact number. Target: cash iPhone + line switch together in January. Baseline: AT&T prepaid Enhanced Plus, $45/mo.",
       "energy": "low",
-      "open_question": "Household bill-split — cover just the ~$10 the line adds, or a full ~$40 share?",
+      "open_question": "Household bill-split \u2014 cover just the ~$10 the line adds, or a full ~$40 share?",
       "blocker_type": "self",
       "agent_can_do": null,
       "agent_can_prep": "Confirm exact 3-line cost by modeling an add-a-line on Welcome, and/or draft talking points for the household bill-split conversation",
@@ -395,10 +423,10 @@
     {
       "id": "pihole-v1",
       "project_id": "homelab",
-      "title": "PiHole — redundant setup v1",
+      "title": "PiHole \u2014 redundant setup v1",
       "status": "shipped",
       "next_step": null,
-      "breadcrumb": "Primary/secondary failover with keepalived and nebulasync — IPv4 working",
+      "breadcrumb": "Primary/secondary failover with keepalived and nebulasync \u2014 IPv4 working",
       "energy": null,
       "shipped_count": 1,
       "celebrated": false,
@@ -410,32 +438,177 @@
     }
   ],
   "activity_log": [
-    { "date": "2026-06-01", "types": ["active"] },
-    { "date": "2026-05-31", "types": ["active", "new_idea"] },
-    { "date": "2026-05-30", "types": ["active", "new_idea"] },
-    { "date": "2026-05-29", "types": ["active"] },
-    { "date": "2026-05-27", "types": ["active"] },
-    { "date": "2026-05-24", "types": ["active"] },
-    { "date": "2026-05-23", "types": ["active"] },
-    { "date": "2026-05-20", "types": ["active", "shipped"] },
-    { "date": "2026-05-19", "types": ["active", "new_idea"] },
-    { "date": "2026-05-14", "types": ["active", "shipped"] },
-    { "date": "2026-05-13", "types": ["active", "shipped"] },
-    { "date": "2026-05-12", "types": ["active", "shipped"] },
-    { "date": "2026-05-11", "types": ["active", "new_idea"] },
-    { "date": "2026-05-06", "types": ["active"] },
-    { "date": "2026-05-05", "types": ["active"] },
-    { "date": "2026-05-03", "types": ["active"] },
-    { "date": "2026-05-02", "types": ["active"] },
-    { "date": "2026-04-30", "types": ["active"] },
-    { "date": "2026-04-29", "types": ["active"] },
-    { "date": "2026-04-28", "types": ["active"] },
-    { "date": "2026-04-27", "types": ["active", "shipped"] },
-    { "date": "2026-04-25", "types": ["active", "shipped"] },
-    { "date": "2026-04-22", "types": ["active"] },
-    { "date": "2026-04-20", "types": ["active"] },
-    { "date": "2026-04-15", "types": ["active"] },
-    { "date": "2026-04-12", "types": ["active"] },
-    { "date": "2026-04-10", "types": ["active"] }
+    {
+      "date": "2026-06-01",
+      "types": [
+        "active"
+      ]
+    },
+    {
+      "date": "2026-05-31",
+      "types": [
+        "active",
+        "new_idea"
+      ]
+    },
+    {
+      "date": "2026-05-30",
+      "types": [
+        "active",
+        "new_idea"
+      ]
+    },
+    {
+      "date": "2026-05-29",
+      "types": [
+        "active"
+      ]
+    },
+    {
+      "date": "2026-05-27",
+      "types": [
+        "active"
+      ]
+    },
+    {
+      "date": "2026-05-24",
+      "types": [
+        "active"
+      ]
+    },
+    {
+      "date": "2026-05-23",
+      "types": [
+        "active"
+      ]
+    },
+    {
+      "date": "2026-05-20",
+      "types": [
+        "active",
+        "shipped"
+      ]
+    },
+    {
+      "date": "2026-05-19",
+      "types": [
+        "active",
+        "new_idea"
+      ]
+    },
+    {
+      "date": "2026-05-14",
+      "types": [
+        "active",
+        "shipped"
+      ]
+    },
+    {
+      "date": "2026-05-13",
+      "types": [
+        "active",
+        "shipped"
+      ]
+    },
+    {
+      "date": "2026-05-12",
+      "types": [
+        "active",
+        "shipped"
+      ]
+    },
+    {
+      "date": "2026-05-11",
+      "types": [
+        "active",
+        "new_idea"
+      ]
+    },
+    {
+      "date": "2026-05-06",
+      "types": [
+        "active"
+      ]
+    },
+    {
+      "date": "2026-05-05",
+      "types": [
+        "active"
+      ]
+    },
+    {
+      "date": "2026-05-03",
+      "types": [
+        "active"
+      ]
+    },
+    {
+      "date": "2026-05-02",
+      "types": [
+        "active"
+      ]
+    },
+    {
+      "date": "2026-04-30",
+      "types": [
+        "active"
+      ]
+    },
+    {
+      "date": "2026-04-29",
+      "types": [
+        "active"
+      ]
+    },
+    {
+      "date": "2026-04-28",
+      "types": [
+        "active"
+      ]
+    },
+    {
+      "date": "2026-04-27",
+      "types": [
+        "active",
+        "shipped"
+      ]
+    },
+    {
+      "date": "2026-04-25",
+      "types": [
+        "active",
+        "shipped"
+      ]
+    },
+    {
+      "date": "2026-04-22",
+      "types": [
+        "active"
+      ]
+    },
+    {
+      "date": "2026-04-20",
+      "types": [
+        "active"
+      ]
+    },
+    {
+      "date": "2026-04-15",
+      "types": [
+        "active"
+      ]
+    },
+    {
+      "date": "2026-04-12",
+      "types": [
+        "active"
+      ]
+    },
+    {
+      "date": "2026-04-10",
+      "types": [
+        "active"
+      ]
+    }
   ]
 }
