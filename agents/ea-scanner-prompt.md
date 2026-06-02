@@ -132,7 +132,8 @@ curl -s \
   -H "Title: EA — [thread title]" \
   -H "Priority: default" \
   -H "Tags: robot" \
-  -H "Actions: view, Open Dashboard, https://mjrouser.github.io/life-dashboard; http, Approve, http://DISPATCHER_HOST:DISPATCHER_PORT/action, method=POST, headers.Content-Type=application/json, headers.Authorization=Bearer DISPATCHER_TOKEN, body={\"action\":\"approve\",\"id\":\"[thread id]\"}; http, Snooze, http://DISPATCHER_HOST:DISPATCHER_PORT/action, method=POST, headers.Content-Type=application/json, headers.Authorization=Bearer DISPATCHER_TOKEN, body={\"action\":\"snooze\",\"id\":\"[thread id]\"}; http, Refine, http://DISPATCHER_HOST:DISPATCHER_PORT/action, method=POST, headers.Content-Type=application/json, headers.Authorization=Bearer DISPATCHER_TOKEN, body={\"action\":\"refine\",\"id\":\"[thread id]\"}" \
+  -H "Click: https://mjrouser.github.io/life-dashboard" \
+  -H "Actions: http, Approve, http://DISPATCHER_HOST:DISPATCHER_PORT/action, method=POST, headers.Content-Type=application/json, headers.Authorization=Bearer DISPATCHER_TOKEN, body={\"action\":\"approve\",\"id\":\"[thread id]\"}; http, Snooze, http://DISPATCHER_HOST:DISPATCHER_PORT/action, method=POST, headers.Content-Type=application/json, headers.Authorization=Bearer DISPATCHER_TOKEN, body={\"action\":\"snooze\",\"id\":\"[thread id]\"}; http, Refine, http://DISPATCHER_HOST:DISPATCHER_PORT/action, method=POST, headers.Content-Type=application/json, headers.Authorization=Bearer DISPATCHER_TOKEN, body={\"action\":\"refine\",\"id\":\"[thread id]\"}" \
   -d "[notification body]" \
   "https://ntfy.sh/life-os"
 ```
