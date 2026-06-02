@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-01T12:00:00Z",
+    "last_updated": "2026-06-01T23:55:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -102,17 +102,17 @@
       "repo": "life-dashboard",
       "title": "Life Dashboard \u2014 build",
       "status": "active-in-progress",
-      "last_completed": "Build next dopamine feature: completion loops",
-      "next_step": "Brainstorm Phase B \u2014 what to build next on the dashboard (new features, polish, or something else)",
-      "breadcrumb": "Eight dopamine features shipped: shipped sidebar, Pick Up Here, activity heatmap, return warmth, progress visibility, Win of the Day, Tiny Bets, and Completion Loops. Dopamine feature set complete \u2014 deciding what Phase B looks like.",
+      "last_completed": "Ship Phase B step 1: ntfy action buttons (Approve/Snooze/Refine) with Flask dispatcher on Mac mini",
+      "next_step": "Investigate and fix double-notification bug in EA scanner (Claude agent occasionally sends two notifications \u2014 one raw JSON, one correct)",
+      "breadcrumb": "Phase B step 1 complete. ntfy action buttons (Approve/Snooze/Refine) live and tested end-to-end. Flask dispatcher at ~/scripts/action-dispatcher on Mac mini (mjr@192.168.16.254), launchd service on port 8765. agent_needs field added to data model. Confirmation notification on Approve/Snooze. Click header opens dashboard. Three bugs fixed this session: git commit on no-op, UnicodeEncodeError on em-dash titles, ntfy 3-button cap.",
       "energy": "low",
-      "open_question": null,
-      "blocker_type": "fuzzy",
+      "open_question": "Double-notification bug: EA scanner occasionally sends two notifications \u2014 one looks like raw JSON, one is the correct formatted notification. Needs investigation.",
+      "blocker_type": null,
       "agent_can_do": null,
       "agent_can_prep": null,
       "agent_needs": null,
       "cooldown_until": null,
-      "updated": "2026-05-20"
+      "updated": "2026-06-01"
     },
     {
       "id": "lawn-care",
@@ -443,7 +443,8 @@
     {
       "date": "2026-06-01",
       "types": [
-        "active"
+        "active",
+        "shipped"
       ]
     },
     {
