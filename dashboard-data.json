@@ -228,7 +228,7 @@
       "agent_can_do": null,
       "agent_can_prep": "Research DCL stateroom categories and pricing for October 2026 sailings and summarize options by category and price range",
       "agent_needs": null,
-      "cooldown_until": null,
+      "cooldown_until": "2026-06-08",
       "updated": "2026-06-01",
       "last_completed": "EA action approved via ntfy"
     },
