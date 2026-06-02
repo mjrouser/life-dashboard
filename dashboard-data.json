@@ -30,6 +30,7 @@
       "blocker_type": "self",
       "agent_can_do": null,
       "agent_can_prep": "Research 3-5 local kitchen backsplash contractors, find contact info, and draft a quote request message",
+      "agent_needs": null,
       "cooldown_until": null,
       "updated": "2026-04-28"
     },
@@ -45,6 +46,7 @@
       "blocker_type": "fuzzy",
       "agent_can_do": null,
       "agent_can_prep": "Research keepalived IPv6 virtual IP configuration for dual-stack home networks and draft a step-by-step config for pihole1/pihole2",
+      "agent_needs": null,
       "cooldown_until": null,
       "updated": "2026-05-03"
     },
@@ -62,6 +64,7 @@
       "blocker_type": null,
       "agent_can_do": null,
       "agent_can_prep": null,
+      "agent_needs": null,
       "cooldown_until": null,
       "updated": "2026-06-01"
     },
@@ -79,6 +82,7 @@
       "blocker_type": "fuzzy",
       "agent_can_do": null,
       "agent_can_prep": null,
+      "agent_needs": null,
       "cooldown_until": null,
       "updated": "2026-05-20"
     },
@@ -95,6 +99,7 @@
       "blocker_type": null,
       "agent_can_do": null,
       "agent_can_prep": "Look up a seasonal lawn fertilizer and watering schedule for the Detroit area and summarize the next 4–6 week maintenance window",
+      "agent_needs": null,
       "cooldown_until": null,
       "updated": "2026-05-30"
     },
@@ -110,6 +115,7 @@
       "blocker_type": "self",
       "agent_can_do": null,
       "agent_can_prep": null,
+      "agent_needs": null,
       "cooldown_until": null,
       "updated": "2026-05-30"
     },
@@ -125,6 +131,7 @@
       "blocker_type": "deprioritized",
       "agent_can_do": null,
       "agent_can_prep": null,
+      "agent_needs": null,
       "cooldown_until": "2026-06-15",
       "updated": "2026-04-10"
     },
@@ -140,6 +147,7 @@
       "blocker_type": "self",
       "agent_can_do": null,
       "agent_can_prep": "Generate the exact Raspberry Pi OS Lite flash and first-boot sequence for the Pi allocated to Home Assistant",
+      "agent_needs": null,
       "cooldown_until": "2026-06-22",
       "updated": "2026-04-22",
       "tiny_bet": true
@@ -158,6 +166,7 @@
       "blocker_type": null,
       "agent_can_do": null,
       "agent_can_prep": null,
+      "agent_needs": null,
       "cooldown_until": null,
       "updated": "2026-05-24"
     },
@@ -173,6 +182,7 @@
       "blocker_type": "deprioritized",
       "agent_can_do": null,
       "agent_can_prep": null,
+      "agent_needs": null,
       "cooldown_until": "2026-08-01",
       "updated": "2026-04-15",
       "tiny_bet": true
@@ -189,6 +199,7 @@
       "blocker_type": "self",
       "agent_can_do": null,
       "agent_can_prep": "Research DCL stateroom categories and pricing for October 2026 sailings and summarize options by category and price range",
+      "agent_needs": null,
       "cooldown_until": null,
       "updated": "2026-04-29"
     },
@@ -204,6 +215,7 @@
       "blocker_type": "deprioritized",
       "agent_can_do": null,
       "agent_can_prep": null,
+      "agent_needs": null,
       "cooldown_until": "2026-12-01",
       "updated": "2026-04-15"
     },
@@ -219,6 +231,7 @@
       "blocker_type": "deprioritized",
       "agent_can_do": null,
       "agent_can_prep": null,
+      "agent_needs": null,
       "cooldown_until": "2026-08-01",
       "updated": "2026-04-12",
       "tiny_bet": true
@@ -237,6 +250,7 @@
       "blocker_type": null,
       "agent_can_do": null,
       "agent_can_prep": null,
+      "agent_needs": null,
       "cooldown_until": null,
       "last_session_date": "2026-05-11",
       "updated": "2026-06-01"
@@ -253,6 +267,7 @@
       "blocker_type": "self",
       "agent_can_do": null,
       "agent_can_prep": "Draft the hiring manager re-engagement email for the Henry Ford VP Enterprise Apps role using the prior referral and personal contact context from the breadcrumb",
+      "agent_needs": null,
       "cooldown_until": null,
       "updated": "2026-04-30"
     },
@@ -268,6 +283,7 @@
       "blocker_type": "self",
       "agent_can_do": null,
       "agent_can_prep": "Draft 3-4 sharpened one-line brand statements for each candidate anchor so Matthew can react instead of generate from scratch",
+      "agent_needs": null,
       "cooldown_until": null,
       "updated": "2026-05-30"
     },
@@ -286,6 +302,7 @@
       "blocker_type": "self",
       "agent_can_do": null,
       "agent_can_prep": "Generate a component-by-component wiring checklist from PINOUT.md (each button/encoder -> its BCM pin and breakout terminal) plus the raspi-config serial-console disable steps",
+      "agent_needs": null,
       "cooldown_until": null,
       "updated": "2026-05-31"
     },
@@ -302,6 +319,7 @@
       "blocker_type": "self",
       "agent_can_do": null,
       "agent_can_prep": null,
+      "agent_needs": null,
       "cooldown_until": null,
       "updated": "2026-05-03",
       "tiny_bet": true
@@ -318,6 +336,7 @@
       "blocker_type": "fuzzy",
       "agent_can_do": null,
       "agent_can_prep": "Draft the TV use case spec: user flow, mood-matching mechanic, and MVP scope for the What Now? app",
+      "agent_needs": null,
       "cooldown_until": null,
       "updated": "2026-05-03",
       "tiny_bet": true
@@ -336,6 +355,7 @@
       "blocker_type": "self",
       "agent_can_do": null,
       "agent_can_prep": null,
+      "agent_needs": null,
       "cooldown_until": null,
       "reference_chat": "https://claude.ai/chat/17a2ad9c-02a8-4b31-a810-170f3118513c",
       "updated": "2026-05-30"
@@ -352,6 +372,7 @@
       "blocker_type": "self",
       "agent_can_do": null,
       "agent_can_prep": "Confirm exact 3-line cost by modeling an add-a-line on Welcome, and/or draft talking points for the household bill-split conversation",
+      "agent_needs": null,
       "cooldown_until": null,
       "updated": "2026-05-31"
     },
@@ -366,6 +387,9 @@
       "shipped_count": 1,
       "celebrated": false,
       "open_question": null,
+      "agent_can_do": null,
+      "agent_can_prep": null,
+      "agent_needs": null,
       "updated": "2026-04-25"
     },
     {
@@ -379,6 +403,9 @@
       "shipped_count": 1,
       "celebrated": false,
       "open_question": null,
+      "agent_can_do": null,
+      "agent_can_prep": null,
+      "agent_needs": null,
       "updated": "2026-04-27"
     }
   ],
