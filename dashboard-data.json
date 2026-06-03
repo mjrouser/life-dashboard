@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-01T23:55:00Z",
+    "last_updated": "2026-06-02T00:00:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -102,17 +102,17 @@
       "repo": "life-dashboard",
       "title": "Life Dashboard \u2014 build",
       "status": "active-in-progress",
-      "last_completed": "Ship Phase B step 1: ntfy action buttons (Approve/Snooze/Refine) with Flask dispatcher on Mac mini",
-      "next_step": "Investigate and fix double-notification bug in EA scanner (Claude agent occasionally sends two notifications \u2014 one raw JSON, one correct)",
-      "breadcrumb": "Phase B step 1 complete. ntfy action buttons (Approve/Snooze/Refine) live and tested end-to-end. Flask dispatcher at ~/scripts/action-dispatcher on Mac mini (mjr@192.168.16.254), launchd service on port 8765. agent_needs field added to data model. Confirmation notification on Approve/Snooze. Click header opens dashboard. Three bugs fixed this session: git commit on no-op, UnicodeEncodeError on em-dash titles, ntfy 3-button cap.",
+      "last_completed": "Investigate and fix double-notification bug in EA scanner (PID lock + discard ntfy response body)",
+      "next_step": "Monitor next EA scan run (Wed 6/4 or Sat 6/7) \u2014 confirm single notification received",
+      "breadcrumb": "Double-notification bug fixed 6/2. Two root causes: (1) concurrent cron runs during testing \u2014 fixed with PID file lock in run-ea-scanner.sh; (2) Claude seeing ntfy JSON response and re-sending it \u2014 fixed with -o /dev/null in Step 6 curl + explicit 'send once' instruction. Both changes committed and live on Mac Mini.",
       "energy": "low",
-      "open_question": "Double-notification bug: EA scanner occasionally sends two notifications \u2014 one looks like raw JSON, one is the correct formatted notification. Needs investigation.",
+      "open_question": null,
       "blocker_type": null,
       "agent_can_do": null,
       "agent_can_prep": null,
       "agent_needs": null,
       "cooldown_until": null,
-      "updated": "2026-06-01"
+      "updated": "2026-06-02"
     },
     {
       "id": "lawn-care",
@@ -440,6 +440,13 @@
     }
   ],
   "activity_log": [
+    {
+      "date": "2026-06-02",
+      "types": [
+        "active",
+        "shipped"
+      ]
+    },
     {
       "date": "2026-06-01",
       "types": [
