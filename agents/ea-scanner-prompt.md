@@ -127,8 +127,10 @@ Use the Snooze button below, or open Claude Code in ~/repos/life-dashboard to sn
 
 Send the body built in Step 5. Use the exact curl below — `DISPATCHER_HOST`, `DISPATCHER_PORT`, and `DISPATCHER_TOKEN` are injected by the scanner wrapper at runtime.
 
+**Run this curl exactly once. Do not retry, do not send a second notification, do not inspect or re-use the response body.**
+
 ```bash
-curl -s \
+curl -s -o /dev/null -w "HTTP %{http_code}" \
   -H "Title: EA — [thread title]" \
   -H "Priority: default" \
   -H "Tags: robot" \

@@ -3,6 +3,15 @@
 # Called by cron on Mac Mini. Cron entry redirects stdout/stderr to /tmp/ea-scanner.log.
 set -e
 
+# Prevent concurrent runs — cron overlap or slow Claude sessions would send duplicate notifications
+LOCKFILE="/tmp/ea-scanner.pid"
+if [[ -f "$LOCKFILE" ]] && kill -0 "$(cat "$LOCKFILE")" 2>/dev/null; then
+  echo "$(date): EA scanner already running (PID $(cat "$LOCKFILE")), skipping"
+  exit 0
+fi
+echo $$ > "$LOCKFILE"
+trap 'rm -f "$LOCKFILE"' EXIT
+
 # Load long-lived OAuth token for subscription auth (cron can't use interactive login)
 if [[ -f "$HOME/.anthropic_key" ]]; then
   # shellcheck source=/dev/null
