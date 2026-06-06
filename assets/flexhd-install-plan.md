@@ -81,7 +81,8 @@ Mount a Ubiquiti FlexHD (UAP-FlexHD) access point on the exterior of the west-fa
 ### Fasteners & Mounting
 | Item | Qty | Est. Cost | Notes |
 |------|-----|-----------|-------|
-| Tapcon concrete screws (3/16" x 1-3/4") | 4–6 | $8–10 | For lower stucco/masonry zone (conduit straps, LB body). Includes masonry drill bit |
+| Tapcon concrete screws (3/16" x 1-3/4") | 4–6 | $8–10 | For lower stucco/masonry zone (conduit straps, LB body) |
+| Masonry drill bit (3/16") | 1 | — | Already purchased. Use with hammer drill for Tapcon pilot holes into stucco/masonry |
 | Stainless steel screws (2–2.5") | 6–8 | $5–8 | For upper siding zone (conduit straps, AP bracket). Pre-drill through aluminum |
 | Neoprene washers or rubber pads | 4–6 | $3–5 | Behind straps/bracket on siding — cushions aluminum and seals screw holes |
 | 3/4" PVC offset fittings (pair) | 1 set | $4–6 | 1.5" offset at stucco-to-siding transition — confirmed measurement |
