@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlexHD Outdoor AP — Install Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface-2: #232733;
+    --surface-3: #2c3040;
+    --border: #353a4a;
+    --text: #e4e6ed;
+    --text-muted: #8b90a0;
+    --text-dim: #5f6373;
+    --accent: #4a9eff;
+    --accent-dim: #1a3a5c;
+    --green: #34d399;
+    --green-dim: #0d3a2a;
+    --orange: #fb923c;
+    --orange-dim: #3d2a10;
+    --red: #f87171;
+    --red-dim: #3d1a1a;
+    --yellow: #fbbf24;
+    --yellow-dim: #3d3010;
+    --purple: #a78bfa;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .header {
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+  .header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .header .subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+  .header .specs {
+    display: flex;
+    gap: 24px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .spec-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.82rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-muted);
+  }
+  .spec-chip span { color: var(--accent); }
+
+  /* Cost tracker */
+  .cost-tracker {
+    background: linear-gradient(135deg, var(--accent-dim), var(--surface));
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .cost-tracker .label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+  .cost-tracker .amount {
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+  }
+  .cost-tracker .progress-info {
+    text-align: right;
+  }
+  .cost-tracker .items-count {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .progress-bar-outer {
+    width: 160px;
+    height: 6px;
+    background: var(--surface-3);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 6px;
+  }
+  .progress-bar-inner {
+    height: 100%;
+    background: var(--green);
+    border-radius: 3px;
+    transition: width 0.4s ease;
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 8px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .section-header:hover {
+    background: var(--surface-2);
+    border-color: var(--accent);
+  }
+  .section-header.open {
+    border-radius: 10px 10px 0 0;
+    border-bottom-color: transparent;
+  }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .section-icon {
+    font-size: 1.2rem;
+  }
+  .section-badge {
+    background: var(--surface-3);
+    color: var(--text-muted);
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .chevron {
+    color: var(--text-dim);
+    transition: transform 0.25s;
+    font-size: 1.1rem;
+  }
+  .section-header.open .chevron {
+    transform: rotate(180deg);
+  }
+  .section-body {
+    display: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    padding: 4px 0;
+  }
+  .section-body.open {
+    display: block;
+  }
+
+  /* BOM Items */
+  .bom-item {
+    display: grid;
+    grid-template-columns: 32px 1fr auto;
+    align-items: start;
+    padding: 14px 20px;
+    gap: 12px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+  .bom-item:last-child { border-bottom: none; }
+  .bom-item:hover { background: var(--surface-2); }
+  .bom-item.checked { opacity: 0.5; }
+  .bom-item.checked .item-name { text-decoration: line-through; }
+
+  .bom-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .bom-checkbox.checked {
+    background: var(--green);
+    border-color: var(--green);
+  }
+  .bom-checkbox.checked::after {
+    content: '✓';
+    color: var(--bg);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .item-info { min-width: 0; }
+  .item-name {
+    font-weight: 500;
+    font-size: 0.92rem;
+    margin-bottom: 3px;
+  }
+  .item-detail {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+  .item-links {
+    margin-top: 6px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .item-links a {
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-decoration: none;
+    background: var(--accent-dim);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    transition: background 0.15s;
+  }
+  .item-links a:hover { background: var(--surface-3); }
+
+  .item-cost {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  .section-note {
+    padding: 12px 20px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-style: italic;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Install Steps */
+  .step {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+  }
+  .step:last-child { border-bottom: none; }
+  .step:hover { background: var(--surface-2); }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .step-number {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--surface-3);
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+    flex-shrink: 0;
+  }
+  .step-title {
+    font-weight: 600;
+    font-size: 0.92rem;
+  }
+  .step-detail {
+    display: none;
+    margin-top: 10px;
+    margin-left: 40px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .step-detail.open { display: block; }
+  .step-detail .pro-tip {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: var(--yellow-dim);
+    border-left: 3px solid var(--yellow);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.82rem;
+    color: var(--yellow);
+  }
+  .step-detail .pro-tip strong { color: var(--yellow); }
+  .step-illustration {
+    margin-top: 12px;
+    padding: 20px;
+    background: var(--surface-3);
+    border-radius: 8px;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    font-style: italic;
+    border: 1px dashed var(--border);
+  }
+
+  /* Decision points */
+  .decision {
+    display: flex;
+    align-items: start;
+    gap: 10px;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.88rem;
+  }
+  .decision:last-child { border-bottom: none; }
+  .decision-status {
+    flex-shrink: 0;
+    font-size: 1rem;
+    margin-top: 1px;
+  }
+  .decision.resolved { color: var(--text-dim); }
+  .decision.resolved .decision-text { text-decoration: line-through; }
+  .decision .resolution {
+    color: var(--green);
+    font-size: 0.82rem;
+    margin-top: 2px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Wall diagram */
+  .wall-diagram {
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .wall-svg-container {
+    display: flex;
+    justify-content: center;
+  }
+  .wall-svg-container svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Tools list */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+    padding: 16px 20px;
+  }
+  .tool-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 6px 0;
+  }
+  .tool-icon { font-size: 0.9rem; }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    body { padding: 12px; }
+    .header h1 { font-size: 1.4rem; }
+    .cost-tracker { flex-direction: column; text-align: center; }
+    .cost-tracker .progress-info { text-align: center; }
+    .bom-item { grid-template-columns: 28px 1fr auto; padding: 12px 14px; }
+    .header .specs { gap: 8px; }
+    .spec-chip { font-size: 0.75rem; padding: 6px 10px; }
+    .tools-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>FlexHD Outdoor AP Install</h1>
+  <p class="subtitle">Ubiquiti UAP-FlexHD — West wall, PoE from basement switch</p>
+  <div class="specs">
+    <div class="spec-chip"><span>~20–25 ft</span> cable run</div>
+    <div class="spec-chip"><span>44.5"</span> stucco zone</div>
+    <div class="spec-chip"><span>1.5"</span> siding offset</div>
+    <div class="spec-chip"><span>~8.5–9 ft</span> AP height</div>
+  </div>
+</div>
+
+<div class="cost-tracker" id="costTracker">
+  <div>
+    <div class="label">Estimated Cost</div>
+    <div class="amount" id="totalCost">$0</div>
+  </div>
+  <div class="progress-info">
+    <div class="items-count"><span id="checkedCount">0</span> / <span id="totalCount">0</span> items acquired</div>
+    <div class="progress-bar-outer">
+      <div class="progress-bar-inner" id="progressBar" style="width: 0%"></div>
+    </div>
+  </div>
+</div>
+
+<!-- BOM Sections -->
+<div id="bomSections"></div>
+
+<!-- Wall Profile Diagram -->
+<div class="section" style="margin-top: 16px;">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="section-title"><span class="section-icon">📐</span> Wall Profile Diagram</div>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="section-body">
+    <div class="wall-diagram">
+      <div class="wall-svg-container">
+        <svg viewBox="0 0 320 420" width="320" height="420" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background -->
+          <rect x="0" y="0" width="320" height="420" fill="#1a1d27"/>
+
+          <!-- Ground -->
+          <rect x="0" y="370" width="320" height="50" fill="#2c3040"/>
+          <text x="160" y="395" text-anchor="middle" fill="#5f6373" font-family="JetBrains Mono, monospace" font-size="10">GRADE</text>
+
+          <!-- Stucco zone -->
+          <rect x="60" y="210" width="140" height="160" fill="#353a4a" stroke="#5f6373" stroke-width="1" rx="1"/>
+          <text x="130" y="300" text-anchor="middle" fill="#8b90a0" font-family="DM Sans, sans-serif" font-size="11" font-weight="500">STUCCO</text>
+          <!-- Crack texture on stucco -->
+          <path d="M80,250 L95,260 L85,275" stroke="#4a4e5c" stroke-width="0.5" fill="none"/>
+          <path d="M150,280 L165,290 L155,305" stroke="#4a4e5c" stroke-width="0.5" fill="none"/>
+
+          <!-- Siding lip indicator -->
+          <rect x="55" y="205" width="150" height="8" fill="#4a9eff" opacity="0.3" rx="1"/>
+          <text x="225" y="213" fill="#4a9eff" font-family="JetBrains Mono, monospace" font-size="9">← 1.5" lip</text>
+
+          <!-- Siding zone -->
+          <rect x="55" y="40" width="150" height="165" fill="#2c3040" stroke="#5f6373" stroke-width="1" rx="1"/>
+          <!-- Siding lines -->
+          <line x1="55" y1="65" x2="205" y2="65" stroke="#3a3e4e" stroke-width="0.5"/>
+          <line x1="55" y1="85" x2="205" y2="85" stroke="#3a3e4e" stroke-width="0.5"/>
+          <line x1="55" y1="105" x2="205" y2="105" stroke="#3a3e4e" stroke-width="0.5"/>
+          <line x1="55" y1="125" x2="205" y2="125" stroke="#3a3e4e" stroke-width="0.5"/>
+          <line x1="55" y1="145" x2="205" y2="145" stroke="#3a3e4e" stroke-width="0.5"/>
+          <line x1="55" y1="165" x2="205" y2="165" stroke="#3a3e4e" stroke-width="0.5"/>
+          <line x1="55" y1="185" x2="205" y2="185" stroke="#3a3e4e" stroke-width="0.5"/>
+          <text x="130" y="195" text-anchor="middle" fill="#8b90a0" font-family="DM Sans, sans-serif" font-size="11" font-weight="500">SIDING</text>
+
+          <!-- Window -->
+          <rect x="80" y="100" width="60" height="75" fill="#232733" stroke="#e4e6ed" stroke-width="2" rx="2"/>
+          <line x1="110" y1="100" x2="110" y2="175" stroke="#e4e6ed" stroke-width="1"/>
+          <line x1="80" y1="137" x2="140" y2="137" stroke="#e4e6ed" stroke-width="1"/>
+          <text x="110" y="142" text-anchor="middle" fill="#5f6373" font-family="DM Sans, sans-serif" font-size="8">WINDOW</text>
+
+          <!-- AP mounted above window -->
+          <rect x="148" y="78" width="30" height="20" fill="#34d399" stroke="#34d399" stroke-width="1" rx="10"/>
+          <text x="163" y="92" text-anchor="middle" fill="#0f1117" font-family="JetBrains Mono, monospace" font-size="7" font-weight="700">AP</text>
+          <text x="225" y="92" fill="#34d399" font-family="JetBrains Mono, monospace" font-size="9">← ~8.5–9 ft</text>
+
+          <!-- Conduit run -->
+          <!-- Lower conduit (on stucco face) -->
+          <rect x="160" y="210" width="6" height="110" fill="#fb923c" opacity="0.8" rx="1"/>
+          <!-- Offset jog -->
+          <path d="M163,210 L163,207 L158,205 L158,203" stroke="#fb923c" stroke-width="4" fill="none" opacity="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Upper conduit (on siding face, offset out) -->
+          <rect x="155" y="100" width="6" height="105" fill="#fb923c" opacity="0.8" rx="1"/>
+
+          <!-- LB body at bottom -->
+          <rect x="154" y="315" width="18" height="14" fill="#fb923c" stroke="#fb923c" stroke-width="1" rx="3"/>
+          <text x="163" y="326" text-anchor="middle" fill="#0f1117" font-family="JetBrains Mono, monospace" font-size="7" font-weight="700">LB</text>
+
+          <!-- Cable through wall -->
+          <line x1="163" y1="325" x2="60" y2="325" stroke="#fb923c" stroke-width="2" stroke-dasharray="4,3"/>
+          <text x="30" y="329" text-anchor="middle" fill="#fb923c" font-family="JetBrains Mono, monospace" font-size="8">IN</text>
+
+          <!-- Weatherproof box at top -->
+          <rect x="150" y="96" width="16" height="10" fill="#fb923c" stroke="#fb923c" stroke-width="1" rx="2"/>
+
+          <!-- Height measurements -->
+          <!-- Ground to siding -->
+          <line x1="30" y1="370" x2="30" y2="208" stroke="#5f6373" stroke-width="1" stroke-dasharray="2,2"/>
+          <line x1="25" y1="370" x2="35" y2="370" stroke="#5f6373" stroke-width="1"/>
+          <line x1="25" y1="208" x2="35" y2="208" stroke="#5f6373" stroke-width="1"/>
+          <text x="28" y="295" text-anchor="middle" fill="#5f6373" font-family="JetBrains Mono, monospace" font-size="8" transform="rotate(-90, 28, 295)">44.5"</text>
+
+          <!-- Fiber box -->
+          <rect x="160" y="240" width="24" height="18" fill="#5f6373" stroke="#8b90a0" stroke-width="1" rx="2"/>
+          <text x="172" y="253" text-anchor="middle" fill="#e4e6ed" font-family="JetBrains Mono, monospace" font-size="6">FIBER</text>
+
+          <!-- Legend -->
+          <rect x="230" y="340" width="10" height="10" fill="#fb923c" opacity="0.8" rx="1"/>
+          <text x="245" y="349" fill="#8b90a0" font-family="DM Sans, sans-serif" font-size="9">Conduit + Cable</text>
+          <rect x="230" y="356" width="10" height="10" fill="#34d399" rx="5"/>
+          <text x="245" y="365" fill="#8b90a0" font-family="DM Sans, sans-serif" font-size="9">FlexHD AP</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Installation Steps -->
+<div class="section" style="margin-top: 8px;">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="section-title"><span class="section-icon">🔧</span> Installation Steps</div>
+    <span class="section-badge">11 steps</span>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="section-body" id="stepsBody"></div>
+</div>
+
+<!-- Decision Points -->
+<div class="section" style="margin-top: 8px;">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="section-title"><span class="section-icon">✅</span> Decision Points</div>
+    <span class="section-badge" id="decisionBadge">5/7 resolved</span>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="section-body" id="decisionsBody"></div>
+</div>
+
+<!-- Tools -->
+<div class="section" style="margin-top: 8px;">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="section-title"><span class="section-icon">🧰</span> Tools Needed</div>
+    <span class="section-badge">likely have most</span>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="section-body">
+    <div class="tools-grid">
+      <div class="tool-item"><span class="tool-icon">⚡</span> Drill / driver</div>
+      <div class="tool-item"><span class="tool-icon">🔨</span> Hammer drill (for Tapcons)</div>
+      <div class="tool-item"><span class="tool-icon">📏</span> Level</div>
+      <div class="tool-item"><span class="tool-icon">📐</span> Tape measure</div>
+      <div class="tool-item"><span class="tool-icon">🪚</span> Hacksaw or PVC cutter</div>
+      <div class="tool-item"><span class="tool-icon">🪜</span> Ladder (8–10 ft reach)</div>
+      <div class="tool-item"><span class="tool-icon">✏️</span> Pencil for marking</div>
+      <div class="tool-item"><span class="tool-icon">🔌</span> RJ45 crimper (on hand)</div>
+    </div>
+  </div>
+</div>
+
+<div style="text-align: center; padding: 32px 0 16px; color: var(--text-dim); font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;">
+  Home Improvement Project · May 2026 · Checklist state saved in browser
+</div>
+
+<script>
+const BOM_DATA = [
+  {
+    category: "Cable & Connectivity",
+    icon: "🔌",
+    note: "Crimper and RJ45 ends already on hand. Terminating after pull.",
+    items: [
+      {
+        name: "Outdoor-rated Cat6 cable (CMX)",
+        qty: "50 ft spool",
+        cost: "$10–15",
+        costMid: 12.5,
+        detail: "23AWG solid copper, CMX rated. Buy 50 ft — you'll use the rest. Black recommended for UV.",
+        links: [
+          { label: "trueCABLE", url: "https://www.truecable.com/collections/outdoor-ethernet-cables/style_cat6" },
+          { label: "Amazon", url: "https://us.amazon.com/trueCABLE-Outdoor-Waterproof-Unshielded-Ethernet/dp/B083PXSQT8" }
+        ]
+      },
+      {
+        name: "Indoor Cat6 patch cable (15 ft)",
+        qty: "1",
+        cost: "$5–8",
+        costMid: 6.5,
+        detail: "Switch to wall penetration. Pre-made is fine for indoor segment.",
+        links: [
+          { label: "Amazon", url: "https://www.amazon.com/s?k=cat6+patch+cable+15ft" },
+          { label: "Monoprice", url: "https://www.monoprice.com/category/networking/cat6-cables" }
+        ]
+      }
+    ]
+  },
+  {
+    category: "Conduit & Weatherproofing",
+    icon: "🛡️",
+    items: [
+      {
+        name: '3/4" Schedule 40 PVC conduit (10 ft stick)',
+        qty: "1",
+        cost: "$4–6",
+        costMid: 5,
+        detail: "Cut to length for the vertical run. ~7 ft needed total between both zones.",
+        links: [
+          { label: "Home Depot", url: "https://www.homedepot.com/s/3%2F4%20pvc%20conduit%2010ft" },
+          { label: "Lowes", url: "https://www.lowes.com/search?searchTerm=3%2F4+pvc+conduit" }
+        ]
+      },
+      {
+        name: '3/4" PVC conduit straps (2-hole)',
+        qty: "3–4",
+        cost: "$2–3",
+        costMid: 2.5,
+        detail: "Secure conduit to wall every ~3 ft. Need both Tapcon and screw-mount types.",
+        links: [
+          { label: "Home Depot", url: "https://www.homedepot.com/s/3%2F4%20conduit%20strap%20pvc" }
+        ]
+      },
+      {
+        name: '3/4" PVC LB conduit body',
+        qty: "1",
+        cost: "$5–7",
+        costMid: 5,
+        detail: "Goes at the bottom where cable exits wall and turns up. Keeps water out of the turn. PVC cement on slip joints; gasket on cover plate.",
+        links: [
+          { label: "Home Depot", url: "https://homedepot.com/p/Cantex-3-4-in-LB-Conduit-Body-R5133664/202043444" }
+        ]
+      },
+      {
+        name: '3/4" PVC conduit coupling',
+        qty: "1",
+        cost: "$1",
+        costMid: 1,
+        detail: "If needed for joining conduit sections at the offset transition.",
+        links: []
+      },
+      {
+        name: '3/4" weatherproof box (single-gang)',
+        qty: "1",
+        cost: "$5–8",
+        costMid: 6.5,
+        detail: "Top of conduit run, near the AP mount point. Cable exits to AP.",
+        links: [
+          { label: "Home Depot", url: "https://www.homedepot.com/s/weatherproof%20box%20single%20gang%20pvc" }
+        ]
+      },
+      {
+        name: "PVC conduit cement",
+        qty: "1 small can",
+        cost: "$4–5",
+        costMid: 4.5,
+        detail: "Bonds all PVC slip joints. Dry-fit first, mark with Sharpie, then glue — it sets fast.",
+        links: [
+          { label: "Home Depot", url: "https://www.homedepot.com/s/pvc%20conduit%20cement" }
+        ]
+      },
+      {
+        name: "Duct seal putty",
+        qty: "1",
+        cost: "$3–5",
+        costMid: 4,
+        detail: "Seals the wall penetration hole from both sides. Stays pliable, easy to remove if needed.",
+        links: [
+          { label: "Home Depot", url: "https://www.homedepot.com/s/duct%20seal%20putty" }
+        ]
+      },
+      {
+        name: "Silicone caulk (exterior grade)",
+        qty: "1 tube",
+        cost: "$5–7",
+        costMid: 6,
+        detail: "Seal around conduit straps and any wall attachments. Clear or gray.",
+        links: [
+          { label: "Home Depot", url: "https://www.homedepot.com/s/exterior%20silicone%20caulk" }
+        ]
+      }
+    ]
+  },
+  {
+    category: "Surge Protection & Grounding",
+    icon: "⚡",
+    items: [
+      {
+        name: "Ubiquiti ETH-SP-G2 surge protector",
+        qty: "1",
+        cost: "$12.50",
+        costMid: 12.5,
+        detail: "Install inline on interior side, near wall penetration. 10kA protection, 2.5 GbE compatible.",
+        links: [
+          { label: "UI Store", url: "https://store.ui.com/us/en/products/ethernet-surge-protector" },
+          { label: "Amazon", url: "https://www.amazon.com/Ubiquiti-ETH-SP-G2-Surge-Suppressor-Protector/dp/B079HXKRW1" }
+        ]
+      },
+      {
+        name: "#10 solid copper wire",
+        qty: "5–10 ft",
+        cost: "$3–5",
+        costMid: 4,
+        detail: "Ground run from ETH-SP-G2 ground lug to existing ground wire.",
+        links: [
+          { label: "Home Depot", url: "https://www.homedepot.com/s/%2310%20solid%20copper%20wire" }
+        ]
+      },
+      {
+        name: "Split bolt connector",
+        qty: "1",
+        cost: "$3–5",
+        costMid: 4,
+        detail: "Couples #10 copper to existing ground wire between panel and ground stake. Wrap with electrical tape or silicone splice cover after connecting.",
+        links: [
+          { label: "Home Depot", url: "https://www.homedepot.com/s/split%20bolt%20connector%20copper" }
+        ]
+      }
+    ]
+  },
+  {
+    category: "Fasteners & Mounting",
+    icon: "🔩",
+    items: [
+      {
+        name: 'Tapcon concrete screws (3/16" x 1-3/4")',
+        qty: "4–6",
+        cost: "$8–10",
+        costMid: 9,
+        detail: "For lower stucco/masonry zone — conduit straps and LB body. Box includes masonry drill bit.",
+        links: [
+          { label: "Home Depot", url: "https://www.homedepot.com/s/tapcon%203%2F16%201-3%2F4" }
+        ]
+      },
+      {
+        name: 'Stainless steel screws (2–2.5")',
+        qty: "6–8",
+        cost: "$5–8",
+        costMid: 6.5,
+        detail: "For upper siding zone — conduit straps and AP bracket. Pre-drill through aluminum to avoid dimpling.",
+        links: [
+          { label: "Home Depot", url: "https://www.homedepot.com/s/stainless%20steel%20screws%202%20inch" }
+        ]
+      },
+      {
+        name: "Neoprene washers / rubber pads",
+        qty: "4–6",
+        cost: "$3–5",
+        costMid: 4,
+        detail: "Behind straps and bracket on siding. Cushions aluminum, seals screw penetrations.",
+        links: []
+      },
+      {
+        name: '3/4" PVC offset fittings (pair)',
+        qty: "1 set",
+        cost: "$4–6",
+        costMid: 5,
+        detail: "1.5\" offset at stucco-to-siding transition. Confirmed measurement.",
+        links: [
+          { label: "Home Depot", url: "https://www.homedepot.com/s/3%2F4%20pvc%20offset%20fitting" }
+        ]
+      },
+      {
+        name: "Cable clips / J-hooks",
+        qty: "5–6",
+        cost: "$3–5",
+        costMid: 4,
+        detail: "For routing indoor cable along the basement wall from switch to penetration.",
+        links: []
+      }
+    ]
+  }
+];
+
+const STEPS_DATA = [
+  {
+    title: "Confirm AP mounting spot",
+    detail: "Mark the spot just above the window trim (~8.5–9 ft from grade). Check that you can reach it with your ladder. Look for the window header — solid resistance when you probe means good framing to screw into.",
+    tip: "The header above a window is usually a doubled 2×6 or 2×8 — ideal for mounting."
+  },
+  {
+    title: "Check / drill wall penetration",
+    detail: "Test the existing fiber hole for clearance — can you fit a Cat6 cable (~1/4\" diameter) alongside the fiber without pinching? If not, drill a dedicated 3/8\" hole to the right, aligned with your planned conduit path.",
+    tip: "Angle the hole slightly downward (outside higher than inside) so water drains out, not in."
+  },
+  {
+    title: "Dry-fit all conduit",
+    detail: "Lay out the full conduit run on the ground first: LB body → lower conduit section → offset fittings at 44.5\" → upper conduit section → weatherproof box. Mark alignment lines with a Sharpie across each joint. Verify total length and cut conduit to size.",
+    tip: "This dry-fit step saves you from gluing things in the wrong position. PVC cement is permanent — once it grabs, you're committed."
+  },
+  {
+    title: "Mount conduit to wall",
+    detail: "Start at the bottom. Tapcon the LB body into the stucco at the penetration point. Run conduit up through the stucco zone with straps every ~3 ft (Tapcons). At 44.5\", install the offset fittings to step out 1.5\". Continue up through the siding zone with straps (stainless screws, neoprene behind). Mount weatherproof box at top. Glue all joints with PVC cement.",
+    tip: "Use a level on the conduit before tightening each strap — a straight, plumb run looks professional."
+  },
+  {
+    title: "Pull cable through conduit",
+    detail: "Feed unterminated outdoor Cat6 through the wall penetration from inside, out through the LB body, and up through the conduit to the weatherproof box. Leave ~12\" of slack at each end for termination and drip loop.",
+    tip: null
+  },
+  {
+    title: "Terminate cable ends",
+    detail: "Crimp RJ45 connectors on both ends — inside at the wall penetration, and outside at the weatherproof box. Test with a cable tester if you have one.",
+    tip: "For outdoor terminations, consider using weatherproof RJ45 boots or wrap the connector with self-fusing silicone tape."
+  },
+  {
+    title: "Route interior cable",
+    detail: "Run indoor Cat6 patch cable from the switch to the wall penetration point. Use cable clips or J-hooks along the basement wall. Keep the run tidy and away from electrical cables (12\" separation is ideal).",
+    tip: null
+  },
+  {
+    title: "Seal all penetrations",
+    detail: "Pack duct seal putty into the wall hole from both sides — around the cable, filling any gaps. Apply silicone caulk around conduit straps and any screw penetrations on the exterior. Seal the LB body cover gasket.",
+    tip: "Duct seal stays pliable forever, so you can remove and reseat it if you ever need to pull the cable."
+  },
+  {
+    title: "Install surge protector & ground",
+    detail: "Mount the ETH-SP-G2 inline on the interior side, near the wall penetration. Connect the ground lug with #10 solid copper wire to your existing ground wire using the split bolt connector. Wrap the split bolt connection with electrical tape.",
+    tip: "The surge protector is a paperweight without a proper ground connection. Don't skip this step."
+  },
+  {
+    title: "Mount the AP",
+    detail: "Attach the included wall mount bracket above the window trim using stainless steel screws (with neoprene behind). Connect the cable from the weatherproof box. Seat the AP on the bracket with LED side facing UP — this is required for weatherproofing.",
+    tip: "LED side up is non-negotiable per Ubiquiti. Mounting it inverted voids the weatherproofing."
+  },
+  {
+    title: "Test & verify",
+    detail: "Power on the PoE port on your switch. Verify the AP appears in your UniFi controller. Adopt it if needed. Walk the yard with your phone to test signal coverage. Check for any LED indicators on the AP confirming it's connected.",
+    tip: null
+  }
+];
+
+const DECISIONS_DATA = [
+  { text: "Check existing fiber hole — room for Cat6, or drill new hole to the right", resolved: false },
+  { text: "Confirm exact mounting height for AP", resolved: true, resolution: "~8.5–9 ft, just above window trim" },
+  { text: "Pre-made vs. bulk cable + DIY termination", resolved: true, resolution: "DIY, crimping after pull" },
+  { text: "Wall substrate at mounting locations", resolved: true, resolution: "Stucco/masonry below 44.5\" → Tapcons; aluminum siding above → stainless screws" },
+  { text: "Switch PoE port availability (802.3af)", resolved: false },
+  { text: "Siding lip depth for offset fittings", resolved: true, resolution: "1.5\" offset — standard PVC offset fittings" },
+  { text: "Exact wall heights measured", resolved: true, resolution: "44.5\" stucco zone; window top ~8 ft from grade" }
+];
+
+// Persistent state
+const STORAGE_KEY = 'flexhd-bom-checked';
+function loadChecked() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch { return {}; }
+}
+function saveChecked(state) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {}
+}
+
+let checkedState = loadChecked();
+
+function toggleSection(header) {
+  header.classList.toggle('open');
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+
+function toggleStep(stepEl) {
+  const detail = stepEl.querySelector('.step-detail');
+  detail.classList.toggle('open');
+}
+
+function toggleCheck(catIdx, itemIdx) {
+  const key = `${catIdx}-${itemIdx}`;
+  checkedState[key] = !checkedState[key];
+  saveChecked(checkedState);
+  renderBOM();
+  updateCostTracker();
+}
+
+function renderBOM() {
+  const container = document.getElementById('bomSections');
+  container.innerHTML = '';
+
+  BOM_DATA.forEach((cat, catIdx) => {
+    const section = document.createElement('div');
+    section.className = 'section';
+
+    const checkedInCat = cat.items.filter((_, i) => checkedState[`${catIdx}-${i}`]).length;
+
+    section.innerHTML = `
+      <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-title">
+          <span class="section-icon">${cat.icon}</span>
+          ${cat.category}
+        </div>
+        <span class="section-badge">${checkedInCat}/${cat.items.length}</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="section-body">
+        ${cat.note ? `<div class="section-note">${cat.note}</div>` : ''}
+        ${cat.items.map((item, itemIdx) => {
+          const isChecked = checkedState[`${catIdx}-${itemIdx}`];
+          return `
+            <div class="bom-item ${isChecked ? 'checked' : ''}">
+              <div class="bom-checkbox ${isChecked ? 'checked' : ''}" onclick="toggleCheck(${catIdx}, ${itemIdx})"></div>
+              <div class="item-info">
+                <div class="item-name">${item.name}</div>
+                <div class="item-detail">${item.qty} · ${item.detail}</div>
+                ${item.links.length ? `
+                  <div class="item-links">
+                    ${item.links.map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label} ↗</a>`).join('')}
+                  </div>
+                ` : ''}
+              </div>
+              <div class="item-cost">${item.cost}</div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    `;
+    container.appendChild(section);
+  });
+}
+
+function renderSteps() {
+  const container = document.getElementById('stepsBody');
+  container.innerHTML = STEPS_DATA.map((step, i) => `
+    <div class="step" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-number">${i + 1}</div>
+        <div class="step-title">${step.title}</div>
+      </div>
+      <div class="step-detail">
+        ${step.detail}
+        ${step.tip ? `<div class="pro-tip"><strong>Tip:</strong> ${step.tip}</div>` : ''}
+        <div class="step-illustration">📷 Space for reference photo or diagram</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderDecisions() {
+  const container = document.getElementById('decisionsBody');
+  container.innerHTML = DECISIONS_DATA.map(d => `
+    <div class="decision ${d.resolved ? 'resolved' : ''}">
+      <div class="decision-status">${d.resolved ? '✅' : '⬜'}</div>
+      <div>
+        <div class="decision-text">${d.text}</div>
+        ${d.resolution ? `<div class="resolution">→ ${d.resolution}</div>` : ''}
+      </div>
+    </div>
+  `).join('');
+}
+
+function updateCostTracker() {
+  let totalItems = 0;
+  let checked = 0;
+  let totalCost = 0;
+
+  BOM_DATA.forEach((cat, catIdx) => {
+    cat.items.forEach((item, itemIdx) => {
+      totalItems++;
+      totalCost += item.costMid;
+      if (checkedState[`${catIdx}-${itemIdx}`]) checked++;
+    });
+  });
+
+  document.getElementById('totalCost').textContent = `~$${Math.round(totalCost)}`;
+  document.getElementById('checkedCount').textContent = checked;
+  document.getElementById('totalCount').textContent = totalItems;
+  const pct = totalItems > 0 ? (checked / totalItems) * 100 : 0;
+  document.getElementById('progressBar').style.width = `${pct}%`;
+}
+
+// Initialize
+renderBOM();
+renderSteps();
+renderDecisions();
+updateCostTracker();
+</script>
+</body>
+</html>
