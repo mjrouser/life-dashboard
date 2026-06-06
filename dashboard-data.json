@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-02T00:00:00Z",
+    "last_updated": "2026-06-05T00:00:00Z",
     "version": "1.1"
   },
   "projects": [
@@ -378,8 +378,8 @@
       "status": "ready",
       "last_completed": "Order ETH-SP-G2 from ui.com and bulk Cat6 from J2R Cabling, then one Home Depot run",
       "next_step": "Home Depot run \u2014 conduit, fittings, weatherproof box, fasteners, offset elbows, male adapter, PVC cement, duct seal",
-      "breadcrumb": "Online orders placed: Cat6 (CMX bulk), drill bit, ETH-SP-G2 surge protector, patch cables. Shopping list finalized with Carlon E943E male adapter added. Home Depot run is the last step before install day.",
-      "notes": "Interactive HTML shopping list at assets/flexhd-shopping-list.html. Markdown install plan at assets/flexhd-install-plan.md. SSH PoE budget check still pending (need username for 192.168.1.33) but not blocking \u2014 port availability visually confirmed from UniFi UI screenshots.",
+      "breadcrumb": "Online orders placed: Cat6 (CMX bulk), ETH-SP-G2 surge protector, patch cables. Masonry drill bit purchased separately and added as its own BOM line item (was buried in the Tapcon note). Install plan + BOM committed to life-dashboard repo. Home Depot run is the last step before install day.",
+      "notes": "Install plan + BOM at assets/flexhd-install-plan.md and assets/flexhd-install-plan.html. SSH PoE budget check still pending (need username for 192.168.1.33) but not blocking \u2014 port availability visually confirmed from UniFi UI screenshots.",
       "energy": "medium",
       "open_question": null,
       "blocker_type": "self",
@@ -388,7 +388,7 @@
       "agent_needs": null,
       "cooldown_until": null,
       "reference_chat": "https://claude.ai/chat/17a2ad9c-02a8-4b31-a810-170f3118513c",
-      "updated": "2026-05-30"
+      "updated": "2026-06-05"
     },
     {
       "id": "cellular-switch",
@@ -440,6 +440,12 @@
     }
   ],
   "activity_log": [
+    {
+      "date": "2026-06-05",
+      "types": [
+        "active"
+      ]
+    },
     {
       "date": "2026-06-02",
       "types": [
