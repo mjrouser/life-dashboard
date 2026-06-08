@@ -416,14 +416,19 @@
       "category_id": "household-admin",
       "repo": "life-dashboard",
       "title": "Car sub-category + maintenance schema",
-      "status": "active-in-progress",
-      "next_step": "Run the superpowers:brainstorming session in Claude Code (resume prompt ready) to pressure-test the schema design before building",
+      "status": "shipped",
+      "last_completed": "Run the superpowers:brainstorming session in Claude Code (resume prompt ready) to pressure-test the schema design before building",
+      "next_step": "No further action — schema is implemented",
       "breadcrumb": "Dashboard is 2-level (project->thread); car maintenance needs a 3rd grouping level under Household Admin. Leading design: optional `group` field mirroring the `tiny_bet` pattern; a 'Car -' anchor thread holding the vehicle spec sheet in `notes` so any agent has context; recurrence/interval field flagged as a thread-worthy follow-up; new requirement = on-demand agent direction, not just the scheduled EA scan. First real threads will be new tires + transmission fluid. Car not accessible until later today to capture the spec sheet (year/make/model/trim/tire size/mileage).",
-      "energy": "medium",
-      "open_question": "Is `group` a freeform string or does it need a registry like `projects`, and is a 'Car' anchor thread the right home for vehicle facts vs. project-level metadata?",
-      "blocker_type": "self",
+      "energy": null,
+      "open_question": null,
+      "blocker_type": null,
       "agent_can_do": null,
+      "agent_can_prep": null,
+      "agent_needs": null,
       "cooldown_until": null,
+      "shipped_count": 1,
+      "celebrated": false,
       "updated": "2026-06-08"
     },
     {
@@ -516,7 +521,8 @@
       "date": "2026-06-08",
       "types": [
         "active",
-        "new_idea"
+        "new_idea",
+        "shipped"
       ]
     },
     {
