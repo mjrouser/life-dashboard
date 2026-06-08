@@ -35,6 +35,27 @@
       "emoji": "\ud83d\udccb"
     }
   ],
+  "groups": [
+    {
+      "id": "car",
+      "name": "Car",
+      "emoji": "🚗",
+      "category_id": "household-admin",
+      "vehicle_id": "primary"
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "primary",
+      "year": 2019,
+      "make": "Toyota",
+      "model": "Camry",
+      "trim": "XSE",
+      "tire_size": "235/45R18",
+      "mileage": 47000,
+      "mileage_updated": "2026-06-08"
+    }
+  ],
   "today": [
     {
       "chat_id": "henry-ford-app"
