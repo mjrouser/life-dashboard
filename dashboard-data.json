@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-08T00:00:00Z",
+    "last_updated": "2026-06-08T12:00:00Z",
     "version": "1.1"
   },
   "categories": [
@@ -134,6 +134,22 @@
       "agent_needs": null,
       "cooldown_until": null,
       "updated": "2026-06-02"
+    },
+    {
+      "id": "electrical-work",
+      "category_id": "320-sycamore",
+      "title": "Electrical — Electrician visit",
+      "status": "ready",
+      "next_step": "Schedule electrician visit",
+      "breadcrumb": "Two items for the visit: (1) pull a neutral wire in the primary bedroom ceiling so a smart ceiling fan can be installed; (2) check power output levels at various locations throughout the house — noticing what seems like inconsistent levels.",
+      "energy": "low",
+      "open_question": null,
+      "blocker_type": "self",
+      "agent_can_do": null,
+      "agent_can_prep": null,
+      "agent_needs": null,
+      "cooldown_until": null,
+      "updated": "2026-06-08"
     },
     {
       "id": "lawn-care",
