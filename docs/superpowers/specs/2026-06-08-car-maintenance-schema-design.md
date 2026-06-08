@@ -45,10 +45,13 @@ Top-level key, parallel to `categories`. Groups are scoped to a category.
     "id": "car",
     "name": "Car",
     "emoji": "🚗",
-    "category_id": "household-admin"
+    "category_id": "household-admin",
+    "vehicle_id": "primary"
   }
 ]
 ```
+
+`vehicle_id` is optional — only groups that involve a vehicle carry it. Threads in the group inherit vehicle context by looking up their group's `vehicle_id` → `vehicles` registry. No `vehicle_id` on individual chat entries.
 
 Chat entries get an optional `group_id` field. Absent = no sub-category. Fully backward compatible.
 
@@ -75,14 +78,15 @@ Top-level key. Structured vehicle facts any agent can read from the JSON without
 
 ### 4. New fields on chat entries
 
-Four new optional fields. All absent = no behavior change for existing threads.
+Three new optional fields. All absent = no behavior change for existing threads.
 
 | Field | Type | Purpose |
 |---|---|---|
 | `group_id` | string or null | Sub-category within a category |
-| `vehicle_id` | string or null | Links thread to `vehicles` registry |
 | `recurs_every` | object or null | `{ "miles": 50000 }` or `{ "months": 12 }` or both |
 | `last_done` | object or null | `{ "date": "YYYY-MM-DD", "mileage": 47000 }` |
+
+Vehicle context is inherited via `group_id` → `groups[id].vehicle_id` → `vehicles[id]`. No `vehicle_id` on individual threads.
 
 `recurs_every` and `last_done` are schema-only in this phase. The EA scanner does not act on them yet.
 
@@ -96,7 +100,6 @@ Two new chat entries under `household-admin` / `group_id: "car"`:
   "id": "car-tires",
   "category_id": "household-admin",
   "group_id": "car",
-  "vehicle_id": "primary",
   "title": "Car — New Tires",
   "status": "active-in-progress",
   "recurs_every": { "miles": 50000 },
@@ -118,7 +121,6 @@ Two new chat entries under `household-admin` / `group_id: "car"`:
   "id": "car-transmission",
   "category_id": "household-admin",
   "group_id": "car",
-  "vehicle_id": "primary",
   "title": "Car — Transmission Fluid",
   "status": "active-in-progress",
   "recurs_every": { "miles": 30000 },
