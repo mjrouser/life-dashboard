@@ -794,6 +794,33 @@ function groupsForCategory(categoryId) {
   return data.groups.filter(g => g.category_id === categoryId);
 }
 
+function sortChatsForSection(chats) {
+  if (!activeCategory) {
+    return [...chats].sort((a, b) =>
+      (ENERGY_ORDER[a.energy] ?? 1) - (ENERGY_ORDER[b.energy] ?? 1)
+    );
+  }
+  const groups = groupsForCategory(activeCategory);
+  if (groups.length === 0) {
+    return [...chats].sort((a, b) =>
+      (ENERGY_ORDER[a.energy] ?? 1) - (ENERGY_ORDER[b.energy] ?? 1)
+    );
+  }
+  const groupOrder = {};
+  groups.forEach((g, i) => { groupOrder[g.id] = i; });
+  return [...chats].sort((a, b) => {
+    const aGrouped = a.group_id != null;
+    const bGrouped = b.group_id != null;
+    if (aGrouped !== bGrouped) return aGrouped ? -1 : 1;
+    if (aGrouped && bGrouped) {
+      const aOrd = groupOrder[a.group_id] ?? 999;
+      const bOrd = groupOrder[b.group_id] ?? 999;
+      if (aOrd !== bOrd) return aOrd - bOrd;
+    }
+    return (ENERGY_ORDER[a.energy] ?? 1) - (ENERGY_ORDER[b.energy] ?? 1);
+  });
+}
+
 function formatDeadline(d, suppressOverdue = false) {
   const date = new Date(d + 'T00:00:00');
   const now = new Date();
@@ -1099,7 +1126,7 @@ function render() {
 
   // Status sections
   SECTIONS.forEach(sec => {
-    const items = chats.filter(c => c.status === sec.key);
+    const items = sortChatsForSection(chats.filter(c => c.status === sec.key));
     if (items.length === 0) return;
 
     html += `<div class="section ${sec.className}">`;
