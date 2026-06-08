@@ -700,7 +700,7 @@ const SECTIONS = [
 const ENERGY_ORDER = { low: 0, medium: 1, high: 2 };
 
 let data = null;
-let activeFilter = null;
+let activeCategory = null;
 let tinyBetFilter = false;
 let celebratedItems = new Set();
 
@@ -716,8 +716,8 @@ async function init() {
   setupCelebrations();
 }
 
-function projectShort(id) {
-  const p = data.projects.find(p => p.id === id);
+function categoryName(id) {
+  const p = data.categories.find(p => p.id === id);
   return p ? p.name : id;
 }
 
@@ -743,7 +743,7 @@ function formatUpdated(dateStr) {
 
 function filteredChats() {
   let chats = data.chats;
-  if (activeFilter) chats = chats.filter(c => c.project_id === activeFilter);
+  if (activeCategory) chats = chats.filter(c => c.category_id === activeCategory);
   if (tinyBetFilter) chats = chats.filter(c => c.tiny_bet === true);
   return chats;
 }
@@ -816,12 +816,12 @@ function getWinOfTheDay(shippedItems) {
 }
 
 function renderProgressRow() {
-  const projects = activeFilter
-    ? data.projects.filter(p => p.id === activeFilter)
-    : data.projects;
+  const projects = activeCategory
+    ? data.categories.filter(p => p.id === activeCategory)
+    : data.categories;
 
   const rows = projects.map(p => {
-    const projectChats = data.chats.filter(c => c.project_id === p.id);
+    const projectChats = data.chats.filter(c => c.category_id === p.id);
     const total = projectChats.length;
     const shipped = projectChats.filter(c => c.status === 'shipped').length;
     return { p, total, shipped };
@@ -846,7 +846,7 @@ function renderTodayItem(c) {
   return `<div class="today-item">
     <span class="energy-dot ${c.energy || 'low'}"></span>
     <span class="step">${esc(c.next_step)}</span>
-    <span class="project-tag">${projectShort(c.project_id)}</span>
+    <span class="project-tag">${categoryName(c.category_id)}</span>
   </div>`;
 }
 
@@ -924,7 +924,7 @@ function render() {
   const shipped = chats.filter(c => c.status === 'shipped');
   const todayChats = data.today
     .map(t => data.chats.find(c => c.id === t.chat_id))
-    .filter(c => c && (!activeFilter || c.project_id === activeFilter));
+    .filter(c => c && (!activeCategory || c.category_id === activeCategory));
 
   let html = '';
 
@@ -935,9 +935,9 @@ function render() {
 
   // Filter pills
   html += '<div class="filters"><span class="filter-label">Filter</span>';
-  html += `<button class="pill ${!activeFilter ? 'active' : ''}" onclick="setFilter(null)">All</button>`;
-  data.projects.forEach(p => {
-    html += `<button class="pill ${activeFilter === p.id ? 'active' : ''}" onclick="setFilter('${p.id}')">${p.emoji} ${p.name}</button>`;
+  html += `<button class="pill ${!activeCategory ? 'active' : ''}" onclick="setFilter(null)">All</button>`;
+  data.categories.forEach(p => {
+    html += `<button class="pill ${activeCategory === p.id ? 'active' : ''}" onclick="setFilter('${p.id}')">${p.emoji} ${p.name}</button>`;
   });
   html += '<span class="filter-divider"></span>';
   html += `<button class="pill ${tinyBetFilter ? 'bet-active' : ''}" onclick="setTinyBetFilter()">🧪 Tiny bets</button>`;
@@ -987,7 +987,7 @@ function render() {
     html += '<div class="pickup-card">';
     html += '<div class="pickup-header">';
     html += '<span class="pickup-label">Pick up where you left off</span>';
-    html += `<span class="pickup-project">${projectShort(mostRecent.project_id)}</span>`;
+    html += `<span class="pickup-project">${categoryName(mostRecent.category_id)}</span>`;
     html += '</div>';
     html += `<div class="pickup-title">${esc(mostRecent.title)}</div>`;
     html += `<div class="pickup-touched">last touched ${formatUpdated(mostRecent.updated)}</div>`;
@@ -1023,7 +1023,7 @@ function render() {
       html += `<div class="card ${isDeadline ? 'deadline' : ''}">`;
       html += `<div class="card-top">
         <span class="card-title">${esc(c.title)}</span>
-        <span class="card-project">${projectShort(c.project_id)}</span>
+        <span class="card-project">${categoryName(c.category_id)}</span>
       </div>`;
       if (c.last_completed) {
         html += '<div class="completed-row">';
@@ -1080,7 +1080,7 @@ function renderSidebar(shipped, activityLog) {
     html += `<div class="win-block">
       <div class="win-block-label">✦ Win of the day</div>
       <div class="win-block-title">${esc(win.title)}</div>
-      <div class="win-block-meta">${projectShort(win.project_id)} · ${formatShortDate(win.updated)}</div>
+      <div class="win-block-meta">${categoryName(win.category_id)} · ${formatShortDate(win.updated)}</div>
       ${win.breadcrumb ? `<div class="win-block-breadcrumb">${esc(win.breadcrumb)}</div>` : ''}
     </div>`;
   }
@@ -1096,7 +1096,7 @@ function renderSidebar(shipped, activityLog) {
         ${trophySvg()}<span>Shipped${cnt >= 3 ? ' ×' + cnt : ''}</span>
       </div>`;
       html += `<div class="shipped-title">${esc(c.title)}</div>`;
-      html += `<div class="shipped-project">${projectShort(c.project_id)}</div>`;
+      html += `<div class="shipped-project">${categoryName(c.category_id)}</div>`;
       html += '</div>';
     });
   }
@@ -1129,7 +1129,7 @@ function setupCelebrations() {
 }
 
 function setFilter(id) {
-  activeFilter = activeFilter === id ? null : id;
+  activeCategory = activeCategory === id ? null : id;
   render();
 }
 

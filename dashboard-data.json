@@ -3,7 +3,7 @@
     "last_updated": "2026-06-08T00:00:00Z",
     "version": "1.1"
   },
-  "projects": [
+  "categories": [
     {
       "id": "homelab",
       "name": "Homelab",
@@ -46,7 +46,7 @@
   "chats": [
     {
       "id": "renovations",
-      "project_id": "320-sycamore",
+      "category_id": "320-sycamore",
       "title": "Renovations",
       "status": "active-deadline",
       "deadline": "2026-06-15",
@@ -64,7 +64,7 @@
     },
     {
       "id": "pihole-ipv6",
-      "project_id": "homelab",
+      "category_id": "homelab",
       "title": "PiHole",
       "status": "active-in-progress",
       "next_step": "Configure IPv6 virtual IP on keepalived",
@@ -80,7 +80,7 @@
     },
     {
       "id": "dashboard-maintenance",
-      "project_id": "personal-os",
+      "category_id": "personal-os",
       "repo": "life-dashboard",
       "title": "Life Dashboard \u2014 maintenance",
       "status": "active-in-progress",
@@ -98,7 +98,7 @@
     },
     {
       "id": "dashboard-build",
-      "project_id": "personal-os",
+      "category_id": "personal-os",
       "repo": "life-dashboard",
       "title": "Life Dashboard \u2014 build",
       "status": "active-in-progress",
@@ -116,7 +116,7 @@
     },
     {
       "id": "lawn-care",
-      "project_id": "320-sycamore",
+      "category_id": "320-sycamore",
       "title": "Lawn care",
       "status": "ready",
       "last_completed": "Stay on fertilizer and watering schedule through summer",
@@ -133,7 +133,7 @@
     },
     {
       "id": "gardening",
-      "project_id": "320-sycamore",
+      "category_id": "320-sycamore",
       "title": "Gardening",
       "status": "active-in-progress",
       "next_step": "Replant front entry lavender planters \u2014 buy 2x Hidcote or Munstead lavender at English Gardens, potting mix, perlite, Osmocote, and optional pot feet at Home Depot",
@@ -149,7 +149,7 @@
     },
     {
       "id": "landscaping",
-      "project_id": "320-sycamore",
+      "category_id": "320-sycamore",
       "title": "Landscaping",
       "status": "queued",
       "next_step": "Research shade-tolerant perennials for north bed",
@@ -165,7 +165,7 @@
     },
     {
       "id": "home-assistant",
-      "project_id": "homelab",
+      "category_id": "homelab",
       "title": "Home Assistant",
       "status": "ready",
       "next_step": "Flash SD card and boot HA on dedicated Pi",
@@ -182,7 +182,7 @@
     },
     {
       "id": "claudecode-workflow",
-      "project_id": "personal-os",
+      "category_id": "personal-os",
       "title": "Claude Code workflow \u2014 GitHub Issues",
       "status": "active-in-progress",
       "current_focus": "gh CLI installed and authenticated \u2014 start using gh issue list in sessions",
@@ -200,7 +200,7 @@
     },
     {
       "id": "discord-bot",
-      "project_id": "personal-os",
+      "category_id": "personal-os",
       "title": "Discord control surface",
       "status": "queued",
       "next_step": "Set up private Discord server with first bot",
@@ -217,7 +217,7 @@
     },
     {
       "id": "disney-cruise",
-      "project_id": "family",
+      "category_id": "family",
       "title": "Disney cruise \u2014 Oct 2026",
       "status": "ready",
       "next_step": "Compare cabin categories and pricing",
@@ -234,7 +234,7 @@
     },
     {
       "id": "hawaii-trip",
-      "project_id": "family",
+      "category_id": "family",
       "title": "Hawaii 2027",
       "status": "parked",
       "next_step": "Revisit after Disney cruise is booked",
@@ -250,7 +250,7 @@
     },
     {
       "id": "linkedin-content",
-      "project_id": "career",
+      "category_id": "career",
       "title": "LinkedIn content",
       "status": "parked",
       "next_step": "Draft first post about homelab journey",
@@ -267,7 +267,7 @@
     },
     {
       "id": "pe-career-transition",
-      "project_id": "career",
+      "category_id": "career",
       "title": "PE Career Transition",
       "status": "active",
       "current_focus": "Follow-up scoping call with Chris tomorrow \u2014 guide prepped, process cleared",
@@ -286,7 +286,7 @@
     },
     {
       "id": "henry-ford-app",
-      "project_id": "career",
+      "category_id": "career",
       "title": "Henry Ford Health \u2014 VP Enterprise Apps",
       "status": "active-in-progress",
       "next_step": "Drop resume and claude-code-job-app-prompt.md into local folder, run resume tailoring in Claude Code",
@@ -303,7 +303,7 @@
     },
     {
       "id": "personal-brand",
-      "project_id": "career",
+      "category_id": "career",
       "title": "Personal Brand & Positioning",
       "status": "active-in-progress",
       "next_step": "React to one question \u2014 does 'post-acquisition stabilizer' feel true as the brand noun, or does 'revenue-systems turnaround specialist' fit better? Pick the anchor.",
@@ -319,7 +319,7 @@
     },
     {
       "id": "deadbox",
-      "project_id": "homelab",
+      "category_id": "homelab",
       "repo": "deadbox",
       "title": "Dead & Phish Time Machine",
       "status": "active-in-progress",
@@ -338,7 +338,7 @@
     },
     {
       "id": "spotify-playlist",
-      "project_id": "homelab",
+      "category_id": "homelab",
       "repo": "daily-playlist",
       "title": "Spotify daily history playlist",
       "status": "ready",
@@ -356,7 +356,7 @@
     },
     {
       "id": "what-now-app",
-      "project_id": "personal-os",
+      "category_id": "personal-os",
       "title": "What Now? \u2014 decision fatigue app",
       "status": "queued",
       "next_step": "Spec TV use case: user flow, mood-matching mechanic, MVP scope",
@@ -373,7 +373,7 @@
     },
     {
       "id": "flexhd-outdoor-ap",
-      "project_id": "homelab",
+      "category_id": "homelab",
       "title": "FlexHD Outdoor AP Install",
       "status": "ready",
       "last_completed": "Order ETH-SP-G2 from ui.com and bulk Cat6 from J2R Cabling, then one Home Depot run",
@@ -392,7 +392,7 @@
     },
     {
       "id": "car-subcategory",
-      "project_id": "household-admin",
+      "category_id": "household-admin",
       "repo": "life-dashboard",
       "title": "Car sub-category + maintenance schema",
       "status": "active-in-progress",
@@ -407,7 +407,7 @@
     },
     {
       "id": "cellular-switch",
-      "project_id": "household-admin",
+      "category_id": "household-admin",
       "title": "Cellular Provider & Plan Switch",
       "status": "active-in-progress",
       "next_step": "Start Verizon eSIM free trial (My Verizon app); run through dead zones \u2014 house, commute, next rural MI trip \u2014 to confirm reception",
@@ -423,7 +423,7 @@
     },
     {
       "id": "pihole-dashboard",
-      "project_id": "homelab",
+      "category_id": "homelab",
       "title": "Homelab status page",
       "status": "shipped",
       "next_step": null,
@@ -439,7 +439,7 @@
     },
     {
       "id": "pihole-v1",
-      "project_id": "homelab",
+      "category_id": "homelab",
       "title": "PiHole \u2014 redundant setup v1",
       "status": "shipped",
       "next_step": null,
