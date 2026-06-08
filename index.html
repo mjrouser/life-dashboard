@@ -28,6 +28,8 @@
     --pill-active-text: #fafaf8;
     --today-bg: #f0f7f4;
     --today-border: #c5e0d3;
+    --agent-color: #2d6a9f;
+    --agent-bg: #e8f0f8;
     --font: 'IBM Plex Sans', -apple-system, sans-serif;
     --mono: 'IBM Plex Mono', monospace;
   }
@@ -54,6 +56,8 @@
       --pill-active-text: #141413;
       --today-bg: #122a20;
       --today-border: #1d5040;
+      --agent-color: #60aee0;
+      --agent-bg: #162535;
     }
   }
 
@@ -157,6 +161,69 @@
       background: rgba(255,255,255,0.06);
       border-color: rgba(255,255,255,0.1);
     }
+  }
+
+  .group-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-tertiary);
+    background: rgba(0,0,0,0.04);
+    border: 0.5px solid rgba(0,0,0,0.1);
+    padding: 2px 7px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  @media (prefers-color-scheme: dark) {
+    .group-tag {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.1);
+    }
+  }
+
+  .agent-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: #fff;
+    background: var(--agent-color);
+    border: 0.5px solid var(--agent-color);
+    padding: 2px 7px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  @media (prefers-color-scheme: dark) {
+    .agent-tag { color: #141413; }
+  }
+
+  .agent-prep-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--agent-color);
+    background: var(--agent-bg);
+    border: 0.5px solid var(--agent-color);
+    padding: 2px 7px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    opacity: 0.85;
+  }
+
+  .subfilters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 1.25rem;
+    margin-top: -1rem;
+    align-items: center;
+  }
+  .subfilter-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-tertiary);
+    margin-right: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   /* ── Energy legend ── */
