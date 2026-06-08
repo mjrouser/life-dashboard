@@ -768,6 +768,7 @@ const ENERGY_ORDER = { low: 0, medium: 1, high: 2 };
 
 let data = null;
 let activeCategory = null;
+let activeGroup = null;
 let tinyBetFilter = false;
 let celebratedItems = new Set();
 
@@ -786,6 +787,11 @@ async function init() {
 function categoryName(id) {
   const p = data.categories.find(p => p.id === id);
   return p ? p.name : id;
+}
+
+function groupsForCategory(categoryId) {
+  if (!data.groups) return [];
+  return data.groups.filter(g => g.category_id === categoryId);
 }
 
 function formatDeadline(d, suppressOverdue = false) {
@@ -811,6 +817,7 @@ function formatUpdated(dateStr) {
 function filteredChats() {
   let chats = data.chats;
   if (activeCategory) chats = chats.filter(c => c.category_id === activeCategory);
+  if (activeGroup) chats = chats.filter(c => c.group_id === activeGroup);
   if (tinyBetFilter) chats = chats.filter(c => c.tiny_bet === true);
   return chats;
 }
@@ -1010,6 +1017,19 @@ function render() {
   html += `<button class="pill ${tinyBetFilter ? 'bet-active' : ''}" onclick="setTinyBetFilter()">🧪 Tiny bets</button>`;
   html += '</div>';
 
+  // Group sub-row — appears only when active category has groups
+  if (activeCategory) {
+    const groups = groupsForCategory(activeCategory);
+    if (groups.length > 0) {
+      html += '<div class="subfilters"><span class="subfilter-label">Sub-cat</span>';
+      html += `<button class="pill ${!activeGroup ? 'active' : ''}" onclick="setGroupFilter(null)">All</button>`;
+      groups.forEach(g => {
+        html += `<button class="pill ${activeGroup === g.id ? 'active' : ''}" onclick="setGroupFilter('${g.id}')">${g.emoji} ${g.name}</button>`;
+      });
+      html += '</div>';
+    }
+  }
+
   // Energy legend
   html += `<div class="legend">
     <span class="legend-item">Energy needed:</span>
@@ -1197,6 +1217,12 @@ function setupCelebrations() {
 
 function setFilter(id) {
   activeCategory = activeCategory === id ? null : id;
+  activeGroup = null;
+  render();
+}
+
+function setGroupFilter(id) {
+  activeGroup = id;
   render();
 }
 
