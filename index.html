@@ -1024,7 +1024,7 @@ function render() {
       html += '<div class="subfilters"><span class="subfilter-label">Sub-cat</span>';
       html += `<button class="pill ${!activeGroup ? 'active' : ''}" onclick="setGroupFilter(null)">All</button>`;
       groups.forEach(g => {
-        html += `<button class="pill ${activeGroup === g.id ? 'active' : ''}" onclick="setGroupFilter('${g.id}')">${g.emoji} ${g.name}</button>`;
+        html += `<button class="pill ${activeGroup === g.id ? 'active' : ''}" onclick="setGroupFilter('${g.id.replace(/'/g, "\\'")}')">${esc(g.emoji)} ${esc(g.name)}</button>`;
       });
       html += '</div>';
     }
