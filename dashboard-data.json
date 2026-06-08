@@ -47,13 +47,13 @@
   "vehicles": [
     {
       "id": "primary",
-      "year": 2019,
-      "make": "Toyota",
-      "model": "Camry",
-      "trim": "XSE",
-      "tire_size": "235/45R18",
-      "mileage": 47000,
-      "mileage_updated": "2026-06-08"
+      "year": 2016,
+      "make": "Buick",
+      "model": "LaCrosse",
+      "trim": "Leather 3.6L",
+      "tire_size": null,
+      "mileage": null,
+      "mileage_updated": null
     }
   ],
   "today": [
@@ -440,12 +440,12 @@
       "recurs_every": { "miles": 50000 },
       "last_done": { "date": "2020-01-01", "mileage": 0 },
       "last_completed": "Capture vehicle spec sheet and add to vehicles registry",
-      "next_step": "Approve agent prep: research 2019 Toyota Camry XSE (235/45R18) tire options, Costco vs. local shops, top 3 recs",
-      "breadcrumb": "Vehicle spec captured: 2019 Toyota Camry XSE, 235/45R18, 47k mi. Agent prep ready to run — approve via EA scanner or directly.",
+      "next_step": "Add tire size + mileage to vehicles registry, then approve agent prep to research tire options",
+      "breadcrumb": "Vehicle registry has year/make/model/trim (2016 Buick LaCrosse Leather 3.6L). Still need tire size (door jamb sticker) and mileage before agent prep can run.",
       "energy": "low",
       "blocker_type": "self",
       "agent_can_do": null,
-      "agent_can_prep": "Research current tire options for 2019 Toyota Camry XSE (235/45R18), compare prices at Costco vs. local shops, and summarize top 3 recommendations",
+      "agent_can_prep": "Research current tire options for 2016 Buick LaCrosse Leather 3.6L ([tire_size]), compare prices at Costco vs. local shops, and summarize top 3 recommendations",
       "agent_needs": "current mileage from vehicles registry",
       "cooldown_until": null,
       "updated": "2026-06-08"
@@ -459,12 +459,12 @@
       "recurs_every": { "miles": 30000 },
       "last_done": null,
       "last_completed": "Capture vehicle spec sheet and add to vehicles registry",
-      "next_step": "Approve agent prep: look up transmission fluid interval + fluid type for 2019 Toyota Camry XSE, find Detroit-area shops",
-      "breadcrumb": "Vehicle spec captured: 2019 Toyota Camry XSE, 47k mi. Agent prep ready — approve via EA scanner or directly.",
+      "next_step": "Add mileage to vehicles registry, then approve agent prep to look up transmission fluid interval + type",
+      "breadcrumb": "Vehicle registry has year/make/model/trim (2016 Buick LaCrosse Leather 3.6L). Still need mileage before agent prep can run.",
       "energy": "low",
       "blocker_type": "self",
       "agent_can_do": null,
-      "agent_can_prep": "Look up transmission fluid service interval and fluid type for 2019 Toyota Camry XSE, and find local shops or dealership options in the Detroit area",
+      "agent_can_prep": "Look up transmission fluid service interval and fluid type for 2016 Buick LaCrosse 3.6L, and find local shops or dealership options in the Detroit area",
       "agent_needs": "current mileage from vehicles registry",
       "cooldown_until": null,
       "updated": "2026-06-08"
