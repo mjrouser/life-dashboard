@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-08T12:00:00Z",
+    "last_updated": "2026-06-10T00:00:00Z",
     "version": "1.1"
   },
   "categories": [
@@ -42,6 +42,12 @@
       "emoji": "🚗",
       "category_id": "household-admin",
       "vehicle_id": "primary"
+    },
+    {
+      "id": "income-streams",
+      "name": "Income Streams",
+      "emoji": "💰",
+      "category_id": "career"
     }
   ],
   "vehicles": [
@@ -539,6 +545,24 @@
       "updated": "2026-05-31"
     },
     {
+      "id": "income-streams-ideation",
+      "category_id": "career",
+      "group_id": "income-streams",
+      "title": "Income Streams — Ideation",
+      "status": "ready",
+      "last_completed": "Pressure-tested top 8 income ideas on revenue vs. effort vs. ongoing attention (plotted)",
+      "next_step": "Gut-check (10 min, no research): lead with rebate concierge → stacker sequence, or resolve Slalom outside-work question first",
+      "breadcrumb": "3-pass ideation done: 19-idea brainstorm → standalone/agentic filter → pressure test of top 8. Rebate stacker = strongest standalone (concierge-first path). PE ops job board = network asset. Fractional advisor = best money, fails low-attention filter + employer conflict TBD.",
+      "energy": "low",
+      "open_question": "Does the Slalom employment agreement allow independent consulting, or are products the only clean lane?",
+      "blocker_type": "self",
+      "agent_can_do": null,
+      "agent_can_prep": "Draft a one-page decision brief comparing the two lead paths (concierge-first vs. conflict-question-first) so Matthew can react instead of generate",
+      "agent_needs": null,
+      "cooldown_until": null,
+      "updated": "2026-06-10"
+    },
+    {
       "id": "pihole-dashboard",
       "category_id": "homelab",
       "title": "Homelab status page",
@@ -572,6 +596,13 @@
     }
   ],
   "activity_log": [
+    {
+      "date": "2026-06-10",
+      "types": [
+        "active",
+        "new_idea"
+      ]
+    },
     {
       "date": "2026-06-08",
       "types": [
