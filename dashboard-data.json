@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-11T00:00:00Z",
+    "last_updated": "2026-06-11T12:00:00Z",
     "version": "1.1"
   },
   "categories": [
@@ -68,6 +68,9 @@
     },
     {
       "chat_id": "dashboard-build"
+    },
+    {
+      "chat_id": "dlg-law"
     }
   ],
   "chats": [
@@ -563,6 +566,23 @@
       "updated": "2026-06-10"
     },
     {
+      "id": "dlg-law",
+      "category_id": "career",
+      "title": "DLG — Director of AI & Legal Tech",
+      "status": "active-in-progress",
+      "next_step": "Decide go/no-go on DLG assessments (Willo + Wonderlic + project doc) before 4pm 6/12 deadline, filtering on comp band + fully-onsite constraint. If go: draft good-enough project-scenario response + comp anchor.",
+      "last_completed": "Debriefed DLG screening interview (Rob Lim / Crisp) — role fit, comp benchmarks, next-round strategy.",
+      "breadcrumb": "Director of AI & Legal Tech — strong skills fit, weak strategic fit vs M&A/PE track (pe-career-transition). 50-person plaintiff firm, fully onsite Troy MI. Est. comp $120-160K base, stretch $170-190K, equity unlikely. Crisp dodged comp band; make them anchor first. Assessment deadline 4pm 6/12.",
+      "energy": "medium",
+      "open_question": "Pursue DLG past the screen, or decline to protect focus on the Slalom M&A transfer?",
+      "blocker_type": "self",
+      "agent_can_do": null,
+      "agent_can_prep": "Research DLG (Disability Law Group) — firm size/growth, leadership, recent news — and Crisp's typical placed-role comp ranges for law-firm tech/ops directors; summarize a defensible comp anchor.",
+      "agent_needs": null,
+      "cooldown_until": null,
+      "updated": "2026-06-11"
+    },
+    {
       "id": "pihole-dashboard",
       "category_id": "homelab",
       "title": "Homelab status page",
@@ -599,7 +619,8 @@
     {
       "date": "2026-06-11",
       "types": [
-        "active"
+        "active",
+        "new_idea"
       ]
     },
     {
