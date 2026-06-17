@@ -70,7 +70,7 @@ elif [[ "$ACTION" == "notify" ]]; then
     -H "Priority: default" \
     -H "Tags: robot" \
     -H "Click: https://mjrouser.github.io/life-dashboard" \
-    -H "Actions: http, Approve, http://${DISPATCHER_HOST}:${DISPATCHER_PORT}/action, method=POST, headers.Content-Type=application/json, headers.Authorization=Bearer ${DISPATCHER_TOKEN}, body={\"action\":\"approve\",\"id\":\"${THREAD_ID}\"}; http, Snooze, http://${DISPATCHER_HOST}:${DISPATCHER_PORT}/action, method=POST, headers.Content-Type=application/json, headers.Authorization=Bearer ${DISPATCHER_TOKEN}, body={\"action\":\"snooze\",\"id\":\"${THREAD_ID}\"}; http, Refine, http://${DISPATCHER_HOST}:${DISPATCHER_PORT}/action, method=POST, headers.Content-Type=application/json, headers.Authorization=Bearer ${DISPATCHER_TOKEN}, body={\"action\":\"refine\",\"id\":\"${THREAD_ID}\"}" \
+    -H "Actions: http, Approve, http://${DISPATCHER_HOST}:${DISPATCHER_PORT}/action/approve/${THREAD_ID}, method=POST, headers.Authorization=Bearer ${DISPATCHER_TOKEN}; http, Snooze, http://${DISPATCHER_HOST}:${DISPATCHER_PORT}/action/snooze/${THREAD_ID}, method=POST, headers.Authorization=Bearer ${DISPATCHER_TOKEN}; http, Refine, http://${DISPATCHER_HOST}:${DISPATCHER_PORT}/action/refine/${THREAD_ID}, method=POST, headers.Authorization=Bearer ${DISPATCHER_TOKEN}" \
     --data-raw "${NOTIFICATION_BODY}" \
     "https://ntfy.sh/life-os"
   echo ""
