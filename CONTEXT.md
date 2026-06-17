@@ -38,12 +38,14 @@ life-dashboard/
 ## Data model (`dashboard-data.json`)
 
 - `meta` — last_updated, version
-- `projects[]` — id, name, emoji
+- `categories[]` — id, name, emoji
+- `groups[]` — id, name, emoji, category_id (optional: vehicle_id)
 - `today[]` — chat_id references for the Today strip (max 3)
-- `chats[]` — id, project_id, title, status, deadline, next_step, breadcrumb, energy, open_question, updated, shipped_count, blocker_type, agent_can_do, agent_can_prep, agent_needs, cooldown_until
+- `chats[]` — id, category_id, title, status, next_step, breadcrumb, energy, updated — core fields present on all chats
+- `chats[]` optional fields — group_id, deadline, start_date, last_completed, current_focus, open_question, shipped_count, celebrated, tiny_bet, notes, recurs_every, last_done, last_session_date, reference_chat, repo, blocker_type, agent_can_do, agent_can_prep, agent_needs, cooldown_until
 - `activity_log[]` — date, types[] (values: "active", "shipped", "new_idea")
 
-**Status values:** active-deadline, active-in-progress, ready, paused, shipped
+**Status values:** active-deadline, active-in-progress, live-has-tail, ready, parked, queued, shipped
 
 **Energy values:** low, medium, high
 
@@ -95,15 +97,16 @@ life-dashboard/
 
 ---
 
-## Active projects on dashboard
+## Active categories on dashboard
 
-| Project | ID | Emoji |
+| Category | ID | Emoji |
 |---|---|---|
 | Homelab | homelab | 🖥 |
 | 320 Sycamore | 320-sycamore | 🏠 |
 | Personal OS | personal-os | ⚙ |
 | Career | career | 💼 |
 | Family | family | 👨‍👩‍👧 |
+| Household admin | household-admin | 📋 |
 
 ---
 
