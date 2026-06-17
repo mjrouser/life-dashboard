@@ -1,0 +1,30 @@
+{
+  "meta": { "last_updated": "2026-06-16T00:00:00Z", "version": "1.0" },
+  "categories": [
+    { "id": "test-category", "name": "Test", "emoji": "🧪" }
+  ],
+  "groups": [
+    { "id": "test-group", "name": "Test Group", "emoji": "🔧", "category_id": "test-category" }
+  ],
+  "today": [
+    { "chat_id": "good-chat" }
+  ],
+  "chats": [
+    {
+      "id": "good-chat",
+      "category_id": "test-category",
+      "title": "Good Chat",
+      "status": "active-in-progress",
+      "next_step": "do something",
+      "breadcrumb": "context",
+      "energy": "low",
+      "updated": "2026-06-16",
+      "blocker_type": null,
+      "agent_can_do": null,
+      "agent_can_prep": null,
+      "agent_needs": null,
+      "cooldown_until": null
+    }
+  ],
+  "activity_log": []
+}

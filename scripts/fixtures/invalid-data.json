@@ -1,0 +1,102 @@
+{
+  "meta": { "last_updated": "2026-06-16T00:00:00Z", "version": "1.0" },
+  "categories": [
+    { "id": "test-category", "name": "Test", "emoji": "🧪" }
+  ],
+  "groups": [
+    { "id": "test-group", "name": "Test Group", "emoji": "🔧", "category_id": "test-category" }
+  ],
+  "today": [
+    { "chat_id": "good-chat" },
+    { "chat_id": "stale-ref" }
+  ],
+  "chats": [
+    {
+      "id": "good-chat",
+      "category_id": "test-category",
+      "title": "Good Chat",
+      "status": "active-in-progress",
+      "next_step": "do something",
+      "breadcrumb": "context",
+      "energy": "low",
+      "updated": "2026-06-16",
+      "blocker_type": null,
+      "agent_can_do": null,
+      "agent_can_prep": null,
+      "agent_needs": null,
+      "cooldown_until": null
+    },
+    {
+      "id": "bad-status-chat",
+      "category_id": "test-category",
+      "title": "Bad Status",
+      "status": "active",
+      "next_step": "do something",
+      "breadcrumb": "context",
+      "energy": "low",
+      "updated": "2026-06-16",
+      "blocker_type": null,
+      "agent_can_do": null,
+      "agent_can_prep": null,
+      "agent_needs": null,
+      "cooldown_until": null
+    },
+    {
+      "id": "bad-category-chat",
+      "category_id": "nonexistent-category",
+      "title": "Bad Category",
+      "status": "active-in-progress",
+      "next_step": "do something",
+      "breadcrumb": "context",
+      "energy": "low",
+      "updated": "2026-06-16",
+      "blocker_type": null,
+      "agent_can_do": null,
+      "agent_can_prep": null,
+      "agent_needs": null,
+      "cooldown_until": null
+    },
+    {
+      "id": "bad-group-chat",
+      "category_id": "test-category",
+      "group_id": "nonexistent-group",
+      "title": "Bad Group",
+      "status": "active-in-progress",
+      "next_step": "do something",
+      "breadcrumb": "context",
+      "energy": "low",
+      "updated": "2026-06-16",
+      "blocker_type": null,
+      "agent_can_do": null,
+      "agent_can_prep": null,
+      "agent_needs": null,
+      "cooldown_until": null
+    },
+    {
+      "id": "missing-ea-chat",
+      "category_id": "test-category",
+      "title": "Missing EA Fields",
+      "status": "active-in-progress",
+      "next_step": "do something",
+      "breadcrumb": "context",
+      "energy": "low",
+      "updated": "2026-06-16"
+    },
+    {
+      "id": "bad-date-chat",
+      "category_id": "test-category",
+      "title": "Bad Dates",
+      "status": "active-in-progress",
+      "next_step": "do something",
+      "breadcrumb": "context",
+      "energy": "low",
+      "updated": "06/16/2026",
+      "blocker_type": null,
+      "agent_can_do": null,
+      "agent_can_prep": null,
+      "agent_needs": null,
+      "cooldown_until": "not-a-date"
+    }
+  ],
+  "activity_log": []
+}
