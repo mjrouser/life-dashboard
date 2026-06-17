@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-16T02:00:00Z",
+    "last_updated": "2026-06-17T00:00:00Z",
     "version": "1.1"
   },
   "categories": [
@@ -94,16 +94,17 @@
       "category_id": "homelab",
       "title": "PiHole",
       "status": "active-in-progress",
-      "next_step": "Configure IPv6 virtual IP on keepalived",
-      "breadcrumb": "Full status audit done 5/3. IPv4 failover, pause tool, and redundancy all shipped. IPv6 VIP is the only remaining item \u2014 deferred due to ISP prefix complexity.",
-      "energy": "high",
-      "open_question": null,
-      "blocker_type": "fuzzy",
-      "agent_can_do": null,
+      "last_completed": "Fixed the 6/17 DNS outage (keepalived/FTL VIP init-timing race) and hardened failover with a MASTER-transition notify script on both nodes",
+      "next_step": "Force a keepalived MASTER\u2194BACKUP failover on pihole1 and confirm DNS stays up \u2014 verifies notify.sh re-inits FTL with the VIP present under real failover",
+      "breadcrumb": "6/17 outage resolved. Root cause: pihole -up restarted FTL at midnight while pihole1 was keepalived BACKUP, so FTL bound without VIP 192.168.1.2; on MASTER promotion, forwards to Unbound (127.0.0.1#5335) used the VIP as source -> kernel EPERM, hit dnsmasq's 150 concurrent-query limit, all DNS died. Fixed by restarting FTL while MASTER. Hardened: /etc/keepalived/notify.sh on both nodes restarts pihole-FTL on MASTER transition; added global_defs enable_script_security + script_user keepalived_script + scoped sudoers rule. IPv6 VIP still deferred.",
+      "energy": "medium",
+      "open_question": "Two threads open: (1) deferred IPv6 VIP work (ISP prefix complexity), (2) whether to add a keepalived vrrp_script DNS health-check for the other failure mode (FTL broken but Pi alive). Pick up either next, or neither?",
+      "blocker_type": null,
+      "agent_can_do": "Draft a keepalived vrrp_script + config that checks real DNS resolution via dig against local FTL and lowers priority / triggers failover on failure",
       "agent_can_prep": "Research keepalived IPv6 virtual IP configuration for dual-stack home networks and draft a step-by-step config for pihole1/pihole2",
       "agent_needs": null,
       "cooldown_until": null,
-      "updated": "2026-05-03"
+      "updated": "2026-06-17"
     },
     {
       "id": "dashboard-maintenance",
@@ -617,6 +618,12 @@
     }
   ],
   "activity_log": [
+    {
+      "date": "2026-06-17",
+      "types": [
+        "active"
+      ]
+    },
     {
       "date": "2026-06-16",
       "types": [
