@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-11T12:00:00Z",
+    "last_updated": "2026-06-16T00:00:00Z",
     "version": "1.1"
   },
   "categories": [
@@ -68,9 +68,6 @@
     },
     {
       "chat_id": "dashboard-build"
-    },
-    {
-      "chat_id": "dlg-law"
     }
   ],
   "chats": [
@@ -132,17 +129,17 @@
       "repo": "life-dashboard",
       "title": "Life Dashboard \u2014 build",
       "status": "active-in-progress",
-      "last_completed": "Investigate and fix double-notification bug in EA scanner (PID lock + discard ntfy response body)",
-      "next_step": "Monitor next EA scan run (Wed 6/4 or Sat 6/7) \u2014 confirm single notification received",
-      "breadcrumb": "Double-notification bug fixed 6/2. Two root causes: (1) concurrent cron runs during testing \u2014 fixed with PID file lock in run-ea-scanner.sh; (2) Claude seeing ntfy JSON response and re-sending it \u2014 fixed with -o /dev/null in Step 6 curl + explicit 'send once' instruction. Both changes committed and live on Mac Mini.",
-      "energy": "low",
-      "open_question": null,
-      "blocker_type": null,
+      "last_completed": "Ship validation script + pre-commit hook (scripts/validate-data.js, six checks, blocks bad commits)",
+      "next_step": "Address EA scanner token exposure \u2014 refactor run-ea-scanner.sh so Claude outputs structured action data and shell wrapper does the authenticated curl locally (P1 from Codex review, deferred pending architecture decision)",
+      "breadcrumb": "Validation script shipped 6/16: scripts/validate-data.js + pre-commit hook block invalid dashboard-data.json commits. Six checks: status whitelist, category refs, group refs, today[] refs, EA fields presence, date formats. Also fixed invisible pe-career-transition chat (status 'active' \u2192 'active-in-progress') and synced CONTEXT.md to live schema. One open P1: run-ea-scanner.sh injects DISPATCHER_TOKEN into the Claude prompt string \u2014 safer shape is Claude outputs structured JSON, shell wrapper performs authenticated curl.",
+      "energy": "medium",
+      "open_question": "For the EA scanner token refactor: should Claude output a structured action payload that the shell wrapper POSTs, or is there a simpler approach that keeps the token fully out of the Claude context window?",
+      "blocker_type": "fuzzy",
       "agent_can_do": null,
       "agent_can_prep": null,
       "agent_needs": null,
       "cooldown_until": null,
-      "updated": "2026-06-02"
+      "updated": "2026-06-16"
     },
     {
       "id": "electrical-work",
@@ -620,6 +617,13 @@
     }
   ],
   "activity_log": [
+    {
+      "date": "2026-06-16",
+      "types": [
+        "active",
+        "shipped"
+      ]
+    },
     {
       "date": "2026-06-11",
       "types": [
