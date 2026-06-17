@@ -40,14 +40,10 @@ A thread qualifies if ALL of these are true:
 
 Select the single top-ranked thread.
 
-If no threads are stalled, run this curl command and stop:
+If no threads are stalled, print the following line and stop:
 
-```bash
-curl -s \
-  -H "Title: EA — Nothing to surface today" \
-  -H "Tags: white_check_mark" \
-  -d "All threads are recent, on cooldown, or parked. Nothing needs you right now." \
-  "https://ntfy.sh/life-os"
+```
+EA_ACTION: {"action":"all_clear"}
 ```
 
 ---
@@ -123,21 +119,12 @@ Use the Snooze button below, or open Claude Code in ~/repos/life-dashboard to sn
 
 ---
 
-## Step 6: Send the ntfy.sh notification
+## Step 6: Output the dispatch instruction
 
-Send the body built in Step 5. Use the exact curl below — `DISPATCHER_HOST`, `DISPATCHER_PORT`, and `DISPATCHER_TOKEN` are injected by the scanner wrapper at runtime.
+Do not send the notification yourself. Output exactly this line — one line, no line breaks — and the shell wrapper fires the authenticated request. The `notification_body` field must be a valid JSON string: escape all newlines as `\n` and all double-quote characters as `\"`.
 
-**Run this curl exactly once. Do not retry, do not send a second notification, do not inspect or re-use the response body.**
-
-```bash
-curl -s -o /dev/null -w "HTTP %{http_code}" \
-  -H "Title: EA — [thread title]" \
-  -H "Priority: default" \
-  -H "Tags: robot" \
-  -H "Click: https://mjrouser.github.io/life-dashboard" \
-  -H "Actions: http, Approve, http://DISPATCHER_HOST:DISPATCHER_PORT/action, method=POST, headers.Content-Type=application/json, headers.Authorization=Bearer DISPATCHER_TOKEN, body={\"action\":\"approve\",\"id\":\"[thread id]\"}; http, Snooze, http://DISPATCHER_HOST:DISPATCHER_PORT/action, method=POST, headers.Content-Type=application/json, headers.Authorization=Bearer DISPATCHER_TOKEN, body={\"action\":\"snooze\",\"id\":\"[thread id]\"}; http, Refine, http://DISPATCHER_HOST:DISPATCHER_PORT/action, method=POST, headers.Content-Type=application/json, headers.Authorization=Bearer DISPATCHER_TOKEN, body={\"action\":\"refine\",\"id\":\"[thread id]\"}" \
-  -d "[notification body]" \
-  "https://ntfy.sh/life-os"
+```
+EA_ACTION: {"action":"notify","thread_id":"[thread id]","thread_title":"[thread title]","notification_title":"EA — [thread title]","notification_body":"[notification body with newlines as \\n and quotes as \\\"]","draft_type":"[email | research | step-breakdown | fuzzy-brief | deprioritized]"}
 ```
 
 ---
@@ -151,5 +138,4 @@ EA scan complete — TODAY
 Thread selected: [id] — [title]
 Blocker type: [blocker_type]
 Draft type: [email | research | step-breakdown | fuzzy-brief | deprioritized]
-Notification sent: yes
 ```

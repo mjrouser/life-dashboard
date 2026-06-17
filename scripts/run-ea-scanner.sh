@@ -35,13 +35,47 @@ if [[ -f "/Users/mjr/scripts/action-dispatcher/.env" ]]; then
   DISPATCHER_TOKEN=$(grep -m1 "^SECRET_TOKEN=" /Users/mjr/scripts/action-dispatcher/.env | cut -d= -f2)
 fi
 
-# Inject date, weekday, and dispatcher config into the prompt
+# Inject date and weekday into the prompt — dispatcher config stays in this process only
 PROMPT="${PROMPT//TODAY/$TODAY}"
 PROMPT="${PROMPT//WEEKDAY/$WEEKDAY}"
-PROMPT="${PROMPT//DISPATCHER_HOST/$DISPATCHER_HOST}"
-PROMPT="${PROMPT//DISPATCHER_PORT/$DISPATCHER_PORT}"
-PROMPT="${PROMPT//DISPATCHER_TOKEN/$DISPATCHER_TOKEN}"
 
 echo "$(date): EA scanner starting — $TODAY ($WEEKDAY)"
-echo "$PROMPT" | /Users/mjr/.local/bin/claude --print --allowedTools "Bash,WebFetch"
-echo "$(date): EA scanner finished"
+CLAUDE_OUTPUT=$(echo "$PROMPT" | /Users/mjr/.local/bin/claude --print --allowedTools "Bash,WebFetch" 2>&1)
+echo "$CLAUDE_OUTPUT"
+
+# Parse the EA_ACTION line and dispatch — token never entered Claude's context
+ACTION_LINE=$(echo "$CLAUDE_OUTPUT" | grep '^EA_ACTION: ' | tail -1)
+if [[ -z "$ACTION_LINE" ]]; then
+  echo "$(date): ERROR — no EA_ACTION found in Claude output" >&2
+  exit 1
+fi
+ACTION_JSON="${ACTION_LINE#EA_ACTION: }"
+ACTION=$(echo "$ACTION_JSON" | jq -r '.action')
+
+if [[ "$ACTION" == "all_clear" ]]; then
+  curl -s -o /dev/null \
+    -H "Title: EA — Nothing to surface today" \
+    -H "Tags: white_check_mark" \
+    -d "All threads are recent, on cooldown, or parked. Nothing needs you right now." \
+    "https://ntfy.sh/life-os"
+  echo "$(date): EA scanner — all clear sent"
+elif [[ "$ACTION" == "notify" ]]; then
+  THREAD_ID=$(echo "$ACTION_JSON" | jq -r '.thread_id')
+  NOTIFICATION_TITLE=$(echo "$ACTION_JSON" | jq -r '.notification_title')
+  NOTIFICATION_BODY=$(echo "$ACTION_JSON" | jq -r '.notification_body')
+  DRAFT_TYPE=$(echo "$ACTION_JSON" | jq -r '.draft_type')
+
+  curl -s -o /dev/null -w "HTTP %{http_code}" \
+    -H "Title: ${NOTIFICATION_TITLE}" \
+    -H "Priority: default" \
+    -H "Tags: robot" \
+    -H "Click: https://mjrouser.github.io/life-dashboard" \
+    -H "Actions: http, Approve, http://${DISPATCHER_HOST}:${DISPATCHER_PORT}/action, method=POST, headers.Content-Type=application/json, headers.Authorization=Bearer ${DISPATCHER_TOKEN}, body={\"action\":\"approve\",\"id\":\"${THREAD_ID}\"}; http, Snooze, http://${DISPATCHER_HOST}:${DISPATCHER_PORT}/action, method=POST, headers.Content-Type=application/json, headers.Authorization=Bearer ${DISPATCHER_TOKEN}, body={\"action\":\"snooze\",\"id\":\"${THREAD_ID}\"}; http, Refine, http://${DISPATCHER_HOST}:${DISPATCHER_PORT}/action, method=POST, headers.Content-Type=application/json, headers.Authorization=Bearer ${DISPATCHER_TOKEN}, body={\"action\":\"refine\",\"id\":\"${THREAD_ID}\"}" \
+    --data-raw "${NOTIFICATION_BODY}" \
+    "https://ntfy.sh/life-os"
+  echo ""
+  echo "$(date): EA scanner — notification sent for ${THREAD_ID} (${DRAFT_TYPE})"
+else
+  echo "$(date): ERROR — unknown action: $ACTION" >&2
+  exit 1
+fi
