@@ -593,9 +593,11 @@
       "shipped_count": 1,
       "celebrated": false,
       "open_question": null,
+      "blocker_type": null,
       "agent_can_do": null,
       "agent_can_prep": null,
       "agent_needs": null,
+      "cooldown_until": null,
       "updated": "2026-04-25"
     },
     {
@@ -609,9 +611,11 @@
       "shipped_count": 1,
       "celebrated": false,
       "open_question": null,
+      "blocker_type": null,
       "agent_can_do": null,
       "agent_can_prep": null,
       "agent_needs": null,
+      "cooldown_until": null,
       "updated": "2026-04-27"
     }
   ],
