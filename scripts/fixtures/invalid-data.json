@@ -96,7 +96,24 @@
       "agent_can_prep": null,
       "agent_needs": null,
       "cooldown_until": "not-a-date"
+    },
+    {
+      "id": "bad-energy-chat",
+      "category_id": "test-category",
+      "title": "Bad Energy",
+      "status": "active-in-progress",
+      "next_step": "do something",
+      "breadcrumb": "context",
+      "energy": "extreme",
+      "updated": "2026-06-16",
+      "blocker_type": null,
+      "agent_can_do": null,
+      "agent_can_prep": null,
+      "agent_needs": null,
+      "cooldown_until": null
     }
   ],
-  "activity_log": []
+  "activity_log": [
+    { "date": "2026-06-16", "types": ["active", "typo-type"] }
+  ]
 }

@@ -16,6 +16,8 @@ const VALID_STATUSES = new Set([
 
 const EA_FIELDS = ['blocker_type', 'agent_can_do', 'agent_can_prep', 'agent_needs', 'cooldown_until'];
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+const VALID_ENERGY = new Set(['low', 'medium', 'high']);
+const VALID_LOG_TYPES = new Set(['active', 'shipped', 'new_idea']);
 
 function checkStatuses(data) {
   const errors = [];
@@ -85,6 +87,28 @@ function checkDateFormats(data) {
   return errors;
 }
 
+function checkEnergyValues(data) {
+  const errors = [];
+  for (const chat of data.chats) {
+    if (chat.energy != null && !VALID_ENERGY.has(chat.energy)) {
+      errors.push(`[${chat.id}] energy "${chat.energy}" is not a valid value`);
+    }
+  }
+  return errors;
+}
+
+function checkActivityLogTypes(data) {
+  const errors = [];
+  for (const entry of (data.activity_log || [])) {
+    for (const type of (entry.types || [])) {
+      if (!VALID_LOG_TYPES.has(type)) {
+        errors.push(`[activity_log:${entry.date}] type "${type}" is not a valid value`);
+      }
+    }
+  }
+  return errors;
+}
+
 function main() {
   let data;
   try {
@@ -101,6 +125,8 @@ function main() {
     ...checkTodayRefs(data),
     ...checkEAFields(data),
     ...checkDateFormats(data),
+    ...checkEnergyValues(data),
+    ...checkActivityLogTypes(data),
   ];
 
   if (errors.length === 0) {
