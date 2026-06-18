@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-17T00:00:00Z",
+    "last_updated": "2026-06-18T00:00:00Z",
     "version": "1.1"
   },
   "categories": [
@@ -68,6 +68,9 @@
     },
     {
       "chat_id": "dashboard-build"
+    },
+    {
+      "chat_id": "workday-focus"
     }
   ],
   "chats": [
@@ -581,6 +584,24 @@
       "updated": "2026-06-11"
     },
     {
+      "id": "workday-focus",
+      "category_id": "personal-os",
+      "repo": "workday-focus",
+      "title": "Workday Focus — daily todo app",
+      "status": "active-in-progress",
+      "last_completed": "Built full app via SDD (11 tasks, all reviewed) — Flask 3.0 + SQLite, planning/focus modes, drag-and-drop, launchd plist. Pushed to GitHub (mjrouser/workday-focus, private).",
+      "next_step": "Deploy to Mac Mini: git clone, create venv, pip install -r requirements.txt, edit plist paths, launchctl load com.matthewrouser.workday-focus.plist",
+      "breadcrumb": "App fully built 6/17-18 via SDD. Flask 3.0 + SQLite, port 5001. Planning mode (4-column backlog) and Focus mode (pinned items only, ?mode=focus URL param). Drag-and-drop via SortableJS 1.15.2. Dark mode via prefers-color-scheme. Launchd plist included — edit /Users/matthewrouser/ paths if Mac Mini username differs, venv must exist at repo root. 18/18 tests passing. GitHub: mjrouser/workday-focus (private).",
+      "energy": "low",
+      "open_question": null,
+      "blocker_type": "self",
+      "agent_can_do": null,
+      "agent_can_prep": null,
+      "agent_needs": null,
+      "cooldown_until": null,
+      "updated": "2026-06-18"
+    },
+    {
       "id": "pihole-dashboard",
       "category_id": "homelab",
       "title": "Homelab status page",
@@ -618,6 +639,14 @@
     }
   ],
   "activity_log": [
+    {
+      "date": "2026-06-18",
+      "types": [
+        "active",
+        "shipped",
+        "new_idea"
+      ]
+    },
     {
       "date": "2026-06-17",
       "types": [
