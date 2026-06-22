@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-22T00:00:00Z",
+    "last_updated": "2026-06-21T00:00:00Z",
     "version": "1.1"
   },
   "categories": [
@@ -33,6 +33,11 @@
       "id": "household-admin",
       "name": "Household admin",
       "emoji": "\ud83d\udccb"
+    },
+    {
+      "id": "hifi",
+      "name": "Hi-Fi",
+      "emoji": "\ud83d\udd0a"
     }
   ],
   "groups": [
@@ -636,6 +641,22 @@
       "updated": "2026-06-18"
     },
     {
+      "id": "hifi-upgrade",
+      "category_id": "hifi",
+      "title": "Hi-Fi system upgrade — Phase 1 amp",
+      "status": "active-in-progress",
+      "next_step": "Decide Phase 1 architecture — single integrated amp (Marantz Model 50 / MF M3si / Yamaha A-S701) vs separates (Fosi V3 monos + preamp + phono stage).",
+      "breadcrumb": "Phase 1 = replace Technics receiver with high-current amp + elite onboard MM phono, under $2K. Integrateds: Marantz Model 50 (primary) vs MF M3si (alt). Rega Elex Mk4 ruled out (no 4Ω rating, low-impedance warning) — revisit Phase 3. Budget: only Yamaha A-S701 (~$850) has the current. Fosi V3 monos great but power-amp-only -> forces separates, conflicts with one-clean-box design. Placement question pending room dimensions.",
+      "energy": "medium",
+      "open_question": "One integrated box, or an upgradeable separates stack?",
+      "blocker_type": "self",
+      "agent_can_do": null,
+      "agent_can_prep": "Build a 5-way contender comparison (current delivery, voicing, onboard phono, box-count, Phase-4 fit) across Marantz 50 / M3si / Rega Elex Mk4 / Yamaha A-S701 / Fosi-as-separates.",
+      "agent_needs": null,
+      "cooldown_until": null,
+      "updated": "2026-06-21"
+    },
+    {
       "id": "pihole-dashboard",
       "category_id": "homelab",
       "title": "Homelab status page",
@@ -677,6 +698,13 @@
       "date": "2026-06-22",
       "types": [
         "active"
+      ]
+    },
+    {
+      "date": "2026-06-21",
+      "types": [
+        "active",
+        "new_idea"
       ]
     },
     {
