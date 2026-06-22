@@ -584,6 +584,23 @@
       "updated": "2026-06-21"
     },
     {
+      "id": "vp-enterprise-tech-app",
+      "category_id": "career",
+      "title": "Resume tailoring — VP Enterprise Tech Transformation (confidential search)",
+      "status": "active-in-progress",
+      "last_completed": "Ran JD-vs-profile scoring pass; strong fit on advisory/transformation/consulting-to-corporate, gaps in QA/release governance + formal PMO/benefits realization, borderline 15+ yrs",
+      "next_step": "Decide path: re-tailor+render, comp benchmark, or bank; if tailoring, confirm any portfolio-governance/PMO/QA-oversight experience",
+      "breadcrumb": "Two live VP targets: (1) investment-mgmt VP Digital Transformation ($250-300K base, resume rendered); (2) confidential-search VP Enterprise Tech Transformation (comp hidden, stronger profile fit, QA/PMO governance gap). #2 fit more natural; hurdle is proving delivery-quality + governance credibility",
+      "energy": "medium",
+      "open_question": "Which VP target gets priority energy, or pursue both with tailored resumes?",
+      "blocker_type": "self",
+      "agent_can_do": "Re-tailor + render resume for JD #2; run comp benchmark for VP Enterprise Tech Transformation; build reusable resume-tailoring/JD-scoring skill in a dedicated session",
+      "agent_can_prep": null,
+      "agent_needs": null,
+      "cooldown_until": null,
+      "updated": "2026-06-21"
+    },
+    {
       "id": "dlg-law",
       "category_id": "career",
       "title": "DLG — Director of AI & Legal Tech",
