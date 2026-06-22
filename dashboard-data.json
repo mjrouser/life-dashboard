@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-18T00:00:00Z",
+    "last_updated": "2026-06-22T00:00:00Z",
     "version": "1.1"
   },
   "categories": [
@@ -567,6 +567,23 @@
       "updated": "2026-06-10"
     },
     {
+      "id": "vp-transformation-app",
+      "category_id": "career",
+      "title": "Resume tailoring — VP Transformation role",
+      "status": "active-in-progress",
+      "last_completed": "Applied Tier 1+2 keyword fixes (Tableau/Tableau CRM/Power BI, intelligent automation, data strategy); rendered submission-ready 2-page ATS-friendly PDF",
+      "next_step": "Submit tailored resume to VP role; pursue warm intro/referral into the firm (real unlock given ERP/HRIS gap)",
+      "breadcrumb": "VP Digital Transformation, investment mgmt firm ($250-300K base, remote); resume tailored+scored+rendered; ERP/HRIS gap structural -> referral matters more than keyword match. Open idea: reusable Resume Tailoring & JD Scoring skill (thread-worthy)",
+      "energy": "medium",
+      "open_question": "Spin up a dedicated session to build the resume-tailoring/JD-scoring skill?",
+      "blocker_type": null,
+      "agent_can_do": "Build resume-tailoring/JD-scoring skill in a dedicated session; tailor future postings on request",
+      "agent_can_prep": null,
+      "agent_needs": null,
+      "cooldown_until": null,
+      "updated": "2026-06-21"
+    },
+    {
       "id": "dlg-law",
       "category_id": "career",
       "title": "DLG — Director of AI & Legal Tech",
@@ -639,6 +656,12 @@
     }
   ],
   "activity_log": [
+    {
+      "date": "2026-06-22",
+      "types": [
+        "active"
+      ]
+    },
     {
       "date": "2026-06-18",
       "types": [
