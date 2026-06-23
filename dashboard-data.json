@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-21T00:00:00Z",
+    "last_updated": "2026-06-23T00:00:00Z",
     "version": "1.1"
   },
   "categories": [
@@ -645,16 +645,17 @@
       "category_id": "hifi",
       "title": "Hi-Fi system upgrade — Phase 1 amp",
       "status": "active-in-progress",
-      "next_step": "Decide Phase 1 architecture — single integrated amp (Marantz Model 50 / MF M3si / Yamaha A-S701) vs separates (Fosi V3 monos + preamp + phono stage).",
-      "breadcrumb": "Phase 1 = replace Technics receiver with high-current amp + elite onboard MM phono, under $2K. Integrateds: Marantz Model 50 (primary) vs MF M3si (alt). Rega Elex Mk4 ruled out (no 4Ω rating, low-impedance warning) — revisit Phase 3. Budget: only Yamaha A-S701 (~$850) has the current. Fosi V3 monos great but power-amp-only -> forces separates, conflicts with one-clean-box design. Placement question pending room dimensions.",
+      "last_completed": "Co-authored and locked 'The Spec Filter' — a reusable decision framework for sorting gear specs into load-bearing vs trivia. Also nailed down Class D fundamentals (not digital; Fosi uses TI TPA3255, not Hypex/Purifi; premium modules fail the value test).",
+      "next_step": "At laptop: open the decision bench, slide the Simplicity weight up/down, and settle the amp architecture — one-box Arcam integrated vs Fosi Class-D separates. That choice gates everything downstream.",
+      "breadcrumb": "Amp decision still open, pivots on the Simplicity weight: value-first defaults favor Arcam A15 (one box, onboard phono, warm-musical); lowering Simplicity / raising Power hands it to the Fosi separates stack. Lehmann returned; phono A/B (Lehmann Black Cube Statement vs MoFi UltraPhono) deferred until the amp path is chosen. This session was mostly fact-sorting, not paralysis — output was a co-authored keeper: THE SPEC FILTER. Core rule: keep a fact only if it connects to an actual constraint (speakers/room/ears/bandwidth/budget/performance-per-dollar), where 'performance' = audible in my system, not measured on a graph. The value-for-performance test, applied honestly, both kills rabbit holes (Hypex/Purifi: more money, ~zero audible gain over a transparent chip) and promotes abstract-looking specs that are actually load-bearing (4Ω power-doubling matters because the Amigas are 83 dB). Filter saved as artifact the-spec-filter.md; generalizes beyond audio to any spec-heavy purchase.",
       "energy": "medium",
-      "open_question": "One integrated box, or an upgradeable separates stack?",
+      "open_question": "When Simplicity moves on the bench, does the gut nod or flinch — and which way: Arcam one-box or Fosi separates?",
       "blocker_type": "self",
       "agent_can_do": null,
-      "agent_can_prep": "Build a 5-way contender comparison (current delivery, voicing, onboard phono, box-count, Phase-4 fit) across Marantz 50 / M3si / Rega Elex Mk4 / Yamaha A-S701 / Fosi-as-separates.",
+      "agent_can_prep": "Draft a Lehmann Black Cube Statement vs MoFi UltraPhono audition sheet (gain/loading match, what to listen for on the UHQR refs) for once the amp path is settled.",
       "agent_needs": null,
       "cooldown_until": null,
-      "updated": "2026-06-21"
+      "updated": "2026-06-23"
     },
     {
       "id": "pihole-dashboard",
@@ -694,6 +695,12 @@
     }
   ],
   "activity_log": [
+    {
+      "date": "2026-06-23",
+      "types": [
+        "active"
+      ]
+    },
     {
       "date": "2026-06-22",
       "types": [
