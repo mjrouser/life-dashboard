@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-23T00:00:00Z",
+    "last_updated": "2026-06-24T00:00:00Z",
     "version": "1.1"
   },
   "categories": [
@@ -38,6 +38,11 @@
       "id": "hifi",
       "name": "Hi-Fi",
       "emoji": "\ud83d\udd0a"
+    },
+    {
+      "id": "audio",
+      "name": "Audio",
+      "emoji": "\ud83c\udfa7"
     }
   ],
   "groups": [
@@ -69,13 +74,13 @@
   ],
   "today": [
     {
-      "chat_id": "henry-ford-app"
-    },
-    {
       "chat_id": "dashboard-build"
     },
     {
       "chat_id": "workday-focus"
+    },
+    {
+      "chat_id": "office-desktop-sub"
     }
   ],
   "chats": [
@@ -665,6 +670,23 @@
       "updated": "2026-06-23"
     },
     {
+      "id": "office-desktop-sub",
+      "category_id": "audio",
+      "title": "Office desktop sub — Q150 near-field",
+      "status": "active-in-progress",
+      "last_completed": "Narrowed desktop sub to two finalists and landed a recommendation",
+      "next_step": "Buy the WiiM Sub Pro at the $360 Prime Day price (leaning pick over the RSL 10E); if reconsidering, the RSL Speedwoofer 10E at $299 is the value alternative.",
+      "breadcrumb": "Desktop near-field rig (KEF Q150 + WiiM Amp). Chain assessed: feeding the WiiM Line-In re-digitizes (PCM1861 ADC), so the Zen DAC's conversion is redundant for speakers — keep it for headphones. Sub is the real upgrade (Q150 -6dB @ 47Hz, no near-field room gain). Budget $400-500. Narrowed to WiiM Sub Pro ($360 Prime Day) vs RSL Speedwoofer 10E ($299 coupon); ELAC S10.2 ruled out (200W peak, mixed reviews). Recommended WiiM Sub Pro for RoomFit room correction + smaller footprint + wireless to the amp. Parked optional: USB-C->optical adapter (marginal SQ, costs Mac volume control).",
+      "energy": "low",
+      "open_question": "Does the WiiM Sub Pro's room-correction + wireless + footprint edge outweigh the 10E's extra output-per-dollar for a near-field desk?",
+      "blocker_type": "self",
+      "agent_can_do": null,
+      "agent_can_prep": "Check current Amazon price/availability of the WiiM Sub Pro and the RSL 10E coupon, and report which deal is live",
+      "agent_needs": null,
+      "cooldown_until": null,
+      "updated": "2026-06-24"
+    },
+    {
       "id": "pihole-dashboard",
       "category_id": "homelab",
       "title": "Homelab status page",
@@ -702,6 +724,13 @@
     }
   ],
   "activity_log": [
+    {
+      "date": "2026-06-24",
+      "types": [
+        "active",
+        "new_idea"
+      ]
+    },
     {
       "date": "2026-06-23",
       "types": [
