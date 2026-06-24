@@ -143,17 +143,17 @@
       "repo": "life-dashboard",
       "title": "Life Dashboard \u2014 build",
       "status": "active-in-progress",
-      "last_completed": "EA scanner token fix \u2014 Claude outputs EA_ACTION JSON, shell wrapper fires authenticated curl; DISPATCHER_TOKEN never enters Claude context",
-      "next_step": "On Mac Mini: git pull + verify jq is installed (brew install jq if missing) \u2014 let next cron run fire to test new EA_ACTION dispatch pattern in production",
-      "breadcrumb": "Token fix shipped 6/16: agents/ea-scanner-prompt.md now outputs EA_ACTION JSON lines instead of running curl; run-ea-scanner.sh parses with jq and dispatches. DISPATCHER_TOKEN stays in the Mac Mini shell process only. Validator also expanded to 8 checks (added energy whitelist + activity_log type check). Pending: Mac Mini needs git pull + jq before next cron run.",
+      "last_completed": "Fixed EA scanner jq path \u2014 cron's minimal PATH can't find /usr/local/bin/jq (Homebrew); hardcoded absolute path in run-ea-scanner.sh, committed + pushed",
+      "next_step": "Verify next EA cron run fires a notification \u2014 check /tmp/ea-scanner.log after Friday 9am run",
+      "breadcrumb": "jq path fix shipped 6/24: cron's minimal PATH can't find /usr/local/bin/jq even when Homebrew has it installed. Scanner was running Claude + generating valid EA_ACTION JSON since 6/17, then dying silently at the jq parse step. Hardcoded JQ=/usr/local/bin/jq in run-ea-scanner.sh. Next run Friday 9am will confirm end-to-end.",
       "energy": "low",
-      "open_question": null,
-      "blocker_type": "self",
+      "open_question": "Does the Friday run fire a notification end-to-end?",
+      "blocker_type": null,
       "agent_can_do": null,
       "agent_can_prep": null,
       "agent_needs": null,
       "cooldown_until": null,
-      "updated": "2026-06-16"
+      "updated": "2026-06-24"
     },
     {
       "id": "electrical-work",
