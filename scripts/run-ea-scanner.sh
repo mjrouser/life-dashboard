@@ -50,7 +50,8 @@ if [[ -z "$ACTION_LINE" ]]; then
   exit 1
 fi
 ACTION_JSON="${ACTION_LINE#EA_ACTION: }"
-ACTION=$(echo "$ACTION_JSON" | jq -r '.action')
+JQ=/usr/local/bin/jq
+ACTION=$(echo "$ACTION_JSON" | $JQ -r '.action')
 
 if [[ "$ACTION" == "all_clear" ]]; then
   curl -s -o /dev/null \
@@ -60,10 +61,10 @@ if [[ "$ACTION" == "all_clear" ]]; then
     "https://ntfy.sh/life-os"
   echo "$(date): EA scanner — all clear sent"
 elif [[ "$ACTION" == "notify" ]]; then
-  THREAD_ID=$(echo "$ACTION_JSON" | jq -r '.thread_id')
-  NOTIFICATION_TITLE=$(echo "$ACTION_JSON" | jq -r '.notification_title')
-  NOTIFICATION_BODY=$(echo "$ACTION_JSON" | jq -r '.notification_body')
-  DRAFT_TYPE=$(echo "$ACTION_JSON" | jq -r '.draft_type')
+  THREAD_ID=$(echo "$ACTION_JSON" | $JQ -r '.thread_id')
+  NOTIFICATION_TITLE=$(echo "$ACTION_JSON" | $JQ -r '.notification_title')
+  NOTIFICATION_BODY=$(echo "$ACTION_JSON" | $JQ -r '.notification_body')
+  DRAFT_TYPE=$(echo "$ACTION_JSON" | $JQ -r '.draft_type')
 
   curl -s -o /dev/null -w "HTTP %{http_code}" \
     -H "Title: ${NOTIFICATION_TITLE}" \
