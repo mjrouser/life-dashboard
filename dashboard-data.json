@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-24T00:00:00Z",
+    "last_updated": "2026-06-24T12:00:00Z",
     "version": "1.1"
   },
   "categories": [
@@ -673,15 +673,15 @@
       "id": "office-desktop-sub",
       "category_id": "audio",
       "title": "Office desktop sub — Q150 near-field",
-      "status": "active-in-progress",
-      "last_completed": "Narrowed desktop sub to two finalists and landed a recommendation",
-      "next_step": "Buy the WiiM Sub Pro at the $360 Prime Day price (leaning pick over the RSL 10E); if reconsidering, the RSL Speedwoofer 10E at $299 is the value alternative.",
-      "breadcrumb": "Desktop near-field rig (KEF Q150 + WiiM Amp). Chain assessed: feeding the WiiM Line-In re-digitizes (PCM1861 ADC), so the Zen DAC's conversion is redundant for speakers — keep it for headphones. Sub is the real upgrade (Q150 -6dB @ 47Hz, no near-field room gain). Budget $400-500. Narrowed to WiiM Sub Pro ($360 Prime Day) vs RSL Speedwoofer 10E ($299 coupon); ELAC S10.2 ruled out (200W peak, mixed reviews). Recommended WiiM Sub Pro for RoomFit room correction + smaller footprint + wireless to the amp. Parked optional: USB-C->optical adapter (marginal SQ, costs Mac volume control).",
+      "status": "ready",
+      "last_completed": "Ordered the WiiM Sub Pro at $360 (Prime Day 20% off)",
+      "next_step": "When the WiiM Sub Pro arrives: place it off-corner, set crossover ~60-70 Hz, run RoomFit last, set level low and sneak up until the bottom fills in without being localizable.",
+      "breadcrumb": "Ordered WiiM Sub Pro at $360 (Prime Day). Won on friction — RoomFit room correction + wireless to the amp + smaller footprint — over the RSL 10E ($299), whose extra output wouldn't show at a near-field desk. Chain note: Zen DAC stays headphones-only (WiiM Line-In re-digitizes). Parked optional: USB-C->optical adapter (marginal SQ, costs Mac volume control). Dial-in: place first/EQ last, crossover ~60-70 Hz (Q150 -6dB @ 47Hz).",
       "energy": "low",
-      "open_question": "Does the WiiM Sub Pro's room-correction + wireless + footprint edge outweigh the 10E's extra output-per-dollar for a near-field desk?",
-      "blocker_type": "self",
+      "open_question": "Does RoomFit cleanly tame the room, or will placement need hand-tuning once it's in?",
+      "blocker_type": "external",
       "agent_can_do": null,
-      "agent_can_prep": "Check current Amazon price/availability of the WiiM Sub Pro and the RSL 10E coupon, and report which deal is live",
+      "agent_can_prep": null,
       "agent_needs": null,
       "cooldown_until": null,
       "updated": "2026-06-24"
