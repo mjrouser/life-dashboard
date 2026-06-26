@@ -407,8 +407,8 @@
       "agent_can_do": null,
       "agent_can_prep": null,
       "agent_needs": null,
-      "cooldown_until": null,
-      "updated": "2026-05-03",
+      "cooldown_until": "2026-07-03",
+      "updated": "2026-06-26",
       "tiny_bet": true
     },
     {
@@ -672,11 +672,11 @@
     {
       "id": "office-desktop-sub",
       "category_id": "audio",
-      "title": "Office desktop sub — Q150 near-field",
+      "title": "Office desktop sub \u2014 Q150 near-field",
       "status": "ready",
       "last_completed": "Ordered the WiiM Sub Pro at $360 (Prime Day 20% off)",
       "next_step": "When the WiiM Sub Pro arrives: place it off-corner, set crossover ~60-70 Hz, run RoomFit last, set level low and sneak up until the bottom fills in without being localizable.",
-      "breadcrumb": "Ordered WiiM Sub Pro at $360 (Prime Day). Won on friction — RoomFit room correction + wireless to the amp + smaller footprint — over the RSL 10E ($299), whose extra output wouldn't show at a near-field desk. Chain note: Zen DAC stays headphones-only (WiiM Line-In re-digitizes). Parked optional: USB-C->optical adapter (marginal SQ, costs Mac volume control). Dial-in: place first/EQ last, crossover ~60-70 Hz (Q150 -6dB @ 47Hz).",
+      "breadcrumb": "Ordered WiiM Sub Pro at $360 (Prime Day). Won on friction \u2014 RoomFit room correction + wireless to the amp + smaller footprint \u2014 over the RSL 10E ($299), whose extra output wouldn't show at a near-field desk. Chain note: Zen DAC stays headphones-only (WiiM Line-In re-digitizes). Parked optional: USB-C->optical adapter (marginal SQ, costs Mac volume control). Dial-in: place first/EQ last, crossover ~60-70 Hz (Q150 -6dB @ 47Hz).",
       "energy": "low",
       "open_question": "Does RoomFit cleanly tame the room, or will placement need hand-tuning once it's in?",
       "blocker_type": "external",
