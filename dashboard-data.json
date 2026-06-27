@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-06-24T12:00:00Z",
+    "last_updated": "2026-06-27T00:00:00Z",
     "version": "1.1"
   },
   "categories": [
@@ -219,6 +219,23 @@
       "agent_needs": null,
       "cooldown_until": "2026-08-01",
       "updated": "2026-06-01"
+    },
+    {
+      "id": "bath-faucet-repair",
+      "category_id": "320-sycamore",
+      "title": "Bath faucet repair",
+      "status": "ready",
+      "last_completed": "Replace Kohler Rite-Temp cartridge (GP77759) and regulator — drip resolved",
+      "next_step": "Order Kohler Rite-Temp trim kit in Vibrant Brushed Moderne Brass (K-304 compatible) and swap escutcheon/handle",
+      "breadcrumb": "Cartridge and regulator replaced, faucet sealing correctly. Trim kit upgrade to brass finish is the only remaining item.",
+      "energy": "low",
+      "open_question": null,
+      "blocker_type": "self",
+      "agent_can_do": "Find Kohler Rite-Temp trim kit options in Vibrant Brushed Moderne Brass compatible with K-304 valve and summarize top choices by price",
+      "agent_can_prep": null,
+      "agent_needs": null,
+      "cooldown_until": null,
+      "updated": "2026-06-27"
     },
     {
       "id": "home-assistant",
